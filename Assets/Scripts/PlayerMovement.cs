@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 
+namespace  UFO{
+    
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerMovement : MonoBehaviour
 {
@@ -65,4 +67,5 @@ public class PlayerMovement : MonoBehaviour
     {
         return this.walkSpeed * Time.deltaTime * leftRightInput * transform.right;
     }
+}
 }
