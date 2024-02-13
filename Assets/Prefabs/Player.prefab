@@ -270,3 +270,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97f14fa4799bbf64dbc287893cecc21d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PickupableObjectInRangeUnityEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  PickupableObjectOutOfRangeUnityEvent:
+    m_PersistentCalls:
+      m_Calls: []
