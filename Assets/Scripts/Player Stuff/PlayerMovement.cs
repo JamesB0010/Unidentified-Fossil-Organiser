@@ -4,10 +4,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 
+namespace  UFO{
+    
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerMovement : MonoBehaviour
 {
-    private float walkSpeed = 200f;
+    private float walkSpeed = 2000f;
     private float rotationSpeed = 1300f;
     private Rigidbody rigidbody;
 
@@ -24,10 +26,10 @@ public class PlayerMovement : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
-
-    //MonoBehaviour Method
+    
     private void Update()
     {
+        SetPlayerVelocityDrivenByInput();
         SetPlayerYRotationDrivenByMouseInput();
     }
 
@@ -36,12 +38,7 @@ public class PlayerMovement : MonoBehaviour
         float mouseX = Input.GetAxis("Mouse X") * this.rotationSpeed;
         this.rigidbody.MoveRotation(this.rigidbody.rotation * Quaternion.Euler(0, mouseX * Time.deltaTime, 0));
     }
-
-    //MonoBehaviour Method
-    private void FixedUpdate()
-    {
-        SetPlayerVelocityDrivenByInput();
-    }
+    
 
     private void SetPlayerVelocityDrivenByInput()
     {
@@ -65,4 +62,5 @@ public class PlayerMovement : MonoBehaviour
     {
         return this.walkSpeed * Time.deltaTime * leftRightInput * transform.right;
     }
+}
 }
