@@ -443,8 +443,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   holdItemLocation: {fileID: 1075092096}
-  dampingFactorScalar: 5
-  speedScalar: 5
+  pickedUpObject:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1253135847}
+        m_TargetAssemblyTypeName: UFO.PlayerUi, Assembly-CSharp
+        m_MethodName: ReactToPlayerPickUpObject
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  droppedObject:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1253135847}
+        m_TargetAssemblyTypeName: UFO.PlayerUi, Assembly-CSharp
+        m_MethodName: ReactToPlayerDroppedObject
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &266526984 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 848883091274030484, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}

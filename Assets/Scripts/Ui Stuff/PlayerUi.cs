@@ -9,15 +9,30 @@ public class PlayerUi : MonoBehaviour
 {
     [SerializeField]
     private TextMeshProUGUI pressEToPickup;
+
+    private bool playerHoldingObject = false;
+
+    public void ReactToPlayerPickUpObject()
+    {
+        pressEToPickup.enabled = false;
+        this.playerHoldingObject = true;
+    }
+
+    public void ReactToPlayerDroppedObject()
+    {
+        this.playerHoldingObject = false;
+    }
     
     public void ReactToInRangeOfPickup()
     {
-        pressEToPickup.enabled = true;
+        if (!this.playerHoldingObject)
+            pressEToPickup.enabled = true;
     }
 
     public void ReactToOutOfRangePickup()
     {
-        pressEToPickup.enabled = false;
+        if(!this.playerHoldingObject)
+            pressEToPickup.enabled = false;
     }
 }
     
