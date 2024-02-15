@@ -11,7 +11,7 @@ public class Bone : MonoBehaviour, UFO.I_Pickupable
     {
         MeshCollider meshCollider = this.GetComponent<MeshCollider>();
 
-        meshCollider.sharedMesh = this.GetComponent<MeshFilter>().mesh;
+        meshCollider.sharedMesh = this.GetComponent<MeshFilter>().sharedMesh;
     }
 }
 }
