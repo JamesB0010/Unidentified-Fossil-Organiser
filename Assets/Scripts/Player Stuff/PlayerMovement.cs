@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.PlayerLoop;
 
 namespace  UFO{
@@ -13,12 +14,56 @@ public class PlayerMovement : MonoBehaviour
     private float rotationSpeed = 1300f;
     private Rigidbody rigidbody;
 
+    private AudioSource footstepSource;
+
+    [SerializeField] 
+    private UnityEvent StartedWalking = new UnityEvent();
+
+    [SerializeField] 
+    private UnityEvent StoppedWalking = new UnityEvent();
+    
+    private bool isWalking = false;
+    private bool IsWalking
+    {
+        set
+        {
+            //if nothing has changed then oh well
+            if (isWalking == value)
+                return;
+            
+            //stopped walking
+            if (value == false)
+            {
+                this.footstepSource.Stop();
+                this.StoppedWalking.Invoke();
+                isWalking = value;
+            }
+
+            if (value == true)
+            {
+                this.footstepSource.Play();
+                this.StartedWalking.Invoke();
+                isWalking = value;
+            }
+        }
+    }
+
     //MonoBehaviour Method
     private void Start()
     {
         this.rigidbody = GetComponent<Rigidbody>();
 
         ConfigureMouse();
+
+        AudioSource source = gameObject.GetComponent<AudioSource>();
+        if (!source)
+        {
+            this.footstepSource = new AudioSource();
+        }
+        else
+        {
+            this.footstepSource = source;
+        }
     }
 
     private static void ConfigureMouse()
@@ -49,6 +94,8 @@ public class PlayerMovement : MonoBehaviour
         velocityForward = CalculateInputtedForwardVelocity(forwardsBackInput);
 
         Vector3 velocityRight = CalculateInputtedRightVelocity(leftRightInput);
+
+        this.IsWalking = (velocityForward + velocityRight).magnitude > 0 ? true : false;
 
         this.rigidbody.velocity = velocityForward + velocityRight;
     }
