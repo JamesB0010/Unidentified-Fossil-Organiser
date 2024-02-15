@@ -14,6 +14,7 @@ public class HeadBobController : MonoBehaviour
     [SerializeField, Range(0, 30)] private float frequency = 10.0f;
     [SerializeField] private float sideBobAmplitude = 0.2f;
 
+    private bool resetCamera = false;
     [SerializeField] private Transform camera = null;
     [SerializeField] private Transform cameraHolder = null;
     
@@ -35,20 +36,24 @@ public class HeadBobController : MonoBehaviour
     private void ResetPosition()
     {
         if (this.camera.localPosition == this.startPos)
+        {
+            this.resetCamera = false;
             return;
-
-        this.camera.localPosition = Vector3.Lerp(this.camera.localPosition, this.startPos, 1 * Time.deltaTime);
+        }
+        this.camera.localPosition = Vector3.Lerp(this.camera.localPosition, this.startPos, 3 * Time.deltaTime);
     }
 
     public void StartWalking()
     {
         Debug.Log("Start walking head bob");
         this.walking = true;
+        this.resetCamera = false;
     }
 
     public void StopWalking()
     {
         this.walking = false;
+        this.resetCamera = true;
         this.ResetPosition();
     }
 
@@ -62,23 +67,12 @@ public class HeadBobController : MonoBehaviour
         if (!this.enable)
             return;
 
+        if(this.resetCamera)
+            ResetPosition();
+        
         if (!this.walking)
             return;
         
         this.PlayMotion(this.FootStepMotion());
-        this.camera.LookAt(this.FocusTarget());
-    }
-
-    private Vector3 FocusTarget()
-    {
-        Vector3 pos = new Vector3(
-            transform.position.x, 
-            transform.position.y + this.cameraHolder.localPosition.y,
-            transform.position.z);
-
-        pos += this.cameraHolder.forward * 15.0f;
-
-        return pos;
-
     }
 }
