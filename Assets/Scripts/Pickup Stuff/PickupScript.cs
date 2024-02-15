@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UFO;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -50,6 +51,9 @@ public class PickupScript : MonoBehaviour
 
     private AbleToPickupStateData pickupStateData = new AbleToPickupStateData();
 
+    [SerializeField] 
+    private UFO.PlayerAudio playerAudio = null;
+
     //some events which will be broadcasted/Invoked and can be reacted to by other game objects
     [SerializeField] 
     private UnityEvent pickedUpObject = new UnityEvent();
@@ -65,6 +69,8 @@ public class PickupScript : MonoBehaviour
     private void Start()
     {
         SetSpaceSampler();
+        if (playerAudio == null)
+            playerAudio = gameObject.AddComponent<PlayerAudio>();
     }
 
     private void SetSpaceSampler()
@@ -145,6 +151,7 @@ public class PickupScript : MonoBehaviour
         this.pickupStateData.droppedObjectTimeStamp = Time.time;
         PushHeldObjectAway();
         this.droppedObject.Invoke();
+        this.PlayThrowSound();
     }
 
     private void PushHeldObjectAway()
@@ -167,6 +174,17 @@ public class PickupScript : MonoBehaviour
         this.pickupStateData.holdingObject = true;
         this.pickupStateData.readyToPickup = false;
         this.pickedUpObject.Invoke();
+        PlayPickupSound();
+    }
+
+    private void PlayPickupSound()
+    {
+            this.playerAudio.PlaySound("itemPickup");
+    }
+
+    private void PlayThrowSound()
+    {
+        this.playerAudio.PlaySound("ThrowSoundEffect");
     }
 
     private void FixedUpdate()
