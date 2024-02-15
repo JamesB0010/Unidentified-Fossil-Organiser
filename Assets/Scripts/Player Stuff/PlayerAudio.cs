@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using System.Collections.Generic;
 
-namespace UFO
+namespace UFO_PlayerStuff
 {
     [RequireComponent(typeof(AudioSource))]
     public class PlayerAudio : MonoBehaviour

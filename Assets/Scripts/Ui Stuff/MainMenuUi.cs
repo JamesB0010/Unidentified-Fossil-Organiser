@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+namespace UFO_UI
+{
+    
 public class MainMenuUi : MonoBehaviour
 {
     public void StartGame()
@@ -14,4 +17,5 @@ public class MainMenuUi : MonoBehaviour
     {
         Application.Quit();
     }
+}
 }
