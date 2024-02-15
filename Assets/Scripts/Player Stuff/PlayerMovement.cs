@@ -15,6 +15,12 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody rigidbody;
 
     private AudioSource footstepSource;
+
+    [SerializeField] 
+    private UnityEvent StartedWalking = new UnityEvent();
+
+    [SerializeField] 
+    private UnityEvent StoppedWalking = new UnityEvent();
     
     private bool isWalking = false;
     private bool IsWalking
@@ -29,12 +35,14 @@ public class PlayerMovement : MonoBehaviour
             if (value == false)
             {
                 this.footstepSource.Stop();
+                this.StoppedWalking.Invoke();
                 isWalking = value;
             }
 
             if (value == true)
             {
                 this.footstepSource.Play();
+                this.StartedWalking.Invoke();
                 isWalking = value;
             }
         }
