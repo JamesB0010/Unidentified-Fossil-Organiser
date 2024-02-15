@@ -290,7 +290,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enable: 1
-  amplitude: 0.007
+  amplitude: 0.004
   frequency: 15
   sideBobAmplitude: 0.2
   camera: {fileID: 9158764412206650970}
