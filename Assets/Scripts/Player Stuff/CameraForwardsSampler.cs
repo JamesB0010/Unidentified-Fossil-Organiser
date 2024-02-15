@@ -6,7 +6,7 @@ using UnityEngine.Events;
 using UnityEngine.Serialization;
 using Object = UnityEngine.Object;
 
-namespace UFO
+namespace UFO_PlayerStuff
 {
     [RequireComponent(typeof(Camera))]
     
@@ -98,7 +98,7 @@ namespace UFO
             if (!hit.rigidbody)
                 return false;
 
-            if (!hit.rigidbody.gameObject is UFO.I_Pickupable)
+            if (!hit.rigidbody.gameObject is UFO_PickupStuff.I_Pickupable)
                 return false;
 
             return true;
