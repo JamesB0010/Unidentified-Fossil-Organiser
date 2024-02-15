@@ -5,14 +5,19 @@ using System.Collections.Generic;
 namespace UFO
 {
     [RequireComponent(typeof(AudioSource))]
-    public class PlayerAudio: MonoBehaviour
+    public class PlayerAudio : MonoBehaviour
     {
-        private AudioSource source;
+        public enum PlayOverideModes
+        {
+            NO_OVERIDE,
+            OVERRIDE
+        };
+        protected AudioSource source;
 
         [SerializeField] 
-        private List<AudioClip> audioClips = new List<AudioClip>();
+        protected List<AudioClip> audioClips = new List<AudioClip>();
 
-        private Dictionary<string, AudioClip> clipNames = new Dictionary<string, AudioClip>();
+        protected Dictionary<string, AudioClip> clipNames = new Dictionary<string, AudioClip>();
 
         public void Awake()
         {
@@ -30,8 +35,11 @@ namespace UFO
         /// or the same size as or bigger than the list of audio clips on the player audio obeject
         /// </summary>
         /// <param name="index">The index of the sound to be played</param>
-        public void PlaySound(int index)
+        public void PlaySound(int index, PlayOverideModes overideMode = PlayOverideModes.NO_OVERIDE)
         {
+            bool notEligible = this.source.isPlaying && overideMode == PlayOverideModes.NO_OVERIDE;
+            if (notEligible)
+                return;
             bool invalidIndex = index < 0 || index >= this.audioClips.Count;
             if (invalidIndex)
                 Debug.LogError("Sound requested invalid. " +
@@ -41,9 +49,13 @@ namespace UFO
             this.source.clip = audioClips[index];
             source.Play();
         }
+        
 
-        public void PlaySound(string soundName)
+        public void PlaySound(string soundName, PlayOverideModes overideMode = PlayOverideModes.NO_OVERIDE)
         {
+            bool notEligible = this.source.isPlaying && overideMode == PlayOverideModes.NO_OVERIDE;
+            if (notEligible)
+                return;
             try
             {
                 this.source.clip = this.clipNames[soundName];
