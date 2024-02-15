@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-namespace UFO
+namespace UFO_UI
 {
 public class PlayerUi : MonoBehaviour
 {

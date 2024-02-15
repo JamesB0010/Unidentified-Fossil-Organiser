@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.PlayerLoop;
 
-namespace  UFO{
+namespace  UFO_PlayerStuff{
     
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerMovement : MonoBehaviour
