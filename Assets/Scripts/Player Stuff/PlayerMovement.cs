@@ -10,7 +10,7 @@ namespace  UFO{
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerMovement : MonoBehaviour
 {
-    private float walkSpeed = 2000f;
+    private float walkSpeed = 5f;
     private float rotationSpeed = 1300f;
     private Rigidbody rigidbody;
 
@@ -103,11 +103,11 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector3 CalculateInputtedForwardVelocity(float forwardsBackInput)
     {
-        return this.walkSpeed * Time.deltaTime * forwardsBackInput * transform.forward;
+        return this.walkSpeed * forwardsBackInput * transform.forward;
     }
     private Vector3 CalculateInputtedRightVelocity(float leftRightInput)
     {
-        return this.walkSpeed * Time.deltaTime * leftRightInput * transform.right;
+        return this.walkSpeed * leftRightInput * transform.right;
     }
 }
 }
