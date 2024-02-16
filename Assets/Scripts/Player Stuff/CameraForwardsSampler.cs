@@ -18,6 +18,7 @@ namespace UFO_PlayerStuff
         #region Attributes
         private UnityEngine.Camera camera;
         private bool pickupableObjectInRange = false;
+        private bool InteractableObjectInRange = false;
 
         //Events
         //You can add your own listeners to these events in the unity editor
@@ -60,6 +61,9 @@ namespace UFO_PlayerStuff
 
             if (this.ReadyToPickupObject(hit, raycastCollision))
                 StageObjectPickup(hit);
+            else if(this.ReadyToInteractWithObject(hit, raycastCollision))
+                StageObjectInteraction(hit);
+            
         }
 
         private bool PickupableObjectInRange
@@ -104,6 +108,17 @@ namespace UFO_PlayerStuff
             return true;
         }
 
+        private bool ReadyToInteractWithObject(RaycastHit hit, bool raycastCollision)
+        {
+            if (!raycastCollision)
+                return false;
+
+            if (!hit.collider.gameObject is I_Interactable)
+                return false;
+
+            return true;
+        }
+
         /// <summary>
         /// This involves assigning the variables assosiated with picking up an object
         /// and calling the correct functions
@@ -114,6 +129,12 @@ namespace UFO_PlayerStuff
             this.PickupableObjectInRange = true;
         }
 
+
+        private void StageObjectInteraction(RaycastHit hit)
+        {
+            this.objectInRange = hit.collider.gameObject;
+            this.InteractableObjectInRange = true;
+        }
     }
 }
 

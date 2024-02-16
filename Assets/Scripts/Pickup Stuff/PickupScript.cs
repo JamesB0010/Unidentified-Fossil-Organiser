@@ -41,6 +41,19 @@ namespace UFO_PickupStuff
         public float droppedObjectTimeStamp = 0;
     }
 
+    class AbleToInteractStateData
+    {
+        public AbleToInteractStateData(bool readyToInteract = false, bool interactButtonActive = false, float interactObjectTimeStamp = 0f)
+        {
+            this.readyToInteract = readyToInteract;
+            this.interactButtonActive= interactButtonActive;
+            this.interactObjectTimeStamp = interactObjectTimeStamp;
+        }
+        public bool readyToInteract;
+        public bool interactButtonActive;
+        public float interactObjectTimeStamp;
+    }
+
 //The meat of the script
     [RequireComponent(typeof(UFO_PlayerStuff.CameraForwardsSampler))]
     public class PickupScript : MonoBehaviour
@@ -55,6 +68,8 @@ namespace UFO_PickupStuff
         private HoldObjectPhysicsData holdPhysicsData = new HoldObjectPhysicsData(7f, 2f, 5f, 6.13f);
 
         private AbleToPickupStateData pickupStateData = new AbleToPickupStateData();
+
+        private AbleToInteractStateData interactStateData = new AbleToInteractStateData();
 
         [SerializeField] private UFO_PlayerStuff.PlayerAudio playerAudio = null;
 
