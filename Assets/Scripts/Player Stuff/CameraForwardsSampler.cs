@@ -50,7 +50,7 @@ namespace UFO_PlayerStuff
         {
             camera = gameObject.GetComponent<Camera>();
         }
-        private void FixedUpdate()
+        private void Update()
         {
             AreYouInRangeToPickupAnObject();
         }
@@ -66,8 +66,12 @@ namespace UFO_PlayerStuff
 
             if (this.ReadyToPickupObject(hit, raycastCollision))
                 StageObjectPickup(hit);
-            else if(this.ReadyToInteractWithObject(hit, raycastCollision))
+            if(this.ReadyToInteractWithObject(hit, raycastCollision))
                 StageObjectInteraction(hit);
+            else
+            {
+                this.checkIfInteractableObjectIsOtherSideOfPickedUpObject(hit);
+            }
             
         }
 
@@ -157,6 +161,13 @@ namespace UFO_PlayerStuff
         {
             this.objectInRange = hit.collider.gameObject;
             this.InteractableObjectInRange = true;
+            Debug.Log(hit.collider.gameObject.name);
+        }
+
+        private void checkIfInteractableObjectIsOtherSideOfPickedUpObject(RaycastHit hit)
+        {
+            //find the point where the raycast exited the mesh
+            
         }
     }
 }

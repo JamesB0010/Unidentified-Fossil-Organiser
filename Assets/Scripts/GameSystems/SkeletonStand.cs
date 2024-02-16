@@ -4,15 +4,8 @@ using UnityEngine;
 
 public class SkeletonStand : MonoBehaviour, I_Interactable
 {
-    // Start is called before the first frame update
-    void Start()
+    public void HandleInteraction()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Debug.Log("Skeleton holder handle interaction");
     }
 }
