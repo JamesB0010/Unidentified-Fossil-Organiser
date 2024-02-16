@@ -3,9 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class PlayerInteract :UFO_PickupStuff.PickupScript
+class AbleToInteractStateData
 {
-    private UFO_PickupStuff.AbleToInteractStateData interactStateData = new UFO_PickupStuff.AbleToInteractStateData();
+    public AbleToInteractStateData(bool interactButtonActive = false, bool readyToInteract = false)
+    {
+        this.interactButtonActive = interactButtonActive;
+        this.readyToInteract = readyToInteract;
+    }
+    public bool interactButtonActive;
+    public bool readyToInteract;
+}
+public class PlayerInteract: UFO_PickupStuff.PickupScript
+{
+    private AbleToInteractStateData interactStateData = new AbleToInteractStateData();
 
     [SerializeField]
     private UnityEvent OnInteractWithObject = new UnityEvent();
@@ -46,7 +56,24 @@ public class PlayerInteract :UFO_PickupStuff.PickupScript
 
     private void InteractWithObject()
     {
+        if (!this.interactStateData.readyToInteract)
+            return;
         this.OnInteractWithObject.Invoke();
         Debug.Log("interact");
+    }
+
+    private bool InteractKeyPreviousStateUp()
+    {
+        return this.interactStateData.interactButtonActive == false;
+    }
+
+    public void ObjectReadyToInteract()
+    {
+        this.interactStateData.readyToInteract = true;
+    }
+
+    public void ObjectNotReadyToInteract()
+    {
+        this.interactStateData.readyToInteract = false;
     }
 }

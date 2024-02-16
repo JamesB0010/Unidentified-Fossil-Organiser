@@ -18,13 +18,17 @@ namespace UFO_PlayerStuff
         #region Attributes
         private UnityEngine.Camera camera;
         private bool pickupableObjectInRange = false;
-        private bool InteractableObjectInRange = false;
+        private bool interactableObjectInRange = false;
 
         //Events
         //You can add your own listeners to these events in the unity editor
         [SerializeField] public UnityEvent PickupableObjectInRangeUnityEvent = new UnityEvent();
 
         [SerializeField] private UnityEvent PickupableObjectOutOfRangeUnityEvent = new UnityEvent();
+
+        [SerializeField] private UnityEvent InteractableObjectInRangeEvent = new UnityEvent();
+
+        [SerializeField] private UnityEvent InteractableObjectOutOfRange = new UnityEvent();
 
         
         private GameObject objectInRange;
@@ -54,6 +58,7 @@ namespace UFO_PlayerStuff
         {
             //setup variables
             this.PickupableObjectInRange = false;
+            this.InteractableObjectInRange = false;
             UnityEngine.RaycastHit hit;
 
             bool raycastCollision =
@@ -89,6 +94,24 @@ namespace UFO_PlayerStuff
                 pickupableObjectInRange = value;
             }
         }
+
+        private bool InteractableObjectInRange
+        {
+            set
+            {
+                if (this.interactableObjectInRange == value)
+                    return;
+
+                if (value == true)
+                    this.InteractableObjectInRangeEvent.Invoke();
+                else
+                {
+                    this.InteractableObjectOutOfRange.Invoke();
+                }
+
+                this.interactableObjectInRange = value;
+            }
+        }
         private void DispachObjectInRangeEvent()
         {
             this.PickupableObjectInRangeUnityEvent.Invoke();
@@ -102,7 +125,7 @@ namespace UFO_PlayerStuff
             if (!hit.rigidbody)
                 return false;
 
-            if (!hit.rigidbody.gameObject is UFO_PickupStuff.I_Pickupable)
+            if (!hit.rigidbody.gameObject.TryGetComponent(out UFO_PickupStuff.I_Pickupable pickupable))
                 return false;
 
             return true;
@@ -113,7 +136,7 @@ namespace UFO_PlayerStuff
             if (!raycastCollision)
                 return false;
 
-            if (!hit.collider.gameObject is I_Interactable)
+            if (!hit.collider.gameObject.TryGetComponent(out I_Interactable interactable))
                 return false;
 
             return true;

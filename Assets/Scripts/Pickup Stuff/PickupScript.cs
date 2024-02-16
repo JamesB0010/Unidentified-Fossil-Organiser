@@ -41,15 +41,6 @@ namespace UFO_PickupStuff
         public float droppedObjectTimeStamp = 0;
     }
 
-    class AbleToInteractStateData
-    {
-        public AbleToInteractStateData(bool interactButtonActive = false)
-        {
-            this.interactButtonActive= interactButtonActive;
-        }
-        public bool interactButtonActive;
-    }
-
 //The meat of the script
     [RequireComponent(typeof(UFO_PlayerStuff.CameraForwardsSampler))]
     public class PickupScript : MonoBehaviour
@@ -143,7 +134,7 @@ namespace UFO_PickupStuff
         }
 
 
-        protected bool InteractKeyPreviousStateUp()
+        private bool InteractKeyPreviousStateUp()
         {
             return this.pickupStateData.interactButtonActive == false;
         }

@@ -45,7 +45,6 @@ public class HeadBobController : MonoBehaviour
 
     public void StartWalking()
     {
-        Debug.Log("Start walking head bob");
         this.walking = true;
         this.resetCamera = false;
     }
@@ -59,7 +58,6 @@ public class HeadBobController : MonoBehaviour
 
     private void PlayMotion(Vector3 motion)
     {
-        Debug.Log("Playing headbob");
         this.camera.localPosition += motion;
     }
     private void Update()
