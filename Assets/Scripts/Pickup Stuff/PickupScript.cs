@@ -43,15 +43,11 @@ namespace UFO_PickupStuff
 
     class AbleToInteractStateData
     {
-        public AbleToInteractStateData(bool readyToInteract = false, bool interactButtonActive = false, float interactObjectTimeStamp = 0f)
+        public AbleToInteractStateData(bool interactButtonActive = false)
         {
-            this.readyToInteract = readyToInteract;
             this.interactButtonActive= interactButtonActive;
-            this.interactObjectTimeStamp = interactObjectTimeStamp;
         }
-        public bool readyToInteract;
         public bool interactButtonActive;
-        public float interactObjectTimeStamp;
     }
 
 //The meat of the script
@@ -60,7 +56,7 @@ namespace UFO_PickupStuff
     {
         #region Attributes
 
-        private UFO_PlayerStuff.CameraForwardsSampler spaceSampler;
+        protected UFO_PlayerStuff.CameraForwardsSampler spaceSampler;
 
         //this has to be set in the editor
         [SerializeField] private Transform holdItemLocation;
@@ -69,9 +65,7 @@ namespace UFO_PickupStuff
 
         private AbleToPickupStateData pickupStateData = new AbleToPickupStateData();
 
-        private AbleToInteractStateData interactStateData = new AbleToInteractStateData();
-
-        [SerializeField] private UFO_PlayerStuff.PlayerAudio playerAudio = null;
+        [SerializeField] protected UFO_PlayerStuff.PlayerAudio playerAudio = null;
 
         //some events which will be broadcasted/Invoked and can be reacted to by other game objects
         [SerializeField] private UnityEvent pickedUpObject = new UnityEvent();
@@ -83,14 +77,14 @@ namespace UFO_PickupStuff
 
         //please read these methods in a top down order as the order of definitions
         //is the same or similar as the order the methods are called
-        private void Start()
+        protected void Start()
         {
             SetSpaceSampler();
             if (playerAudio == null)
                 playerAudio = gameObject.AddComponent<UFO_PlayerStuff.PlayerAudio>();
         }
 
-        private void SetSpaceSampler()
+        protected void SetSpaceSampler()
         {
             this.spaceSampler = gameObject.GetComponent<UFO_PlayerStuff.CameraForwardsSampler>();
         }
@@ -149,7 +143,7 @@ namespace UFO_PickupStuff
         }
 
 
-        private bool InteractKeyPreviousStateUp()
+        protected bool InteractKeyPreviousStateUp()
         {
             return this.pickupStateData.interactButtonActive == false;
         }
