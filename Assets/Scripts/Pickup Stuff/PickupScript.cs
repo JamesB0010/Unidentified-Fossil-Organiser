@@ -63,6 +63,7 @@ namespace UFO_PickupStuff
 
         [SerializeField] private UnityEvent droppedObject = new UnityEvent();
 
+
         #endregion
 
 
@@ -178,6 +179,7 @@ namespace UFO_PickupStuff
             this.pickupStateData.holdingObject = true;
             this.pickupStateData.readyToPickup = false;
             this.pickedUpObject.Invoke();
+
             PlayPickupSound();
         }
 
