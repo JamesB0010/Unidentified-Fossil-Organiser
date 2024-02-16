@@ -30,6 +30,15 @@ namespace UFO_PlayerStuff
 
         [SerializeField] private UnityEvent InteractableObjectOutOfRange = new UnityEvent();
 
+        private GameObject interactableObjectInRangeRef;
+
+        public GameObject InteractableObjectInRangeRef
+        {
+            get
+            {
+                return this.interactableObjectInRangeRef;
+            }
+        }
         
         private GameObject objectInRange;
         public GameObject ObjectInRange
@@ -66,13 +75,18 @@ namespace UFO_PlayerStuff
 
             if (this.ReadyToPickupObject(hit, raycastCollision))
                 StageObjectPickup(hit);
+
+            int oldLayer;
+            if (this.objectInRange && !this.objectInRange.TryGetComponent(out I_Interactable interactableObject))
+            {
+                oldLayer = this.objectInRange.layer;
+                this.objectInRange.layer = LayerMask.NameToLayer("Ignore Raycast");
+                raycastCollision = 
+                    Physics.Raycast(this.camera.transform.position, this.camera.transform.forward, out hit);
+                this.objectInRange.layer = oldLayer;
+            }
             if(this.ReadyToInteractWithObject(hit, raycastCollision))
                 StageObjectInteraction(hit);
-            else
-            {
-                this.checkIfInteractableObjectIsOtherSideOfPickedUpObject(hit);
-            }
-            
         }
 
         private bool PickupableObjectInRange
@@ -159,9 +173,8 @@ namespace UFO_PlayerStuff
 
         private void StageObjectInteraction(RaycastHit hit)
         {
-            this.objectInRange = hit.collider.gameObject;
+            this.interactableObjectInRangeRef = hit.collider.gameObject;
             this.InteractableObjectInRange = true;
-            Debug.Log(hit.collider.gameObject.name);
         }
 
         private void checkIfInteractableObjectIsOtherSideOfPickedUpObject(RaycastHit hit)

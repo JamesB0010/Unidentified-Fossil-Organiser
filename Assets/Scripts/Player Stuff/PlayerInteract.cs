@@ -59,7 +59,7 @@ public class PlayerInteract: UFO_PickupStuff.PickupScript
         if (!this.interactStateData.readyToInteract)
             return;
         this.OnInteractWithObject.Invoke();
-        Debug.Log("interact");
+        Debug.Log("interact with " + spaceSampler.InteractableObjectInRangeRef.name);
     }
 
     private bool InteractKeyPreviousStateUp()
