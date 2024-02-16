@@ -36,7 +36,9 @@ public class TextLookTowards : MonoBehaviour
     }
     private void followParent()
     {
-        boneText.text = "I am a " + parentBone.name;
+        string temp = parentBone.GetComponent<boneFacts>().boneFact;
+        Debug.Log(temp);
+        boneText.text = "" + temp;
         this.transform.position = new Vector3(parentBone.transform.position.x, parentBone.transform.position.y + 0.3f, parentBone.transform.position.z);
     }
     private void TextLookAt()
