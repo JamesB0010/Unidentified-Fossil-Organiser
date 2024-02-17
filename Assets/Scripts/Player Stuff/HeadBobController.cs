@@ -10,8 +10,8 @@ public class HeadBobController : MonoBehaviour
     [SerializeField] private bool enable = true;
 
     private bool walking = false;
-    [SerializeField, Range(0, 0.1f)] private float amplitude = 0.002f;
-    [SerializeField, Range(0, 30)] private float frequency = 10.0f;
+    [SerializeField, Range(0, 10f)] private float amplitude = 0.002f;
+    [SerializeField, Range(0, 300)] private float frequency = 10.0f;
     [SerializeField] private float sideBobAmplitude = 0.2f;
 
     private bool resetCamera = false;
@@ -28,8 +28,8 @@ public class HeadBobController : MonoBehaviour
     private Vector3 FootStepMotion()
     {
         Vector3 pos = Vector3.zero;
-        pos.y += Mathf.Sin(Time.time * Mathf.PI * 2 * frequency) * amplitude;
-        pos.x += Mathf.Sin(Time.time * Mathf.PI * frequency) * amplitude * 0.2f;
+        pos.y += Mathf.Sin(Time.time * Mathf.PI * 2 * frequency) * amplitude * Time.deltaTime;
+        pos.x += Mathf.Sin(Time.time * Mathf.PI * frequency) * amplitude * 0.2f * Time.deltaTime;
         return pos;
     }
 
