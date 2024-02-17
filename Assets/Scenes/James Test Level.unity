@@ -175,9 +175,17 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 89757165}
+    - target: {fileID: 4352509164021170822, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
+      propertyPath: SkeletonStandBoneName
+      value: L_ShoulderBlade
+      objectReference: {fileID: 0}
     - target: {fileID: 5567800274400738817, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: m_Name
       value: Skelly Left Shoulderblade
+      objectReference: {fileID: 0}
+    - target: {fileID: 5567800274400738817, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7813863751244188247, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: m_Mesh
@@ -1595,9 +1603,17 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 867187465}
+    - target: {fileID: 4352509164021170822, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
+      propertyPath: SkeletonStandBoneName
+      value: R_Foot
+      objectReference: {fileID: 0}
     - target: {fileID: 5567800274400738817, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: m_Name
       value: Skelly Right Foot
+      objectReference: {fileID: 0}
+    - target: {fileID: 5567800274400738817, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7813863751244188247, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: m_Mesh
@@ -1669,9 +1685,17 @@ PrefabInstance:
       propertyPath: boneMesh
       value: 
       objectReference: {fileID: 5275773004055656219, guid: ee8aea4e58101e44e81966d4b81fc932, type: 3}
+    - target: {fileID: 4352509164021170822, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
+      propertyPath: SkeletonStandBoneName
+      value: L_Leg
+      objectReference: {fileID: 0}
     - target: {fileID: 5567800274400738817, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: m_Name
       value: Skelly Left Leg
+      objectReference: {fileID: 0}
+    - target: {fileID: 5567800274400738817, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7813863751244188247, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: m_Mesh
@@ -2078,9 +2102,17 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 120814912}
+    - target: {fileID: 4352509164021170822, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
+      propertyPath: SkeletonStandBoneName
+      value: Spine
+      objectReference: {fileID: 0}
     - target: {fileID: 5567800274400738817, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: m_Name
       value: Skelly Spine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5567800274400738817, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7813863751244188247, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: m_Mesh
@@ -2750,6 +2782,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 6572160183105649961, guid: e3a7615e4a1dc16479bba5fc160d131c, type: 3}
+    - target: {fileID: 4352509164021170822, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
+      propertyPath: SkeletonStandBoneName
+      value: Ribcage
+      objectReference: {fileID: 0}
     - target: {fileID: 5567800274400738817, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: m_Name
       value: Skelly Ribcage
@@ -3425,9 +3461,17 @@ PrefabInstance:
       propertyPath: boneMesh
       value: 
       objectReference: {fileID: 5275773004055656219, guid: ee8aea4e58101e44e81966d4b81fc932, type: 3}
+    - target: {fileID: 4352509164021170822, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
+      propertyPath: SkeletonStandBoneName
+      value: Pelvis
+      objectReference: {fileID: 0}
     - target: {fileID: 5567800274400738817, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: m_Name
       value: Skelly Pelvis
+      objectReference: {fileID: 0}
+    - target: {fileID: 5567800274400738817, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7813863751244188247, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: m_Mesh
@@ -3490,6 +3534,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 337923957}
+    - target: {fileID: 4352509164021170822, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
+      propertyPath: SkeletonStandBoneName
+      value: Skull
+      objectReference: {fileID: 0}
     - target: {fileID: 5567800274400738817, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: m_Name
       value: Skelly Skull
@@ -3729,9 +3777,17 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 154804803}
+    - target: {fileID: 4352509164021170822, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
+      propertyPath: SkeletonStandBoneName
+      value: L_Arm
+      objectReference: {fileID: 0}
     - target: {fileID: 5567800274400738817, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: m_Name
       value: Skelly Left Arm
+      objectReference: {fileID: 0}
+    - target: {fileID: 5567800274400738817, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7813863751244188247, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: m_Mesh
@@ -3804,6 +3860,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 893188674}
+    - target: {fileID: 4352509164021170822, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
+      propertyPath: SkeletonStandBoneName
+      value: R_Arm
+      objectReference: {fileID: 0}
     - target: {fileID: 5567800274400738817, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: m_Name
       value: Skelly Right Arm
@@ -4130,9 +4190,17 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1597026038}
+    - target: {fileID: 4352509164021170822, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
+      propertyPath: SkeletonStandBoneName
+      value: R_ShoulderBlade
+      objectReference: {fileID: 0}
     - target: {fileID: 5567800274400738817, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: m_Name
       value: Skelly Right Shoulderblade
+      objectReference: {fileID: 0}
+    - target: {fileID: 5567800274400738817, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5903762110583978624, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: CollisionModule.m_Planes.Array.data[0]
@@ -4208,9 +4276,17 @@ PrefabInstance:
       propertyPath: boneMesh
       value: 
       objectReference: {fileID: 5275773004055656219, guid: ee8aea4e58101e44e81966d4b81fc932, type: 3}
+    - target: {fileID: 4352509164021170822, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
+      propertyPath: SkeletonStandBoneName
+      value: L_Foot
+      objectReference: {fileID: 0}
     - target: {fileID: 5567800274400738817, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: m_Name
       value: Skelly Left Foot
+      objectReference: {fileID: 0}
+    - target: {fileID: 5567800274400738817, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7813863751244188247, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: m_Mesh
@@ -4229,9 +4305,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 154406035933897712, guid: a1d3d3996ea2afa409484dac43989334, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 339283610804791058, guid: a1d3d3996ea2afa409484dac43989334, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 528839610438251434, guid: a1d3d3996ea2afa409484dac43989334, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2026903503632696563, guid: a1d3d3996ea2afa409484dac43989334, type: 3}
       propertyPath: m_Name
       value: SkeletonStand
+      objectReference: {fileID: 0}
+    - target: {fileID: 3237764542179064901, guid: a1d3d3996ea2afa409484dac43989334, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3618004095178656238, guid: a1d3d3996ea2afa409484dac43989334, type: 3}
       propertyPath: m_RootOrder
@@ -4277,9 +4369,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3941854501321085782, guid: a1d3d3996ea2afa409484dac43989334, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4306701505159157124, guid: a1d3d3996ea2afa409484dac43989334, type: 3}
       propertyPath: m_ExcludeLayers.m_Bits
       value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 4917898628995003097, guid: a1d3d3996ea2afa409484dac43989334, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4948372882153138310, guid: a1d3d3996ea2afa409484dac43989334, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5464148111219257117, guid: a1d3d3996ea2afa409484dac43989334, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5486597719723920534, guid: a1d3d3996ea2afa409484dac43989334, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6261862833646433151, guid: a1d3d3996ea2afa409484dac43989334, type: 3}
       propertyPath: bonePlacementSpeed
@@ -4337,6 +4449,18 @@ PrefabInstance:
       propertyPath: skeletonBones.Array.data[11]
       value: 
       objectReference: {fileID: 1881559392}
+    - target: {fileID: 7068817090944960823, guid: a1d3d3996ea2afa409484dac43989334, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8129318709743810783, guid: a1d3d3996ea2afa409484dac43989334, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8539564642782200072, guid: a1d3d3996ea2afa409484dac43989334, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4394,9 +4518,17 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 124184479}
+    - target: {fileID: 4352509164021170822, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
+      propertyPath: SkeletonStandBoneName
+      value: R_Leg
+      objectReference: {fileID: 0}
     - target: {fileID: 5567800274400738817, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: m_Name
       value: Skelly Right Leg
+      objectReference: {fileID: 0}
+    - target: {fileID: 5567800274400738817, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7813863751244188247, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: m_Mesh
@@ -4418,6 +4550,10 @@ PrefabInstance:
     - target: {fileID: 764510490672572180, guid: 29420d0ee6d3c744e941638a43d9303a, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2396818425867638198, guid: 29420d0ee6d3c744e941638a43d9303a, type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 3168038677353678654, guid: 29420d0ee6d3c744e941638a43d9303a, type: 3}
       propertyPath: droppedObject.m_PersistentCalls.m_Calls.Array.data[0].m_Target

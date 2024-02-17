@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UFO_PickupStuff;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Serialization;
@@ -144,6 +145,9 @@ namespace UFO_PlayerStuff
                 return false;
 
             if (!hit.rigidbody.gameObject.TryGetComponent(out UFO_PickupStuff.I_Pickupable pickupable))
+                return false;
+
+            if (hit.rigidbody.gameObject.TryGetComponent(out Bone bone) && bone.IsEnabled == false)
                 return false;
 
             return true;

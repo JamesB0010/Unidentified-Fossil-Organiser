@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UFO_PickupStuff;
 using UFO_PlayerStuff;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -43,8 +44,10 @@ public class SkeletonStand : MonoBehaviour, I_Interactable
     public void HandleInteraction(CameraForwardsSampler playerCamSampler)
     {
         GameObject bone = playerCamSampler.ObjectInRange;
+        if (!bone.TryGetComponent(out Bone BoneCastObj))
+            return;
         Debug.Log("Skeleton holder handle interaction: " + bone.name);
-        this.lerpPackages.Enqueue(new ObjectLerpPackage(bone, bone.transform.position, bone.transform.rotation.eulerAngles, boneNameTransforms["Skull"].position,boneNameTransforms["Skull"].rotation.eulerAngles));
+        this.lerpPackages.Enqueue(new ObjectLerpPackage(bone, bone.transform.position, bone.transform.rotation.eulerAngles, boneNameTransforms[BoneCastObj.GetSkeletonStandBoneName()].position,boneNameTransforms[BoneCastObj.GetSkeletonStandBoneName()].rotation.eulerAngles));
     }
 
     private void Start()
@@ -57,6 +60,7 @@ public class SkeletonStand : MonoBehaviour, I_Interactable
 
     private void Update()
     {
+        int dequeueCount = 0;
         foreach (ObjectLerpPackage pkg in this.lerpPackages)
         {
             pkg.current = Mathf.MoveTowards(pkg.current, moveTowardsTarget, this.bonePlacementSpeed * Time.deltaTime);
@@ -67,8 +71,16 @@ public class SkeletonStand : MonoBehaviour, I_Interactable
             pkg.objectToLerp.transform.rotation = Quaternion.Euler(lerpedRotation);
 
             if (pkg.current == 1)
-                this.lerpPackages.Dequeue();
+            {
+                dequeueCount++;
+                pkg.objectToLerp.GetComponent<Rigidbody>().isKinematic = true;
+                pkg.objectToLerp.GetComponent<Bone>().IsEnabled = false;
+            }
 
+        }
+        for (int i = 0; i < dequeueCount; i++)
+        { 
+            this.lerpPackages.Dequeue();
         }
     }
 }

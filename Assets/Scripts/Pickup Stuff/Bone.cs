@@ -9,6 +9,27 @@ public class Bone : MonoBehaviour, UFO_PickupStuff.I_Pickupable
 {
     private AudioSource audioSource;
 
+    private bool isEnabled = true;
+
+    [SerializeField] private string SkeletonStandBoneName;
+
+    public string GetSkeletonStandBoneName()
+    {
+        return SkeletonStandBoneName;
+    }
+
+    public bool IsEnabled
+    {
+        get
+        {
+            return this.isEnabled;
+        }
+        set
+        {
+            this.isEnabled = value;
+        }
+    }
+
     private ParticleSystem particleSystem;
     private void OnValidate()
     {
