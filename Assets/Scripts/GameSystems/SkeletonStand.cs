@@ -1,26 +1,47 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UFO_PickupStuff;
 using UFO_PlayerStuff;
 using UnityEngine;
 using UnityEngine.Internal;
 using UnityEngine.Serialization;
 
+struct BoneProcessingData
+{
+    public BoneProcessingData(float bonePlacementSpeed)
+    {
+        this.lerpPackageQueue = new Queue<ObjectLerpPackage<Bone>>();
+        this.LerpPackageProcessor =
+            new LerpPackageProcessor<Bone>(bonePlacementSpeed, ref this.lerpPackageQueue);
+        this.processedPackageFinalizationCallback = pkg =>
+        {
+            pkg.rb.isKinematic = true;
+            pkg.customComponent.IsEnabled = false;
+        };
+    }
+    public Queue<ObjectLerpPackage<Bone>> lerpPackageQueue;
+    public LerpPackageProcessor<Bone> LerpPackageProcessor;
+    public LerpPackageProcessor<Bone>.PackageProcessed processedPackageFinalizationCallback;
+}
+
+
 public class SkeletonStand : MonoBehaviour, I_Interactable
 {
+    //Bone positional Data
     [SerializeField] 
     private List<GameObject> skeletonBones = new List<GameObject>();
     private Dictionary<string, Transform> boneNameTransforms = new Dictionary<string, Transform>();
 
     [SerializeField] 
     private float bonePlacementSpeed = 1;
-    private const float moveTowardsTarget = 1.0f;
-    private Queue<ObjectLerpPackage> lerpPackageQueue = new Queue<ObjectLerpPackage>();
-    
+
+    private BoneProcessingData boneProcessingData;
     
     private void Start()
     {
+        this.boneProcessingData = new BoneProcessingData(this.bonePlacementSpeed);
         PopulateBoneNameTransforms();
     }
 
@@ -37,38 +58,12 @@ public class SkeletonStand : MonoBehaviour, I_Interactable
         GameObject bone = playerCamSampler.ObjectInRange;
         if (!bone.TryGetComponent(out Bone BoneCastObj))
             return;
-        this.lerpPackageQueue.Enqueue(new ObjectLerpPackage(bone, bone.transform.position, bone.transform.rotation.eulerAngles, boneNameTransforms[BoneCastObj.GetSkeletonStandBoneName()].position,boneNameTransforms[BoneCastObj.GetSkeletonStandBoneName()].rotation.eulerAngles));
+        this.boneProcessingData.lerpPackageQueue.Enqueue(new ObjectLerpPackage<Bone>(bone, bone.transform.position, bone.transform.rotation.eulerAngles, boneNameTransforms[BoneCastObj.GetSkeletonStandBoneName()].position,boneNameTransforms[BoneCastObj.GetSkeletonStandBoneName()].rotation.eulerAngles));
     }
-
-
+    
     private void Update()
     {
-        ProcessLerpPackageQueue();
-    }
-
-    private void ProcessLerpPackageQueue()
-    {
-        int dequeueCount = 0;
-        foreach (ObjectLerpPackage pkg in this.lerpPackageQueue)
-        {
-            pkg.current = Mathf.MoveTowards(pkg.current, moveTowardsTarget, this.bonePlacementSpeed * Time.deltaTime);
-
-            pkg.objectToLerp.transform.position = Vector3.Lerp(pkg.startPosition, pkg.targetPosition, pkg.current);
-
-            Vector3 lerpedRotation = Vector3.Lerp(pkg.startRotation, pkg.targetRotation, pkg.current);
-            pkg.objectToLerp.transform.rotation = Quaternion.Euler(lerpedRotation);
-
-            if (pkg.current == 1)
-            {
-                dequeueCount++;
-                pkg.objectToLerp.GetComponent<Rigidbody>().isKinematic = true;
-                pkg.objectToLerp.GetComponent<Bone>().IsEnabled = false;
-            }
-        }
-
-        for (int i = 0; i < dequeueCount; i++)
-        {
-            this.lerpPackageQueue.Dequeue();
-        }
+        this.boneProcessingData.LerpPackageProcessor.ProcessLerpPackageQueue(boneProcessingData.processedPackageFinalizationCallback);
+        this.boneProcessingData.LerpPackageProcessor.DequeueCompletedPackages();
     }
 }
