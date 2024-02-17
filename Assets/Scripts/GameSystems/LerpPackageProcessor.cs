@@ -4,6 +4,7 @@ using UnityEngine;
 
 class LerpPackageProcessor <QueueType>
 {
+    #region Attributes
     //define a callback type for when a package has been processed
     public delegate void PackageProcessed(ObjectLerpPackage<QueueType> pkg);
     
@@ -14,6 +15,10 @@ class LerpPackageProcessor <QueueType>
     //lerping data
     private const float moveTowardsTarget = 1.0f;
     private float lerpSpeed;
+    
+    #endregion
+
+    #region Methods
     
     public LerpPackageProcessor(float lerpSpeed, ref Queue<ObjectLerpPackage<QueueType>> queue)
     {
@@ -30,20 +35,54 @@ class LerpPackageProcessor <QueueType>
         }
     }
 
+    public void ProcessLerpPackageQueue()
+    {
+        this.ResetCompletedPackagesCount();
+        foreach (ObjectLerpPackage<QueueType> pkg in this.packageQueue)
+        {
+            this.ProcessPackage(pkg);
+        }
+    }
+
     private void ProcessPackage(ObjectLerpPackage<QueueType> pkg, PackageProcessed packageProcessedCallBack)
     {
-        pkg.current = Mathf.MoveTowards(pkg.current, moveTowardsTarget, this.lerpSpeed * Time.deltaTime);
-
-        pkg.objectToLerp.transform.position = Vector3.Lerp(pkg.startPosition, pkg.targetPosition, pkg.current);
-
-        Vector3 lerpedRotation = Vector3.Lerp(pkg.startRotation, pkg.targetRotation, pkg.current);
-        pkg.objectToLerp.transform.rotation = Quaternion.Euler(lerpedRotation);
+        LerpPackagePositionRotation(pkg);
 
         if (pkg.current == 1)
         {
             this.completedPackageCount++;
             packageProcessedCallBack(pkg);
         }
+    }
+
+    private void ProcessPackage(ObjectLerpPackage<QueueType> pkg)
+    {
+        LerpPackagePositionRotation(pkg);
+        if (pkg.current == 1)
+            this.completedPackageCount++;
+    }
+
+    private void LerpPackagePositionRotation(ObjectLerpPackage<QueueType> pkg)
+    {
+        updateCurrentLerpPercentage(pkg);
+
+        LerpPosition(pkg);
+
+        LerpRotation(pkg);
+    }
+
+    private void updateCurrentLerpPercentage(ObjectLerpPackage<QueueType> pkg)
+    {
+        pkg.current = Mathf.MoveTowards(pkg.current, moveTowardsTarget, this.lerpSpeed * Time.deltaTime);
+    }
+    private static void LerpPosition(ObjectLerpPackage<QueueType> pkg)
+    {
+        pkg.objectToLerp.transform.position = Vector3.Lerp(pkg.startPosition, pkg.targetPosition, pkg.current);
+    }
+    private static void LerpRotation(ObjectLerpPackage<QueueType> pkg)
+    {
+        Vector3 lerpedRotation = Vector3.Lerp(pkg.startRotation, pkg.targetRotation, pkg.current);
+        pkg.objectToLerp.transform.rotation = Quaternion.Euler(lerpedRotation);
     }
 
     private void ResetCompletedPackagesCount()
@@ -58,4 +97,6 @@ class LerpPackageProcessor <QueueType>
             this.packageQueue.Dequeue();
         }
     }
+    
+    #endregion
 }
