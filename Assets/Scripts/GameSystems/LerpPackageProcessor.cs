@@ -77,11 +77,11 @@ class LerpPackageProcessor <QueueType>
     }
     private static void LerpPosition(ObjectLerpPackage<QueueType> pkg)
     {
-        pkg.objectToLerp.transform.position = Vector3.Lerp(pkg.startPosition, pkg.targetPosition, pkg.current);
+        pkg.objectToLerp.transform.position = Vector3.Lerp(pkg.start.position, pkg.target.position, pkg.current);
     }
     private static void LerpRotation(ObjectLerpPackage<QueueType> pkg)
     {
-        Vector3 lerpedRotation = Vector3.Lerp(pkg.startRotation, pkg.targetRotation, pkg.current);
+        Vector3 lerpedRotation = Vector3.Lerp(pkg.start.rotation, pkg.target.rotation, pkg.current);
         pkg.objectToLerp.transform.rotation = Quaternion.Euler(lerpedRotation);
     }
 
