@@ -4,53 +4,27 @@ using System.Collections.Generic;
 using UFO_PickupStuff;
 using UFO_PlayerStuff;
 using UnityEngine;
+using UnityEngine.Internal;
 using UnityEngine.Serialization;
 
-class ObjectLerpPackage
-{
-
-    public ObjectLerpPackage(GameObject objectToLerp, Vector3 startPosition, Vector3 startRotation,
-        Vector3 targetPosition, Vector3 targetRotation)
-    {
-        this.objectToLerp = objectToLerp;
-        this.startPosition = startPosition;
-        this.startRotation = startRotation;
-        this.targetPosition = targetPosition;
-        this.targetRotation = targetRotation;
-    }
-    public GameObject objectToLerp;
-    public Vector3 startPosition;
-    public Vector3 startRotation;
-
-    public Vector3 targetPosition;
-    public Vector3 targetRotation;
-
-    public float current = 0.0f;
-}
 public class SkeletonStand : MonoBehaviour, I_Interactable
 {
-    
     [SerializeField] 
     private List<GameObject> skeletonBones = new List<GameObject>();
+    private Dictionary<string, Transform> boneNameTransforms = new Dictionary<string, Transform>();
 
     [SerializeField] 
     private float bonePlacementSpeed = 1;
-
     private const float moveTowardsTarget = 1.0f;
-
-    private Dictionary<string, Transform> boneNameTransforms = new Dictionary<string, Transform>();
-
-    private Queue<ObjectLerpPackage> lerpPackages = new Queue<ObjectLerpPackage>();
-    public void HandleInteraction(CameraForwardsSampler playerCamSampler)
+    private Queue<ObjectLerpPackage> lerpPackageQueue = new Queue<ObjectLerpPackage>();
+    
+    
+    private void Start()
     {
-        GameObject bone = playerCamSampler.ObjectInRange;
-        if (!bone.TryGetComponent(out Bone BoneCastObj))
-            return;
-        Debug.Log("Skeleton holder handle interaction: " + bone.name);
-        this.lerpPackages.Enqueue(new ObjectLerpPackage(bone, bone.transform.position, bone.transform.rotation.eulerAngles, boneNameTransforms[BoneCastObj.GetSkeletonStandBoneName()].position,boneNameTransforms[BoneCastObj.GetSkeletonStandBoneName()].rotation.eulerAngles));
+        PopulateBoneNameTransforms();
     }
 
-    private void Start()
+    private void PopulateBoneNameTransforms()
     {
         foreach (GameObject bone in this.skeletonBones)
         {
@@ -58,15 +32,29 @@ public class SkeletonStand : MonoBehaviour, I_Interactable
         }
     }
 
+    public void HandleInteraction(CameraForwardsSampler playerCamSampler)
+    {
+        GameObject bone = playerCamSampler.ObjectInRange;
+        if (!bone.TryGetComponent(out Bone BoneCastObj))
+            return;
+        this.lerpPackageQueue.Enqueue(new ObjectLerpPackage(bone, bone.transform.position, bone.transform.rotation.eulerAngles, boneNameTransforms[BoneCastObj.GetSkeletonStandBoneName()].position,boneNameTransforms[BoneCastObj.GetSkeletonStandBoneName()].rotation.eulerAngles));
+    }
+
+
     private void Update()
     {
+        ProcessLerpPackageQueue();
+    }
+
+    private void ProcessLerpPackageQueue()
+    {
         int dequeueCount = 0;
-        foreach (ObjectLerpPackage pkg in this.lerpPackages)
+        foreach (ObjectLerpPackage pkg in this.lerpPackageQueue)
         {
             pkg.current = Mathf.MoveTowards(pkg.current, moveTowardsTarget, this.bonePlacementSpeed * Time.deltaTime);
 
             pkg.objectToLerp.transform.position = Vector3.Lerp(pkg.startPosition, pkg.targetPosition, pkg.current);
-            
+
             Vector3 lerpedRotation = Vector3.Lerp(pkg.startRotation, pkg.targetRotation, pkg.current);
             pkg.objectToLerp.transform.rotation = Quaternion.Euler(lerpedRotation);
 
@@ -76,11 +64,11 @@ public class SkeletonStand : MonoBehaviour, I_Interactable
                 pkg.objectToLerp.GetComponent<Rigidbody>().isKinematic = true;
                 pkg.objectToLerp.GetComponent<Bone>().IsEnabled = false;
             }
-
         }
+
         for (int i = 0; i < dequeueCount; i++)
-        { 
-            this.lerpPackages.Dequeue();
+        {
+            this.lerpPackageQueue.Dequeue();
         }
     }
 }

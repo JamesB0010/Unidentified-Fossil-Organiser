@@ -56,6 +56,7 @@ GameObject:
   - component: {fileID: 6032541082383246799}
   - component: {fileID: 4306701505159157124}
   - component: {fileID: 6261862833646433151}
+  - component: {fileID: 5576244368071581778}
   m_Layer: 0
   m_Name: SkeletonStand
   m_TagString: Untagged
@@ -77,7 +78,7 @@ Transform:
   m_Children:
   - {fileID: 8326255476452648120}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8549325191767082372
 MeshFilter:
@@ -148,8 +149,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.4357843, y: 1, z: 1}
+  m_Center: {x: 0.21789217, y: 0, z: 0}
 --- !u!114 &6261862833646433151
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -176,6 +177,27 @@ MonoBehaviour:
   - {fileID: 4030200233515261328}
   - {fileID: 7890971461696577757}
   bonePlacementSpeed: 1
+--- !u!65 &5576244368071581778
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2026903503632696563}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1.0000001, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1195500587151617838
 PrefabInstance:
   m_ObjectHideFlags: 0

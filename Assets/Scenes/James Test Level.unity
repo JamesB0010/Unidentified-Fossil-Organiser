@@ -185,7 +185,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5567800274400738817, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7813863751244188247, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: m_Mesh
@@ -1608,7 +1608,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5567800274400738817, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7813863751244188247, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: m_Mesh
@@ -1685,7 +1685,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5567800274400738817, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7813863751244188247, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: m_Mesh
@@ -2102,7 +2102,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5567800274400738817, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7813863751244188247, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: m_Mesh
@@ -2772,7 +2772,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5567800274400738817, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7813863751244188247, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: m_Mesh
@@ -3436,7 +3436,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5567800274400738817, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7813863751244188247, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: m_Mesh
@@ -3509,7 +3509,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5567800274400738817, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7813863751244188247, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: m_Mesh
@@ -3747,7 +3747,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5567800274400738817, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7813863751244188247, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: m_Mesh
@@ -3825,7 +3825,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5567800274400738817, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7813863751244188247, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: m_Mesh
@@ -4140,7 +4140,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5567800274400738817, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5903762110583978624, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: CollisionModule.m_Planes.Array.data[0]
@@ -4226,7 +4226,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5567800274400738817, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7813863751244188247, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: m_Mesh
@@ -4307,6 +4307,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 812257098}
     m_Modifications:
     - target: {fileID: 848883091274030484, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 848883091274030484, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: m_LocalPosition.x
       value: 16.51
       objectReference: {fileID: 0}
@@ -4350,17 +4354,13 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 124184479}
-    - target: {fileID: 4352509164021170822, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
-      propertyPath: SkeletonStandBoneName
-      value: R_Leg
-      objectReference: {fileID: 0}
     - target: {fileID: 5567800274400738817, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: m_Name
       value: Skelly Right Leg
       objectReference: {fileID: 0}
     - target: {fileID: 5567800274400738817, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7813863751244188247, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: m_Mesh
