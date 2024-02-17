@@ -7,12 +7,37 @@ namespace UFO_PickupStuff{
     [ExecuteInEditMode]
 public class Bone : MonoBehaviour, UFO_PickupStuff.I_Pickupable
 {
+    #region Attributes
+    
     private AudioSource audioSource;
+    private ParticleSystem particleSystem;
 
     private bool isEnabled = true;
 
     [SerializeField] private string SkeletonStandBoneName;
+    
+    #endregion
 
+    #region Methods
+    private void Start()
+    {
+        GetComponentReferences();
+        this.particleSystem.Stop();
+    }
+    
+    private void GetComponentReferences()
+    {
+        this.audioSource = gameObject.GetComponent<AudioSource>();
+        this.particleSystem = gameObject.GetComponent<ParticleSystem>();
+    }
+    
+    private void OnCollisionEnter(Collision other)
+    {
+        this.audioSource.Play();
+        this.particleSystem.Play();
+    }
+    
+    
     public string GetSkeletonStandBoneName()
     {
         return SkeletonStandBoneName;
@@ -30,7 +55,6 @@ public class Bone : MonoBehaviour, UFO_PickupStuff.I_Pickupable
         }
     }
 
-    private ParticleSystem particleSystem;
     private void OnValidate()
     {
         MeshCollider meshCollider = this.GetComponent<MeshCollider>();
@@ -38,23 +62,7 @@ public class Bone : MonoBehaviour, UFO_PickupStuff.I_Pickupable
         meshCollider.sharedMesh = this.GetComponent<MeshFilter>().sharedMesh;
     }
 
-    private void Start()
-    {
-        GetComponentReferences();
-        this.particleSystem.Stop();
-    }
-
-    private void GetComponentReferences()
-    {
-        this.audioSource = gameObject.GetComponent<AudioSource>();
-        this.particleSystem = gameObject.GetComponent<ParticleSystem>();
-    }
-    
-
-    private void OnCollisionEnter(Collision other)
-    {
-        this.audioSource.Play();
-        this.particleSystem.Play();
-    }
 }
+
+#endregion
 }
