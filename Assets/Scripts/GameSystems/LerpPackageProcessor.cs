@@ -4,19 +4,23 @@ using UnityEngine;
 
 class LerpPackageProcessor <QueueType>
 {
+    //define a callback type for when a package has been processed
     public delegate void PackageProcessed(ObjectLerpPackage<QueueType> pkg);
+    
+    //queue data
+    private Queue<ObjectLerpPackage<QueueType>> packageQueue;
+    private int completedPackageCount = 0;
+    
+    //lerping data
+    private const float moveTowardsTarget = 1.0f;
+    private float lerpSpeed;
+    
     public LerpPackageProcessor(float lerpSpeed, ref Queue<ObjectLerpPackage<QueueType>> queue)
     {
         this.lerpSpeed = lerpSpeed;
         this.packageQueue = queue;
     }
 
-    private Queue<ObjectLerpPackage<QueueType>> packageQueue;
-    private int completedPackageCount = 0;
-    
-    private const float moveTowardsTarget = 1.0f;
-
-    private float lerpSpeed;
     public void ProcessLerpPackageQueue(PackageProcessed packageProcessedCallBack)
     {
         this.ResetCompletedPackagesCount();
