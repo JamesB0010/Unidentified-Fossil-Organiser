@@ -28,8 +28,8 @@ public class HeadBobController : MonoBehaviour
     private Vector3 FootStepMotion()
     {
         Vector3 pos = Vector3.zero;
-        pos.y += Mathf.Sin(Time.time * this.frequency) * this.amplitude;
-        pos.x += Mathf.Sin(Time.time * this.frequency / 2) * this.amplitude * 0.2f;
+        pos.y += Mathf.Sin(Time.time * Mathf.PI * 2 * frequency) * amplitude;
+        pos.x += Mathf.Sin(Time.time * Mathf.PI * frequency) * amplitude * 0.2f;
         return pos;
     }
 
