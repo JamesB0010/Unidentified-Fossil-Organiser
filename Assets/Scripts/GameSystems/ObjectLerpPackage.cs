@@ -5,15 +5,19 @@ using UnityEngine;
 
 class ObjectLerpPackage <CustomComponent>
 {
-
-    public ObjectLerpPackage(GameObject objectToLerp, Vector3 startPosition, Vector3 startRotation,
-        Vector3 targetPosition, Vector3 targetRotation)
+    public struct PositionRotationPair
+    {
+        public Vector3 position;
+        public Vector3 rotation;
+    }
+    public ObjectLerpPackage(GameObject objectToLerp, PositionRotationPair start,
+        PositionRotationPair end)
     {
         this.objectToLerp = objectToLerp;
-        this.startPosition = startPosition;
-        this.startRotation = startRotation;
-        this.targetPosition = targetPosition;
-        this.targetRotation = targetRotation;
+        this.startPosition = start.position;
+        this.startRotation = start.rotation;
+        this.targetPosition = end.position;
+        this.targetRotation = end.rotation;
         this.rb = this.objectToLerp.GetComponent<Rigidbody>();
         this.customComponent = this.objectToLerp.GetComponent<CustomComponent>();
     }
