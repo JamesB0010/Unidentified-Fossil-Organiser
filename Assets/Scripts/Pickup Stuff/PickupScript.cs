@@ -47,7 +47,7 @@ namespace UFO_PickupStuff
     {
         #region Attributes
 
-        private UFO_PlayerStuff.CameraForwardsSampler spaceSampler;
+        protected UFO_PlayerStuff.CameraForwardsSampler spaceSampler;
 
         //this has to be set in the editor
         [SerializeField] private Transform holdItemLocation;
@@ -56,26 +56,27 @@ namespace UFO_PickupStuff
 
         private AbleToPickupStateData pickupStateData = new AbleToPickupStateData();
 
-        [SerializeField] private UFO_PlayerStuff.PlayerAudio playerAudio = null;
+        [SerializeField] protected UFO_PlayerStuff.PlayerAudio playerAudio = null;
 
         //some events which will be broadcasted/Invoked and can be reacted to by other game objects
         [SerializeField] private UnityEvent pickedUpObject = new UnityEvent();
 
         [SerializeField] private UnityEvent droppedObject = new UnityEvent();
 
+
         #endregion
 
 
         //please read these methods in a top down order as the order of definitions
         //is the same or similar as the order the methods are called
-        private void Start()
+        protected void Start()
         {
             SetSpaceSampler();
             if (playerAudio == null)
                 playerAudio = gameObject.AddComponent<UFO_PlayerStuff.PlayerAudio>();
         }
 
-        private void SetSpaceSampler()
+        protected void SetSpaceSampler()
         {
             this.spaceSampler = gameObject.GetComponent<UFO_PlayerStuff.CameraForwardsSampler>();
         }
@@ -178,6 +179,7 @@ namespace UFO_PickupStuff
             this.pickupStateData.holdingObject = true;
             this.pickupStateData.readyToPickup = false;
             this.pickedUpObject.Invoke();
+
             PlayPickupSound();
         }
 

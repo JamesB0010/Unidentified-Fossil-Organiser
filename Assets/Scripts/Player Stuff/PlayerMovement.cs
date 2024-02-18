@@ -11,7 +11,7 @@ namespace  UFO_PlayerStuff{
 public class PlayerMovement : MonoBehaviour
 {
     private float walkSpeed = 5f;
-    private float rotationSpeed = 1300f;
+    private float rotationSpeed = 5f;
     private Rigidbody rigidbody;
 
     private AudioSource footstepSource;
@@ -80,8 +80,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void SetPlayerYRotationDrivenByMouseInput()
     {
-        float mouseX = Input.GetAxis("Mouse X") * this.rotationSpeed;
-        this.rigidbody.MoveRotation(this.rigidbody.rotation * Quaternion.Euler(0, mouseX * Time.deltaTime, 0));
+        float mouseX = Input.GetAxis("Mouse X") * this.rotationSpeed;/* * Time.deltaTime;*/
+        this.rigidbody.MoveRotation(this.rigidbody.rotation * Quaternion.Euler(0, mouseX, 0));
     }
     
 
