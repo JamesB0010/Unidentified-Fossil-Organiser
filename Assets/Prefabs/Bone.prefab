@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 3932452907641742351}
   - component: {fileID: 5903762110583978624}
   - component: {fileID: 7889186568527396230}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31,13 +31,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5567800274400738817}
-  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.85, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7813863751244188247
 MeshFilter:
@@ -46,7 +46,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5567800274400738817}
-  m_Mesh: {fileID: 5275773004055656219, guid: ee8aea4e58101e44e81966d4b81fc932, type: 3}
+  m_Mesh: {fileID: 0}
 --- !u!23 &1545256166461399180
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -101,6 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8ee528756d2d0244b211b447b8e3602, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SkeletonStandBoneName: R_Arm
 --- !u!54 &4771115396082134003
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -149,7 +150,7 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 1
   m_CookingOptions: 30
-  m_Mesh: {fileID: 5275773004055656219, guid: ee8aea4e58101e44e81966d4b81fc932, type: 3}
+  m_Mesh: {fileID: 0}
 --- !u!82 &3932452907641742351
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5085,15 +5086,13 @@ ParticleSystemRenderer:
   m_RenderAlignment: 0
   m_Pivot: {x: 0, y: 0, z: 0}
   m_Flip: {x: 0, y: 0, z: 0}
+  m_UseCustomVertexStreams: 0
   m_EnableGPUInstancing: 1
   m_ApplyActiveColorSpace: 1
   m_AllowRoll: 1
   m_FreeformStretching: 0
   m_RotateWithStretchDirection: 1
-  m_UseCustomVertexStreams: 0
   m_VertexStreams: 00010304
-  m_UseCustomTrailVertexStreams: 0
-  m_TrailVertexStreams: 00010304
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}

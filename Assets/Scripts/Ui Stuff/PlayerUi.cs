@@ -7,11 +7,16 @@ namespace UFO_UI
 {
 public class PlayerUi : MonoBehaviour
 {
+    #region Attributes
     [SerializeField]
     private TextMeshProUGUI pressEToPickup;
 
     private bool playerHoldingObject = false;
+    
+    #endregion
 
+
+    #region Methods
     public void ReactToPlayerPickUpObject()
     {
         pressEToPickup.enabled = false;
@@ -35,5 +40,7 @@ public class PlayerUi : MonoBehaviour
             pressEToPickup.enabled = false;
     }
 }
+
+#endregion
     
 }
