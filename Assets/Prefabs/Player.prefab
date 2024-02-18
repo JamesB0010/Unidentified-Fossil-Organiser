@@ -30,7 +30,6 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 764510490672572180}
-  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 18.877127, y: 2.013, z: -17.397585}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -38,6 +37,7 @@ Transform:
   m_Children:
   - {fileID: 7767881861629264984}
   m_Father: {fileID: 0}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4424230559837927295
 MeshFilter:
@@ -290,8 +290,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enable: 1
-  amplitude: 0.004
-  frequency: 15
+  amplitude: 2.87
+  frequency: 2.9
   sideBobAmplitude: 0.2
   camera: {fileID: 9158764412206650970}
   cameraHolder: {fileID: 7767881861629264984}
@@ -319,7 +319,6 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1449433637921801727}
-  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.09, y: 0.61, z: -0.084}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -327,6 +326,7 @@ Transform:
   m_Children:
   - {fileID: 9158764412206650970}
   m_Father: {fileID: 7143745276558298983}
+  m_RootOrder: -2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4809002797382897022
 MonoBehaviour:
@@ -368,13 +368,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3423116108569574322}
-  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 9158764412206650970}
+  m_RootOrder: -2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &5441002753362024580
 AudioSource:
@@ -511,13 +511,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3477089890259720645}
-  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 2.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 9158764412206650970}
+  m_RootOrder: -2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8227811461920947667
 GameObject:
@@ -532,6 +532,7 @@ GameObject:
   - component: {fileID: 8969191072105795025}
   - component: {fileID: 7660136753072681436}
   - component: {fileID: 3168038677353678654}
+  - component: {fileID: 9058773564889424863}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -546,7 +547,6 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8227811461920947667}
-  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -555,6 +555,7 @@ Transform:
   - {fileID: 2593714405945273972}
   - {fileID: 779258112609217023}
   m_Father: {fileID: 7767881861629264984}
+  m_RootOrder: -2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &2396818425867638198
 Camera:
@@ -595,7 +596,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 55
+    m_Bits: 4294967295
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -681,6 +682,36 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  InteractableObjectInRangeEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 9058773564889424863}
+        m_TargetAssemblyTypeName: PlayerInteract, Assembly-CSharp
+        m_MethodName: ObjectReadyToInteract
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  InteractableObjectOutOfRange:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 9058773564889424863}
+        m_TargetAssemblyTypeName: PlayerInteract, Assembly-CSharp
+        m_MethodName: ObjectNotReadyToInteract
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &3168038677353678654
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -720,6 +751,42 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &9058773564889424863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8227811461920947667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff991be772818064980828dd563ab4dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  holdItemLocation: {fileID: 0}
+  playerAudio: {fileID: 0}
+  pickedUpObject:
+    m_PersistentCalls:
+      m_Calls: []
+  droppedObject:
+    m_PersistentCalls:
+      m_Calls: []
+  OnInteractWithObject:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: SkeletonStand, Assembly-CSharp
+        m_MethodName: HandleInteraction
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 7660136753072681436}
+          m_ObjectArgumentAssemblyTypeName: UFO_PlayerStuff.CameraForwardsSampler,
+            Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
