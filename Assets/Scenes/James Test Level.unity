@@ -175,6 +175,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 89757165}
+    - target: {fileID: 3932452907641742351, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4352509164021170822, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: SkeletonStandBoneName
       value: L_ShoulderBlade
@@ -186,6 +190,10 @@ PrefabInstance:
     - target: {fileID: 5567800274400738817, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5903762110583978624, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
+      propertyPath: EmissionModule.enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7813863751244188247, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: m_Mesh
@@ -996,6 +1004,50 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 848883091274030484, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
   m_PrefabInstance: {fileID: 2132838109}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &252070140
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 252070142}
+  - component: {fileID: 252070141}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &252070141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 252070140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbb4662528441ab47836a96dd78300b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &252070142
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 252070140}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.4242516, y: 4.1106763, z: -16.726652}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &266526984 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 848883091274030484, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
@@ -1598,6 +1650,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 867187465}
+    - target: {fileID: 3932452907641742351, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4352509164021170822, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: SkeletonStandBoneName
       value: R_Foot
@@ -1609,6 +1665,10 @@ PrefabInstance:
     - target: {fileID: 5567800274400738817, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5903762110583978624, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
+      propertyPath: EmissionModule.enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7813863751244188247, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: m_Mesh
@@ -1671,6 +1731,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1280590982}
+    - target: {fileID: 3932452907641742351, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4352509164021170822, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: boneMesh
       value: 
@@ -1686,6 +1750,10 @@ PrefabInstance:
     - target: {fileID: 5567800274400738817, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5903762110583978624, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
+      propertyPath: EmissionModule.enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7813863751244188247, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: m_Mesh
@@ -2092,6 +2160,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 120814912}
+    - target: {fileID: 3932452907641742351, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4352509164021170822, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: SkeletonStandBoneName
       value: Spine
@@ -2103,6 +2175,10 @@ PrefabInstance:
     - target: {fileID: 5567800274400738817, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5903762110583978624, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
+      propertyPath: EmissionModule.enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7813863751244188247, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: m_Mesh
@@ -2762,6 +2838,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 6572160183105649961, guid: e3a7615e4a1dc16479bba5fc160d131c, type: 3}
+    - target: {fileID: 3932452907641742351, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4352509164021170822, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: SkeletonStandBoneName
       value: Ribcage
@@ -2773,6 +2853,10 @@ PrefabInstance:
     - target: {fileID: 5567800274400738817, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5903762110583978624, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
+      propertyPath: EmissionModule.enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7813863751244188247, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: m_Mesh
@@ -3422,6 +3506,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 421278075}
+    - target: {fileID: 3932452907641742351, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4352509164021170822, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: boneMesh
       value: 
@@ -3437,6 +3525,10 @@ PrefabInstance:
     - target: {fileID: 5567800274400738817, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5903762110583978624, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
+      propertyPath: EmissionModule.enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7813863751244188247, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: m_Mesh
@@ -3499,6 +3591,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 337923957}
+    - target: {fileID: 3932452907641742351, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4352509164021170822, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: SkeletonStandBoneName
       value: Skull
@@ -3510,6 +3606,10 @@ PrefabInstance:
     - target: {fileID: 5567800274400738817, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5903762110583978624, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
+      propertyPath: EmissionModule.enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7813863751244188247, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: m_Mesh
@@ -3737,6 +3837,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 154804803}
+    - target: {fileID: 3932452907641742351, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4352509164021170822, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: SkeletonStandBoneName
       value: L_Arm
@@ -3748,6 +3852,10 @@ PrefabInstance:
     - target: {fileID: 5567800274400738817, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5903762110583978624, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
+      propertyPath: EmissionModule.enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7813863751244188247, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: m_Mesh
@@ -3815,6 +3923,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 893188674}
+    - target: {fileID: 3932452907641742351, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4352509164021170822, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: SkeletonStandBoneName
       value: R_Arm
@@ -3826,6 +3938,10 @@ PrefabInstance:
     - target: {fileID: 5567800274400738817, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5903762110583978624, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
+      propertyPath: EmissionModule.enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7813863751244188247, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: m_Mesh
@@ -4130,6 +4246,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1597026038}
+    - target: {fileID: 3932452907641742351, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4352509164021170822, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: SkeletonStandBoneName
       value: R_ShoulderBlade
@@ -4141,6 +4261,10 @@ PrefabInstance:
     - target: {fileID: 5567800274400738817, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5903762110583978624, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
+      propertyPath: EmissionModule.enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5903762110583978624, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: CollisionModule.m_Planes.Array.data[0]
@@ -4212,6 +4336,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 870583317}
+    - target: {fileID: 3932452907641742351, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4352509164021170822, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: boneMesh
       value: 
@@ -4227,6 +4355,10 @@ PrefabInstance:
     - target: {fileID: 5567800274400738817, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5903762110583978624, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
+      propertyPath: EmissionModule.enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7813863751244188247, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: m_Mesh
@@ -4293,6 +4425,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6261862833646433151, guid: a1d3d3996ea2afa409484dac43989334, type: 3}
+      propertyPath: allBonesCollected.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6261862833646433151, guid: a1d3d3996ea2afa409484dac43989334, type: 3}
+      propertyPath: allBonesCollected.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6261862833646433151, guid: a1d3d3996ea2afa409484dac43989334, type: 3}
+      propertyPath: allBonesCollected.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 252070141}
+    - target: {fileID: 6261862833646433151, guid: a1d3d3996ea2afa409484dac43989334, type: 3}
+      propertyPath: allBonesCollected.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6261862833646433151, guid: a1d3d3996ea2afa409484dac43989334, type: 3}
+      propertyPath: allBonesCollected.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AllBonesCollected
+      objectReference: {fileID: 0}
+    - target: {fileID: 6261862833646433151, guid: a1d3d3996ea2afa409484dac43989334, type: 3}
+      propertyPath: allBonesCollected.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6261862833646433151, guid: a1d3d3996ea2afa409484dac43989334, type: 3}
+      propertyPath: allBonesCollected.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4354,6 +4514,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 124184479}
+    - target: {fileID: 3932452907641742351, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5567800274400738817, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: m_Name
       value: Skelly Right Leg
@@ -4361,6 +4525,10 @@ PrefabInstance:
     - target: {fileID: 5567800274400738817, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5903762110583978624, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
+      propertyPath: EmissionModule.enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7813863751244188247, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: m_Mesh

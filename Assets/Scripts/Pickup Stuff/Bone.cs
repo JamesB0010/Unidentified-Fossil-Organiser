@@ -15,6 +15,8 @@ public class Bone : MonoBehaviour, UFO_PickupStuff.I_Pickupable
     private bool isEnabled = true;
 
     [SerializeField] private string SkeletonStandBoneName;
+
+    private bool hasCollidedBefore = false;
     
     #endregion
 
@@ -33,6 +35,12 @@ public class Bone : MonoBehaviour, UFO_PickupStuff.I_Pickupable
     
     private void OnCollisionEnter(Collision other)
     {
+        //ignore the first collision the object has because thats it just falling to the ground when the game starts
+        if (!this.hasCollidedBefore)
+        {
+            this.hasCollidedBefore = true;
+            return;
+        }
         this.audioSource.Play();
         this.particleSystem.Play();
     }

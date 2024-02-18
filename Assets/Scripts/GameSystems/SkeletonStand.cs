@@ -5,6 +5,7 @@ using System.Runtime.CompilerServices;
 using UFO_PickupStuff;
 using UFO_PlayerStuff;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Internal;
 using UnityEngine.Serialization;
 
@@ -20,8 +21,32 @@ public class SkeletonStand : MonoBehaviour, I_Interactable
     private float bonePlacementSpeed = 1;
     private BoneProcessingData boneProcessingData;
     
+    //Progress data
+
+    [SerializeField] 
+    private UnityEvent allBonesCollected = new UnityEvent();
+    private int bonesNeededToWin;
+
+    private int bonesDelivered = 0;
+
+    private int BonesDelivered
+    {
+        get
+        {
+            return this.bonesDelivered;
+        }
+
+        set
+        {
+            this.bonesDelivered = value;
+            if(this.bonesDelivered >= this.bonesNeededToWin)
+                this.allBonesCollected.Invoke();
+        }
+    }
+    
     private void Start()
     {
+        this.bonesNeededToWin = this.skeletonBones.Count;
         this.boneProcessingData = new BoneProcessingData(this.bonePlacementSpeed);
         PopulateBoneNameTransforms();
     }
@@ -44,6 +69,7 @@ public class SkeletonStand : MonoBehaviour, I_Interactable
             return;
         
         AddNewLerpPackageToPkgQueue(bone, BoneCastObj);
+        this.BonesDelivered++;
     }
 
     private void AddNewLerpPackageToPkgQueue(GameObject bone, Bone BoneCastObj)
