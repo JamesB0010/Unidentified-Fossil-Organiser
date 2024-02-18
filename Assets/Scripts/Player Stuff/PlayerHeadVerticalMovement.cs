@@ -38,7 +38,7 @@ public class PlayerHeadVerticalMovement : MonoBehaviour
     /// <param name="rotationAmount">The rotation amount to be subtracted from rotationY</param>
     private void SetRotationYWithinBounds(float rotationAmount)
     {
-        this.rotationY -= rotationAmount * Time.deltaTime;
+        this.rotationY -= rotationAmount;
 
         // Clamp rotationX to the specified range
         this.rotationY = Mathf.Clamp(rotationY, minYRotation, maxYRotation);

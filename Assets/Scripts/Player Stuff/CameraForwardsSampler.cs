@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UFO_PickupStuff;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Serialization;
@@ -18,6 +19,7 @@ namespace UFO_PlayerStuff
         #region Attributes
         private UnityEngine.Camera camera;
         private bool pickupableObjectInRange = false;
+        private bool interactableObjectInRange = false;
 
         //Events
         //You can add your own listeners to these events in the unity editor
@@ -25,6 +27,19 @@ namespace UFO_PlayerStuff
 
         [SerializeField] private UnityEvent PickupableObjectOutOfRangeUnityEvent = new UnityEvent();
 
+        [SerializeField] private UnityEvent InteractableObjectInRangeEvent = new UnityEvent();
+
+        [SerializeField] private UnityEvent InteractableObjectOutOfRange = new UnityEvent();
+
+        private GameObject interactableObjectInRangeRef;
+
+        public GameObject InteractableObjectInRangeRef
+        {
+            get
+            {
+                return this.interactableObjectInRangeRef;
+            }
+        }
         
         private GameObject objectInRange;
         public GameObject ObjectInRange
@@ -45,7 +60,7 @@ namespace UFO_PlayerStuff
         {
             camera = gameObject.GetComponent<Camera>();
         }
-        private void FixedUpdate()
+        private void Update()
         {
             AreYouInRangeToPickupAnObject();
         }
@@ -53,6 +68,7 @@ namespace UFO_PlayerStuff
         {
             //setup variables
             this.PickupableObjectInRange = false;
+            this.InteractableObjectInRange = false;
             UnityEngine.RaycastHit hit;
 
             bool raycastCollision =
@@ -60,6 +76,18 @@ namespace UFO_PlayerStuff
 
             if (this.ReadyToPickupObject(hit, raycastCollision))
                 StageObjectPickup(hit);
+
+            int oldLayer;
+            if (this.objectInRange && !this.objectInRange.TryGetComponent(out I_Interactable interactableObject))
+            {
+                oldLayer = this.objectInRange.layer;
+                this.objectInRange.layer = LayerMask.NameToLayer("Ignore Raycast");
+                raycastCollision = 
+                    Physics.Raycast(this.camera.transform.position, this.camera.transform.forward, out hit);
+                this.objectInRange.layer = oldLayer;
+            }
+            if(this.ReadyToInteractWithObject(hit, raycastCollision))
+                StageObjectInteraction(hit);
         }
 
         private bool PickupableObjectInRange
@@ -85,6 +113,24 @@ namespace UFO_PlayerStuff
                 pickupableObjectInRange = value;
             }
         }
+
+        private bool InteractableObjectInRange
+        {
+            set
+            {
+                if (this.interactableObjectInRange == value)
+                    return;
+
+                if (value == true)
+                    this.InteractableObjectInRangeEvent.Invoke();
+                else
+                {
+                    this.InteractableObjectOutOfRange.Invoke();
+                }
+
+                this.interactableObjectInRange = value;
+            }
+        }
         private void DispachObjectInRangeEvent()
         {
             this.PickupableObjectInRangeUnityEvent.Invoke();
@@ -98,7 +144,21 @@ namespace UFO_PlayerStuff
             if (!hit.rigidbody)
                 return false;
 
-            if (!hit.rigidbody.gameObject is UFO_PickupStuff.I_Pickupable)
+            if (!hit.rigidbody.gameObject.TryGetComponent(out UFO_PickupStuff.I_Pickupable pickupable))
+                return false;
+
+            if (hit.rigidbody.gameObject.TryGetComponent(out Bone bone) && bone.IsEnabled == false)
+                return false;
+
+            return true;
+        }
+
+        private bool ReadyToInteractWithObject(RaycastHit hit, bool raycastCollision)
+        {
+            if (!raycastCollision)
+                return false;
+
+            if (!hit.collider.gameObject.TryGetComponent(out I_Interactable interactable))
                 return false;
 
             return true;
@@ -114,6 +174,18 @@ namespace UFO_PlayerStuff
             this.PickupableObjectInRange = true;
         }
 
+
+        private void StageObjectInteraction(RaycastHit hit)
+        {
+            this.interactableObjectInRangeRef = hit.collider.gameObject;
+            this.InteractableObjectInRange = true;
+        }
+
+        private void checkIfInteractableObjectIsOtherSideOfPickedUpObject(RaycastHit hit)
+        {
+            //find the point where the raycast exited the mesh
+            
+        }
     }
 }
 
