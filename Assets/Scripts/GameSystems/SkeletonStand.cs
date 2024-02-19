@@ -95,6 +95,5 @@ public class SkeletonStand : MonoBehaviour, I_Interactable
     private void Update()
     {
         this.boneProcessingData.LerpPackageProcessor.ProcessLerpPackageQueue(boneProcessingData.processedPackageFinalizationCallback);
-        this.boneProcessingData.LerpPackageProcessor.DequeueCompletedPackages();
     }
 }

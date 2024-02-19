@@ -33,6 +33,8 @@ class LerpPackageProcessor <QueueType>
         {
             this.ProcessPackage(pkg, packageProcessedCallBack);
         }
+        
+        this.DequeueCompletedPackages();
     }
 
     public void ProcessLerpPackageQueue()
@@ -90,7 +92,7 @@ class LerpPackageProcessor <QueueType>
         this.completedPackageCount = 0;
     }
 
-    public void DequeueCompletedPackages()
+    private void DequeueCompletedPackages()
     {
         for (int i = 0; i < this.completedPackageCount; i++)
         {
