@@ -617,7 +617,7 @@ GameObject:
   - component: {fileID: 291724616}
   - component: {fileID: 291724615}
   - component: {fileID: 291724614}
-  - component: {fileID: 291724613}
+  - component: {fileID: 291724618}
   m_Layer: 0
   m_Name: Box
   m_TagString: Untagged
@@ -640,18 +640,6 @@ Transform:
   m_Father: {fileID: 2014182842}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &291724613
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 291724611}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f121b516bdf481840a5e9cfdd4a09107, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &291724614
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -750,6 +738,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 291724611}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &291724618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 291724611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fba2f14d5b178614d8cb19eb6db90eb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &417475657
 GameObject:
   m_ObjectHideFlags: 0
