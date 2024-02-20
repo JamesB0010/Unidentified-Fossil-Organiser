@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 3932452907641742351}
   - component: {fileID: 5903762110583978624}
   - component: {fileID: 7889186568527396230}
+  - component: {fileID: 7430668484771239317}
   m_Layer: 6
   m_Name: Bone
   m_TagString: Untagged
@@ -101,7 +102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8ee528756d2d0244b211b447b8e3602, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SkeletonStandBoneName: R_Arm
+  SkeletonStandBoneName: L_Foot
 --- !u!54 &4771115396082134003
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5102,3 +5103,16 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &7430668484771239317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5567800274400738817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25bce2d471bce1b4a8fad901cf01dbc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boneFact: 
