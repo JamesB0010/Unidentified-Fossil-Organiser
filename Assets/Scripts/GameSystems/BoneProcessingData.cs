@@ -4,14 +4,14 @@ using UnityEngine;
 using UFO_PickupStuff;
 struct BoneProcessingData
 {
-    public Queue<ObjectLerpPackage<Bone>> lerpPackageQueue;
+    public List<ObjectLerpPackage<Bone>> lerpPackageQueue;
     public LerpPackageProcessor<Bone> LerpPackageProcessor;
     public LerpPackageProcessor<Bone>.PackageProcessed processedPackageFinalizationCallback;
     
     public BoneProcessingData(float bonePlacementSpeed)
     {
         //create a new queue to hold the packages
-        this.lerpPackageQueue = new Queue<ObjectLerpPackage<Bone>>();
+        this.lerpPackageQueue = new List<ObjectLerpPackage<Bone>>();
         
         //create a new processor to process the queue
         this.LerpPackageProcessor =

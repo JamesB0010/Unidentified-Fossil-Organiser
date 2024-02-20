@@ -9,8 +9,8 @@ class LerpPackageProcessor <QueueType>
     public delegate void PackageProcessed(ObjectLerpPackage<QueueType> pkg);
     
     //queue data
-    private Queue<ObjectLerpPackage<QueueType>> packageQueue;
-    private int completedPackageCount = 0;
+    private List<ObjectLerpPackage<QueueType>> packageList;
+    private List<int> completedPackageIndexes = new List<int>();
     
     //lerping data
     private const float moveTowardsTarget = 1.0f;
@@ -20,48 +20,47 @@ class LerpPackageProcessor <QueueType>
 
     #region Methods
     
-    public LerpPackageProcessor(float lerpSpeed, ref Queue<ObjectLerpPackage<QueueType>> queue)
+    public LerpPackageProcessor(float lerpSpeed, ref List<ObjectLerpPackage<QueueType>> list)
     {
         this.lerpSpeed = lerpSpeed;
-        this.packageQueue = queue;
+        this.packageList = list;
     }
 
     public void ProcessLerpPackageQueue(PackageProcessed packageProcessedCallBack)
     {
-        this.ResetCompletedPackagesCount();
-        foreach (ObjectLerpPackage<QueueType> pkg in this.packageQueue)
+        Debug.Log(this.packageList.Count);
+        this.ResetCompletedPackagesIndexList();
+        for (int i = this.packageList.Count - 1; i >= 0; i--)
         {
-            this.ProcessPackage(pkg, packageProcessedCallBack);
+            this.ProcessPackage(this.packageList[i], packageProcessedCallBack, i);
         }
-        
-        this.DequeueCompletedPackages();
     }
 
     public void ProcessLerpPackageQueue()
     {
-        this.ResetCompletedPackagesCount();
-        foreach (ObjectLerpPackage<QueueType> pkg in this.packageQueue)
+        this.ResetCompletedPackagesIndexList();
+        for (int i = this.packageList.Count - 1; i >= 0; i--)
         {
-            this.ProcessPackage(pkg);
+            this.ProcessPackage(this.packageList[i], i);
         }
     }
 
-    private void ProcessPackage(ObjectLerpPackage<QueueType> pkg, PackageProcessed packageProcessedCallBack)
+    private void ProcessPackage(ObjectLerpPackage<QueueType> pkg, PackageProcessed packageProcessedCallBack, int i)
     {
         LerpPackagePositionRotation(pkg);
 
         if (pkg.current == 1)
         {
-            this.completedPackageCount++;
             packageProcessedCallBack(pkg);
+            this.packageList.RemoveAt(i);
         }
     }
 
-    private void ProcessPackage(ObjectLerpPackage<QueueType> pkg)
+    private void ProcessPackage(ObjectLerpPackage<QueueType> pkg, int i)
     {
         LerpPackagePositionRotation(pkg);
         if (pkg.current == 1)
-            this.completedPackageCount++;
+            this.packageList.RemoveAt(i);
     }
 
     private void LerpPackagePositionRotation(ObjectLerpPackage<QueueType> pkg)
@@ -87,18 +86,11 @@ class LerpPackageProcessor <QueueType>
         pkg.objectToLerp.transform.rotation = Quaternion.Euler(lerpedRotation);
     }
 
-    private void ResetCompletedPackagesCount()
+    private void ResetCompletedPackagesIndexList()
     {
-        this.completedPackageCount = 0;
+        this.completedPackageIndexes.Clear();
     }
-
-    private void DequeueCompletedPackages()
-    {
-        for (int i = 0; i < this.completedPackageCount; i++)
-        {
-            this.packageQueue.Dequeue();
-        }
-    }
+    
     
     #endregion
 }
