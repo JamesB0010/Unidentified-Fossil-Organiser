@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using LerpData;
 using UFO_PickupStuff;
 using UFO_PlayerStuff;
 using UnityEngine;
@@ -75,25 +76,25 @@ public class SkeletonStand : MonoBehaviour, I_Interactable
     private void AddNewLerpPackageToPkgQueue(GameObject bone, Bone BoneCastObj)
     {
         //define a start position and rotation
-        ObjectLerpPackage<Bone>.PositionRotationPair start = new ObjectLerpPackage<Bone>.PositionRotationPair
+        PositionRotationPair start = new PositionRotationPair
         {
             position = bone.transform.position,
             rotation = bone.transform.rotation.eulerAngles
         };
 
         //define a end/target position and rotation
-        ObjectLerpPackage<Bone>.PositionRotationPair end = new ObjectLerpPackage<Bone>.PositionRotationPair()
+        PositionRotationPair end = new PositionRotationPair()
         {
             position = boneNameTransforms[BoneCastObj.GetSkeletonStandBoneName()].position,
             rotation = boneNameTransforms[BoneCastObj.GetSkeletonStandBoneName()].rotation.eulerAngles
         };
         
         //finally create a new LerpPackage and add it to the queue
-        this.boneProcessingData.lerpPackageQueue.Add(new ObjectLerpPackage<Bone>(bone, start, end));
+        this.boneProcessingData.LerpPackageProcessor.AddPackage(new ObjectLerpPackage<Bone>(bone, start, end));
     }
 
     private void Update()
     {
-        this.boneProcessingData.LerpPackageProcessor.ProcessLerpPackageQueue(boneProcessingData.processedPackageFinalizationCallback);
+        this.boneProcessingData.LerpPackageProcessor.ProcessLerpPackageList(boneProcessingData.processedPackageFinalizationCallback);
     }
 }
