@@ -72,9 +72,10 @@ namespace UFO_PlayerStuff
             this.PickupableObjectInRange = false;
             this.InteractableObjectInRange = false;
             UnityEngine.RaycastHit hit;
+            int layerMaskToIgnore = ~(1 << LayerMask.NameToLayer("DeskPhysicsConstraint"));
 
             bool raycastCollision =
-                Physics.Raycast(this.camera.transform.position, this.camera.transform.forward, out hit);
+                Physics.Raycast(this.camera.transform.position, this.camera.transform.forward, out hit, 3, layerMaskToIgnore);
 
             if (this.ReadyToPickupObject(hit, raycastCollision))
                 StageObjectPickup(hit);
@@ -85,7 +86,7 @@ namespace UFO_PlayerStuff
                 oldLayer = this.objectInRange.layer;
                 this.objectInRange.layer = LayerMask.NameToLayer("Ignore Raycast");
                 raycastCollision = 
-                    Physics.Raycast(this.camera.transform.position, this.camera.transform.forward, out hit);
+                    Physics.Raycast(this.camera.transform.position, this.camera.transform.forward, out hit, 3, layerMaskToIgnore);
                 this.objectInRange.layer = oldLayer;
             }
             if(this.ReadyToInteractWithObject(hit, raycastCollision))
