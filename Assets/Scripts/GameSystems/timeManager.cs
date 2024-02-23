@@ -47,7 +47,7 @@ public class timeManager : MonoBehaviour
     {
         if(isGameOver)
         {
-            PlayerPrefs.SetFloat("playerTime", currentPlayTime);
+            PlayerPrefs.SetFloat("playerTime", currentPlayTime);  
         }
         else if (PlayerPrefs.GetFloat("playerTime") == 0 || PlayerPrefs.GetFloat("playerTime") == null)
         {
