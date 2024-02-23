@@ -100,11 +100,11 @@ public class SkeletonStand : MonoBehaviour, I_Interactable
         };
         
         //finally create a new LerpPackage and add it to the queue
-        this.boneProcessingData.LerpPackageProcessor.AddPackage(new ObjectLerpPackage<Bone>(bone, start, end));
+        this.boneProcessingData.LerpPackageProcessor.AddPackage(new ObjectLerpPackage<Bone>(bone, start, end, this.boneProcessingData.processedPackageFinalizationCallback));
     }
 
     private void Update()
     {
-        this.boneProcessingData.LerpPackageProcessor.ProcessLerpPackageList(boneProcessingData.processedPackageFinalizationCallback);
+        this.boneProcessingData.LerpPackageProcessor.ProcessLerpPackageList();
     }
 }
