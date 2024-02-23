@@ -1754,6 +1754,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2699008794911195587, guid: 10d528a746563744ea15a9c7f2073026, type: 3}
+      propertyPath: m_Lightmapping
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3518219730397993918, guid: 10d528a746563744ea15a9c7f2073026, type: 3}
       propertyPath: m_Name
       value: CeilingLight Variant (12)
@@ -1761,18 +1765,6 @@ PrefabInstance:
     - target: {fileID: 4294440186518225156, guid: 10d528a746563744ea15a9c7f2073026, type: 3}
       propertyPath: m_RootOrder
       value: 80
-      objectReference: {fileID: 0}
-    - target: {fileID: 4294440186518225156, guid: 10d528a746563744ea15a9c7f2073026, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 4.55739
-      objectReference: {fileID: 0}
-    - target: {fileID: 4294440186518225156, guid: 10d528a746563744ea15a9c7f2073026, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 4.55739
-      objectReference: {fileID: 0}
-    - target: {fileID: 4294440186518225156, guid: 10d528a746563744ea15a9c7f2073026, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 4.55739
       objectReference: {fileID: 0}
     - target: {fileID: 4294440186518225156, guid: 10d528a746563744ea15a9c7f2073026, type: 3}
       propertyPath: m_LocalPosition.x
