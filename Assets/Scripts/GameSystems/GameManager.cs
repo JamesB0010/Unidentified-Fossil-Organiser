@@ -8,5 +8,6 @@ public class GameManager : MonoBehaviour
     public void AllBonesCollected()
     {
         SceneManager.LoadSceneAsync(2, LoadSceneMode.Single);
+    
     }
 }
