@@ -16,8 +16,8 @@ TagManager:
   - Bone
   - Player
   - DeskPhysicsConstraint
-  - 
-  - 
+  - Environment
+  - Desk
   - 
   - 
   - 
