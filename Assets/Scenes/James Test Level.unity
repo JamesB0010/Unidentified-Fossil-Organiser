@@ -186,11 +186,6 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 89757165}
-    - target: {fileID: 5567800274400738817, guid: ba47c02c8af03c14d82ab92d5dabda34,
-        type: 3}
-      propertyPath: m_Name
-      value: Right Shoulder
-      objectReference: {fileID: 0}
     - target: {fileID: 3932452907641742351, guid: ba47c02c8af03c14d82ab92d5dabda34,
         type: 3}
       propertyPath: m_Enabled
@@ -200,6 +195,11 @@ PrefabInstance:
         type: 3}
       propertyPath: SkeletonStandBoneName
       value: L_ShoulderBlade
+      objectReference: {fileID: 0}
+    - target: {fileID: 5567800274400738817, guid: ba47c02c8af03c14d82ab92d5dabda34,
+        type: 3}
+      propertyPath: m_Name
+      value: Right Shoulder
       objectReference: {fileID: 0}
     - target: {fileID: 5567800274400738817, guid: ba47c02c8af03c14d82ab92d5dabda34,
         type: 3}
@@ -223,6 +223,37 @@ PrefabInstance:
           guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}, insertIndex: -1, addedObject: {
           fileID: 1009934191}}]
   m_SourcePrefab: {fileID: 100100000, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
+--- !u!1 &24197891
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 24197892}
+  m_Layer: 0
+  m_Name: Spawn
+  m_TagString: Untagged
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &24197892
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 24197891}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -11.88, y: 10.34, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 604819119}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &62736158 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5567800274400738817, guid: ba47c02c8af03c14d82ab92d5dabda34,
@@ -1046,6 +1077,7 @@ GameObject:
   m_Component:
   - component: {fileID: 252070142}
   - component: {fileID: 252070141}
+  - component: {fileID: 252070143}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1078,8 +1110,20 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &252070143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 252070140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf40d8c89a5aa0b4f9806b16e570c44a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &266526984 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 848883091274030484, guid: ba47c02c8af03c14d82ab92d5dabda34,
@@ -1695,11 +1739,6 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 867187465}
-    - target: {fileID: 5567800274400738817, guid: ba47c02c8af03c14d82ab92d5dabda34,
-        type: 3}
-      propertyPath: m_Name
-      value: Right Foot
-      objectReference: {fileID: 0}
     - target: {fileID: 3932452907641742351, guid: ba47c02c8af03c14d82ab92d5dabda34,
         type: 3}
       propertyPath: m_Enabled
@@ -1709,6 +1748,11 @@ PrefabInstance:
         type: 3}
       propertyPath: SkeletonStandBoneName
       value: R_Foot
+      objectReference: {fileID: 0}
+    - target: {fileID: 5567800274400738817, guid: ba47c02c8af03c14d82ab92d5dabda34,
+        type: 3}
+      propertyPath: m_Name
+      value: Right Foot
       objectReference: {fileID: 0}
     - target: {fileID: 5567800274400738817, guid: ba47c02c8af03c14d82ab92d5dabda34,
         type: 3}
@@ -1806,15 +1850,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5275773004055656219, guid: ee8aea4e58101e44e81966d4b81fc932,
         type: 3}
-    - target: {fileID: 5567800274400738817, guid: ba47c02c8af03c14d82ab92d5dabda34,
-        type: 3}
-      propertyPath: m_Name
-      value: Left Leg
-      objectReference: {fileID: 0}
     - target: {fileID: 4352509164021170822, guid: ba47c02c8af03c14d82ab92d5dabda34,
         type: 3}
       propertyPath: SkeletonStandBoneName
       value: L_Leg
+      objectReference: {fileID: 0}
+    - target: {fileID: 5567800274400738817, guid: ba47c02c8af03c14d82ab92d5dabda34,
+        type: 3}
+      propertyPath: m_Name
+      value: Left Leg
       objectReference: {fileID: 0}
     - target: {fileID: 5567800274400738817, guid: ba47c02c8af03c14d82ab92d5dabda34,
         type: 3}
@@ -2115,6 +2159,105 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boneFact: 
+--- !u!1 &604819118
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 604819119}
+  - component: {fileID: 604819120}
+  m_Layer: 0
+  m_Name: SpawnTest
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &604819119
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 604819118}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 24197892}
+  - {fileID: 1217730300}
+  - {fileID: 628188610}
+  - {fileID: 1265925971}
+  - {fileID: 1503793636}
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &604819120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 604819118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60993b16bc511844897ded22c7b0ec15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bones:
+  - {fileID: 1653562919}
+  - {fileID: 257808468}
+  - {fileID: 923419334}
+  - {fileID: 1583774627}
+  - {fileID: 955951280}
+  - {fileID: 594764688}
+  - {fileID: 62736158}
+  - {fileID: 521088690}
+  - {fileID: 1228559619}
+  - {fileID: 2130432691}
+  - {fileID: 1758370841}
+  - {fileID: 732936599}
+  spawnLocs:
+  - {fileID: 24197892}
+  - {fileID: 1217730300}
+  - {fileID: 628188610}
+  - {fileID: 1265925971}
+  - {fileID: 1503793636}
+--- !u!1 &628188609
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 628188610}
+  m_Layer: 0
+  m_Name: Spawn (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &628188610
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 628188609}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 7.38, z: -9.92}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 604819119}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -2291,11 +2434,6 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 120814912}
-    - target: {fileID: 5567800274400738817, guid: ba47c02c8af03c14d82ab92d5dabda34,
-        type: 3}
-      propertyPath: m_Name
-      value: Spine
-      objectReference: {fileID: 0}
     - target: {fileID: 3932452907641742351, guid: ba47c02c8af03c14d82ab92d5dabda34,
         type: 3}
       propertyPath: m_Enabled
@@ -2304,6 +2442,11 @@ PrefabInstance:
     - target: {fileID: 4352509164021170822, guid: ba47c02c8af03c14d82ab92d5dabda34,
         type: 3}
       propertyPath: SkeletonStandBoneName
+      value: Spine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5567800274400738817, guid: ba47c02c8af03c14d82ab92d5dabda34,
+        type: 3}
+      propertyPath: m_Name
       value: Spine
       objectReference: {fileID: 0}
     - target: {fileID: 5567800274400738817, guid: ba47c02c8af03c14d82ab92d5dabda34,
@@ -3229,11 +3372,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6572160183105649961, guid: e3a7615e4a1dc16479bba5fc160d131c,
         type: 3}
-    - target: {fileID: 5567800274400738817, guid: ba47c02c8af03c14d82ab92d5dabda34,
-        type: 3}
-      propertyPath: m_Name
-      value: Ribcage
-      objectReference: {fileID: 0}
     - target: {fileID: 3932452907641742351, guid: ba47c02c8af03c14d82ab92d5dabda34,
         type: 3}
       propertyPath: m_Enabled
@@ -3242,6 +3380,11 @@ PrefabInstance:
     - target: {fileID: 4352509164021170822, guid: ba47c02c8af03c14d82ab92d5dabda34,
         type: 3}
       propertyPath: SkeletonStandBoneName
+      value: Ribcage
+      objectReference: {fileID: 0}
+    - target: {fileID: 5567800274400738817, guid: ba47c02c8af03c14d82ab92d5dabda34,
+        type: 3}
+      propertyPath: m_Name
       value: Ribcage
       objectReference: {fileID: 0}
     - target: {fileID: 5567800274400738817, guid: ba47c02c8af03c14d82ab92d5dabda34,
@@ -3273,6 +3416,37 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 468216398}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1217730299
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1217730300}
+  m_Layer: 0
+  m_Name: Spawn (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1217730300
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1217730299}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 10.91, y: 11.87, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 604819119}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1228559619 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5567800274400738817, guid: ba47c02c8af03c14d82ab92d5dabda34,
@@ -3508,6 +3682,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pressEToPickup: {fileID: 478977191}
+--- !u!1 &1265925970
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1265925971}
+  m_Layer: 0
+  m_Name: Spawn (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1265925971
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1265925970}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 13.03, y: 9.2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 604819119}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &1280590982
 Mesh:
   m_ObjectHideFlags: 0
@@ -3939,14 +4144,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5275773004055656219, guid: ee8aea4e58101e44e81966d4b81fc932,
         type: 3}
-    - target: {fileID: 5567800274400738817, guid: ba47c02c8af03c14d82ab92d5dabda34,
-        type: 3}
-      propertyPath: m_Name
-      value: Pelvis
-      objectReference: {fileID: 0}
     - target: {fileID: 4352509164021170822, guid: ba47c02c8af03c14d82ab92d5dabda34,
         type: 3}
       propertyPath: SkeletonStandBoneName
+      value: Pelvis
+      objectReference: {fileID: 0}
+    - target: {fileID: 5567800274400738817, guid: ba47c02c8af03c14d82ab92d5dabda34,
+        type: 3}
+      propertyPath: m_Name
       value: Pelvis
       objectReference: {fileID: 0}
     - target: {fileID: 5567800274400738817, guid: ba47c02c8af03c14d82ab92d5dabda34,
@@ -4034,11 +4239,6 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 337923957}
-    - target: {fileID: 5567800274400738817, guid: ba47c02c8af03c14d82ab92d5dabda34,
-        type: 3}
-      propertyPath: m_Name
-      value: Skull
-      objectReference: {fileID: 0}
     - target: {fileID: 3932452907641742351, guid: ba47c02c8af03c14d82ab92d5dabda34,
         type: 3}
       propertyPath: m_Enabled
@@ -4047,6 +4247,11 @@ PrefabInstance:
     - target: {fileID: 4352509164021170822, guid: ba47c02c8af03c14d82ab92d5dabda34,
         type: 3}
       propertyPath: SkeletonStandBoneName
+      value: Skull
+      objectReference: {fileID: 0}
+    - target: {fileID: 5567800274400738817, guid: ba47c02c8af03c14d82ab92d5dabda34,
+        type: 3}
+      propertyPath: m_Name
       value: Skull
       objectReference: {fileID: 0}
     - target: {fileID: 5567800274400738817, guid: ba47c02c8af03c14d82ab92d5dabda34,
@@ -4071,6 +4276,37 @@ PrefabInstance:
           guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}, insertIndex: -1, addedObject: {
           fileID: 1415806102}}]
   m_SourcePrefab: {fileID: 100100000, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
+--- !u!1 &1503793635
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1503793636}
+  m_Layer: 0
+  m_Name: Spawn (4)
+  m_TagString: Untagged
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1503793636
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1503793635}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -11.89, y: 9.69, z: -5.3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 604819119}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1583774627 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5567800274400738817, guid: ba47c02c8af03c14d82ab92d5dabda34,
@@ -4255,25 +4491,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!1 &1653562919 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5567800274400738817, guid: ba47c02c8af03c14d82ab92d5dabda34,
-    type: 3}
-  m_PrefabInstance: {fileID: 2132838109}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1653562928
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1653562919}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25bce2d471bce1b4a8fad901cf01dbc3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  boneFact: 
 --- !u!1001 &1682257740
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4337,11 +4554,6 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 154804803}
-    - target: {fileID: 5567800274400738817, guid: ba47c02c8af03c14d82ab92d5dabda34,
-        type: 3}
-      propertyPath: m_Name
-      value: ' Left Arm'
-      objectReference: {fileID: 0}
     - target: {fileID: 3932452907641742351, guid: ba47c02c8af03c14d82ab92d5dabda34,
         type: 3}
       propertyPath: m_Enabled
@@ -4351,6 +4563,11 @@ PrefabInstance:
         type: 3}
       propertyPath: SkeletonStandBoneName
       value: L_Arm
+      objectReference: {fileID: 0}
+    - target: {fileID: 5567800274400738817, guid: ba47c02c8af03c14d82ab92d5dabda34,
+        type: 3}
+      propertyPath: m_Name
+      value: ' Left Arm'
       objectReference: {fileID: 0}
     - target: {fileID: 5567800274400738817, guid: ba47c02c8af03c14d82ab92d5dabda34,
         type: 3}
@@ -4802,11 +5019,6 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1597026038}
-    - target: {fileID: 5567800274400738817, guid: ba47c02c8af03c14d82ab92d5dabda34,
-        type: 3}
-      propertyPath: m_Name
-      value: Left Shoulder
-      objectReference: {fileID: 0}
     - target: {fileID: 3932452907641742351, guid: ba47c02c8af03c14d82ab92d5dabda34,
         type: 3}
       propertyPath: m_Enabled
@@ -4816,6 +5028,11 @@ PrefabInstance:
         type: 3}
       propertyPath: SkeletonStandBoneName
       value: R_ShoulderBlade
+      objectReference: {fileID: 0}
+    - target: {fileID: 5567800274400738817, guid: ba47c02c8af03c14d82ab92d5dabda34,
+        type: 3}
+      propertyPath: m_Name
+      value: Left Shoulder
       objectReference: {fileID: 0}
     - target: {fileID: 5567800274400738817, guid: ba47c02c8af03c14d82ab92d5dabda34,
         type: 3}
@@ -4892,6 +5109,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 848883091274030484, guid: ba47c02c8af03c14d82ab92d5dabda34,
         type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 848883091274030484, guid: ba47c02c8af03c14d82ab92d5dabda34,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: 15.99
       objectReference: {fileID: 0}
@@ -4945,36 +5167,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 870583317}
-    - target: {fileID: 3932452907641742351, guid: ba47c02c8af03c14d82ab92d5dabda34,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4352509164021170822, guid: ba47c02c8af03c14d82ab92d5dabda34,
-        type: 3}
-      propertyPath: boneMesh
-      value: 
-      objectReference: {fileID: 5275773004055656219, guid: ee8aea4e58101e44e81966d4b81fc932,
-        type: 3}
     - target: {fileID: 5567800274400738817, guid: ba47c02c8af03c14d82ab92d5dabda34,
         type: 3}
       propertyPath: m_Name
       value: Left Foot
-      objectReference: {fileID: 0}
-    - target: {fileID: 4352509164021170822, guid: ba47c02c8af03c14d82ab92d5dabda34,
-        type: 3}
-      propertyPath: SkeletonStandBoneName
-      value: L_Foot
-      objectReference: {fileID: 0}
-    - target: {fileID: 5567800274400738817, guid: ba47c02c8af03c14d82ab92d5dabda34,
-        type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 5903762110583978624, guid: ba47c02c8af03c14d82ab92d5dabda34,
-        type: 3}
-      propertyPath: EmissionModule.enabled
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7813863751244188247, guid: ba47c02c8af03c14d82ab92d5dabda34,
         type: 3}
@@ -4984,9 +5180,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: [{targetCorrespondingSourceObject: {fileID: 5567800274400738817,
-          guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}, insertIndex: -1, addedObject: {
-          fileID: 1653562928}}]
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
 --- !u!1001 &3245723735471418064
 PrefabInstance:
@@ -5004,7 +5198,7 @@ PrefabInstance:
     - target: {fileID: 3618004095178656238, guid: a1d3d3996ea2afa409484dac43989334,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3618004095178656238, guid: a1d3d3996ea2afa409484dac43989334,
         type: 3}
@@ -5058,9 +5252,49 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6261862833646433151, guid: a1d3d3996ea2afa409484dac43989334,
         type: 3}
+      propertyPath: allBonesCollected.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6261862833646433151, guid: a1d3d3996ea2afa409484dac43989334,
+        type: 3}
+      propertyPath: allBonesCollected.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6261862833646433151, guid: a1d3d3996ea2afa409484dac43989334,
+        type: 3}
       propertyPath: allBonesCollected.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 252070141}
+    - target: {fileID: 6261862833646433151, guid: a1d3d3996ea2afa409484dac43989334,
+        type: 3}
+      propertyPath: allBonesCollected.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 252070143}
+    - target: {fileID: 6261862833646433151, guid: a1d3d3996ea2afa409484dac43989334,
+        type: 3}
+      propertyPath: allBonesCollected.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6261862833646433151, guid: a1d3d3996ea2afa409484dac43989334,
+        type: 3}
+      propertyPath: allBonesCollected.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: set_IsGameOver
+      objectReference: {fileID: 0}
+    - target: {fileID: 6261862833646433151, guid: a1d3d3996ea2afa409484dac43989334,
+        type: 3}
+      propertyPath: allBonesCollected.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: timeManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6261862833646433151, guid: a1d3d3996ea2afa409484dac43989334,
+        type: 3}
+      propertyPath: allBonesCollected.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6261862833646433151, guid: a1d3d3996ea2afa409484dac43989334,
+        type: 3}
+      propertyPath: allBonesCollected.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5134,15 +5368,15 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 124184479}
-    - target: {fileID: 5567800274400738817, guid: ba47c02c8af03c14d82ab92d5dabda34,
-        type: 3}
-      propertyPath: m_Name
-      value: Right Leg
-      objectReference: {fileID: 0}
     - target: {fileID: 4352509164021170822, guid: ba47c02c8af03c14d82ab92d5dabda34,
         type: 3}
       propertyPath: SkeletonStandBoneName
       value: R_Leg
+      objectReference: {fileID: 0}
+    - target: {fileID: 5567800274400738817, guid: ba47c02c8af03c14d82ab92d5dabda34,
+        type: 3}
+      propertyPath: m_Name
+      value: Right Leg
       objectReference: {fileID: 0}
     - target: {fileID: 7813863751244188247, guid: ba47c02c8af03c14d82ab92d5dabda34,
         type: 3}
@@ -5287,12 +5521,7 @@ PrefabInstance:
     - target: {fileID: 7143745276558298983, guid: 29420d0ee6d3c744e941638a43d9303a,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7143745276558298983, guid: 29420d0ee6d3c744e941638a43d9303a,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7143745276558298983, guid: 29420d0ee6d3c744e941638a43d9303a,
         type: 3}
