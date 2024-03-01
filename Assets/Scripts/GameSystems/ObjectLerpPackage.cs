@@ -20,6 +20,8 @@ class ObjectLerpPackage <CustomComponent>
 
     public PositionRotationPair start;
     public PositionRotationPair target;
+
+    public LerpPackageProcessor<CustomComponent>.PackageProcessed callback;
     
     public Rigidbody rb;
     
@@ -33,7 +35,7 @@ class ObjectLerpPackage <CustomComponent>
 
     #region Methods
     public ObjectLerpPackage(GameObject objectToLerp, PositionRotationPair start,
-        PositionRotationPair target, float lerpSpeed = 1.0f)
+        PositionRotationPair target, LerpPackageProcessor<CustomComponent>.PackageProcessed callback = null, float lerpSpeed = 1.0f)
     {
         this.objectToLerp = objectToLerp;
         this.start = start;
@@ -41,6 +43,7 @@ class ObjectLerpPackage <CustomComponent>
         this.rb = this.objectToLerp.GetComponent<Rigidbody>();
         this.customComponent = this.objectToLerp.GetComponent<CustomComponent>();
         this.lerpSpeed = lerpSpeed;
+        this.callback = callback;
     }
     #endregion
 }

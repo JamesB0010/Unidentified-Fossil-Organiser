@@ -60,17 +60,27 @@ public class SkeletonStand : MonoBehaviour, I_Interactable
         }
     }
 
-    public void HandleInteraction(CameraForwardsSampler playerCamSampler)
+    public new void HandleInteraction(CameraForwardsSampler playerCamSampler)
     {
-        //Get a reference to the object the player is holding
-        GameObject bone = playerCamSampler.ObjectInRange;
-        
-        //if the player is not holding a bone then return
-        if (!bone.TryGetComponent(out Bone BoneCastObj))
+        if (playerCamSampler.InteractableObjectInRangeRef != this.gameObject)
             return;
-        
-        AddNewLerpPackageToPkgQueue(bone, BoneCastObj);
-        this.BonesDelivered++;
+
+        try
+        {
+            //Get a reference to the object the player is holding
+            GameObject bone = playerCamSampler.ObjectInRange;
+
+            //if the player is not holding a bone then return
+            if (!bone.TryGetComponent(out Bone BoneCastObj))
+                return;
+
+            AddNewLerpPackageToPkgQueue(bone, BoneCastObj);
+            this.BonesDelivered++;
+        }
+        catch (NullReferenceException e)
+        {
+            return;
+        }
     }
 
     private void AddNewLerpPackageToPkgQueue(GameObject bone, Bone BoneCastObj)
@@ -90,11 +100,11 @@ public class SkeletonStand : MonoBehaviour, I_Interactable
         };
         
         //finally create a new LerpPackage and add it to the queue
-        this.boneProcessingData.LerpPackageProcessor.AddPackage(new ObjectLerpPackage<Bone>(bone, start, end));
+        this.boneProcessingData.LerpPackageProcessor.AddPackage(new ObjectLerpPackage<Bone>(bone, start, end, this.boneProcessingData.processedPackageFinalizationCallback));
     }
 
     private void Update()
     {
-        this.boneProcessingData.LerpPackageProcessor.ProcessLerpPackageList(boneProcessingData.processedPackageFinalizationCallback);
+        this.boneProcessingData.LerpPackageProcessor.ProcessLerpPackageList();
     }
 }
