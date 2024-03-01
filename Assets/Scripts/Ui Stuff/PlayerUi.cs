@@ -31,13 +31,27 @@ public class PlayerUi : MonoBehaviour
     public void ReactToInRangeOfPickup()
     {
         if (!this.playerHoldingObject)
+        {
+            pressEToPickup.text = "Press E To Pick up";
             pressEToPickup.enabled = true;
+        }
     }
 
     public void ReactToOutOfRangePickup()
     {
         if(!this.playerHoldingObject)
             pressEToPickup.enabled = false;
+    }
+
+    public void ReactToInRangeOfInteraction()
+    {
+        pressEToPickup.text = "Press E to Interact";
+        pressEToPickup.enabled = true;
+    }
+
+    public void ReactToOutOfRangeOfInteraction()
+    {
+        pressEToPickup.enabled = false;
     }
 }
 

@@ -22,15 +22,6 @@ class LerpPackageProcessor <ListType>
     {
         this.packageList.Add(newPackage);
     }
-    
-
-    public void ProcessLerpPackageList(PackageProcessed packageProcessedCallBack)
-    {
-        for (int i = this.packageList.Count - 1; i >= 0; i--)
-        {
-            this.ProcessPackage(this.packageList[i], packageProcessedCallBack, i);
-        }
-    }
 
     public void ProcessLerpPackageList()
     {
@@ -40,33 +31,20 @@ class LerpPackageProcessor <ListType>
         }
     }
 
-    private void ProcessPackage(ObjectLerpPackage<ListType> pkg, PackageProcessed packageProcessedCallBack, int i)
-    {
-        LerpPackagePositionRotation(pkg);
-
-        RemovePackageAtIndexIfCompleted(pkg, packageProcessedCallBack, i);
-    }
-
 
     private void ProcessPackage(ObjectLerpPackage<ListType> pkg, int i)
     {
         LerpPackagePositionRotation(pkg);
         RemovePackageAtIndexIfCompleted(pkg, i);
     }
-
-
-    private void RemovePackageAtIndexIfCompleted(ObjectLerpPackage<ListType> pkg, PackageProcessed packageProcessedCallBack, int i)
-    {
-        if (pkg.current == 1)
-        {
-            packageProcessedCallBack(pkg);
-            this.packageList.RemoveAt(i);
-        }
-    }
+    
     private void RemovePackageAtIndexIfCompleted(ObjectLerpPackage<ListType> pkg, int i)
     {
         if (pkg.current == 1)
+        {
             this.packageList.RemoveAt(i);
+            pkg.callback(pkg);
+        }
     }
     private void LerpPackagePositionRotation(ObjectLerpPackage<ListType> pkg)
     {
