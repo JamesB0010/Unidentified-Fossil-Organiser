@@ -199,7 +199,8 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 89757165}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7430668484771239317, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -1731,7 +1732,8 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 867187465}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7430668484771239317, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -1819,7 +1821,8 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1280590982}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7430668484771239317, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -2099,7 +2102,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25bce2d471bce1b4a8fad901cf01dbc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boneFact: 
+  boneFact: There are over 100 muscles in your feet
+  aiVoice: {fileID: 8300000, guid: c04e55b8ab0a7404e84df247853963ae, type: 3}
 --- !u!1 &604819118
 GameObject:
   m_ObjectHideFlags: 0
@@ -2310,7 +2314,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25bce2d471bce1b4a8fad901cf01dbc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boneFact: The Arm is the most common broken bone
+  boneFact: The arm is made up of the radius, ulna and humerus
+  aiVoice: {fileID: 8300000, guid: 2c2b6bd0f3f166248bb0313ea58d9505, type: 3}
 --- !u!1001 &758625104
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2387,7 +2392,8 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 120814912}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7430668484771239317, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -2442,9 +2448,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 812257098}
+  - component: {fileID: 812257099}
   m_Layer: 0
   m_Name: Bones
-  m_TagString: Untagged
+  m_TagString: BonesHolder
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2476,6 +2483,102 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &812257099
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 812257097}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!43 &867187465
 Mesh:
   m_ObjectHideFlags: 0
@@ -2987,19 +3090,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5567800274400738817, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
   m_PrefabInstance: {fileID: 1791541282}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &923419343
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 923419334}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25bce2d471bce1b4a8fad901cf01dbc3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  boneFact: The Arm is made of 3 bones (Humerus, Radius, Ulna)
 --- !u!1 &955951280 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5567800274400738817, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
@@ -3023,6 +3113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boneFact: 
+  aiVoice: {fileID: 8300000, guid: 64a4ae8643035d341a0aeaf2d2c5cfd0, type: 3}
 --- !u!4 &1009934182 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 848883091274030484, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
@@ -3041,6 +3132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boneFact: 
+  aiVoice: {fileID: 8300000, guid: 64a4ae8643035d341a0aeaf2d2c5cfd0, type: 3}
 --- !u!1 &1066076094
 GameObject:
   m_ObjectHideFlags: 0
@@ -3303,7 +3395,8 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 6572160183105649961, guid: e3a7615e4a1dc16479bba5fc160d131c, type: 3}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7430668484771239317, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -3967,6 +4060,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boneFact: 
+  aiVoice: {fileID: 8300000, guid: 64a4ae8643035d341a0aeaf2d2c5cfd0, type: 3}
 --- !u!1001 &1440304744
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4047,7 +4141,8 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 421278075}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7430668484771239317, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -4131,7 +4226,8 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 337923957}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7430668484771239317, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -4188,6 +4284,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boneFact: 
+  aiVoice: {fileID: 8300000, guid: 64a4ae8643035d341a0aeaf2d2c5cfd0, type: 3}
 --- !u!43 &1597026038
 Mesh:
   m_ObjectHideFlags: 0
@@ -4425,11 +4522,16 @@ PrefabInstance:
       propertyPath: EmissionModule.enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7430668484771239317, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
+      propertyPath: aiVoice
+      value: 
+      objectReference: {fileID: 8300000, guid: 64a4ae8643035d341a0aeaf2d2c5cfd0, type: 3}
     - target: {fileID: 7813863751244188247, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 154804803}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7430668484771239317, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -4455,24 +4557,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boneFact: 
+  aiVoice: {fileID: 8300000, guid: 64a4ae8643035d341a0aeaf2d2c5cfd0, type: 3}
 --- !u!1 &1758370841 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5567800274400738817, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
   m_PrefabInstance: {fileID: 2023943005}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1758370850
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1758370841}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25bce2d471bce1b4a8fad901cf01dbc3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  boneFact: 
 --- !u!1001 &1791541282
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4533,6 +4623,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Right Arm
       objectReference: {fileID: 0}
+    - target: {fileID: 7430668484771239317, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
+      propertyPath: aiVoice
+      value: 
+      objectReference: {fileID: 8300000, guid: 732a6e5f46e95424bbeb3332d4c7d7e5, type: 3}
+    - target: {fileID: 7430668484771239317, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
+      propertyPath: boneFact
+      value: The Arm is the most common broken bone
+      objectReference: {fileID: 0}
     - target: {fileID: 7813863751244188247, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -4540,10 +4638,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5567800274400738817, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 923419343}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
 --- !u!1 &1899114363
 GameObject:
@@ -4868,6 +4963,10 @@ PrefabInstance:
       propertyPath: CollisionModule.m_Planes.Array.data[0]
       value: 
       objectReference: {fileID: 522977205}
+    - target: {fileID: 7430668484771239317, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
+      propertyPath: aiVoice
+      value: 
+      objectReference: {fileID: 8300000, guid: 64a4ae8643035d341a0aeaf2d2c5cfd0, type: 3}
     - target: {fileID: 7813863751244188247, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -4875,10 +4974,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5567800274400738817, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1758370850}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
 --- !u!4 &2127246029 stripped
 Transform:
@@ -4898,6 +4994,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boneFact: 
+  aiVoice: {fileID: 8300000, guid: 64a4ae8643035d341a0aeaf2d2c5cfd0, type: 3}
 --- !u!1 &2130432691 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5567800274400738817, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
@@ -4916,6 +5013,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boneFact: 
+  aiVoice: {fileID: 8300000, guid: 64a4ae8643035d341a0aeaf2d2c5cfd0, type: 3}
 --- !u!1001 &2132838109
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4975,6 +5073,14 @@ PrefabInstance:
     - target: {fileID: 5567800274400738817, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: m_Name
       value: Left Foot
+      objectReference: {fileID: 0}
+    - target: {fileID: 7430668484771239317, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
+      propertyPath: aiVoice
+      value: 
+      objectReference: {fileID: 8300000, guid: 8f99e8f3d95fa0e4cbb1c5244cd8d2af, type: 3}
+    - target: {fileID: 7430668484771239317, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
+      propertyPath: boneFact
+      value: The foot has 26 bones
       objectReference: {fileID: 0}
     - target: {fileID: 7813863751244188247, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: m_Mesh
@@ -5150,7 +5256,8 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 124184479}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7430668484771239317, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
