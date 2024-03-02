@@ -47,7 +47,7 @@ public class PlayerHeadVerticalMovement : MonoBehaviour
     {
         this.rotationY -= rotationAmount;
 
-        if (this.rotationY <= 50)
+        if (this.rotationY <= 10)
         {
             lookingUp.Invoke();
         }
