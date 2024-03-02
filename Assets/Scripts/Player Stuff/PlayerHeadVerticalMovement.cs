@@ -12,6 +12,8 @@ public class PlayerHeadVerticalMovement : MonoBehaviour
     public float minYRotation = -80f; 
     public float maxYRotation = 80f;
 
+    private bool walking = false;
+
     [SerializeField]
     private UnityEvent lookingUp = new UnityEvent();
 
@@ -56,7 +58,26 @@ public class PlayerHeadVerticalMovement : MonoBehaviour
             lookingDown.Invoke();
         }
 
+        if (this.walking == true)
+        {
+            this.maxYRotation = 73.0f;
+        }
+        else
+        {
+            this.maxYRotation = 80.0f;
+        }
         // Clamp rotationX to the specified range
         this.rotationY = Mathf.Clamp(rotationY, minYRotation, maxYRotation);
     }
+
+    public void ReactStartWalking()
+    {
+        this.walking = true;
+    }
+
+    public void ReactStopWalking()
+    {
+        this.walking = false;
+    }
+    
 }
