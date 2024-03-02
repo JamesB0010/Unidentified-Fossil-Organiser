@@ -19,7 +19,7 @@ namespace UFO_UI
 
             Debug.Log(InitialsInput.text);
 
-            if(initials.Length < 3 && initials != null && initials != "")
+            if (initials.Length < 3 && initials != null && initials != "" || initials == "ResetLeaderboard")
             {
                 PlayerPrefs.SetString("PlayerCurrentName", initials);
 

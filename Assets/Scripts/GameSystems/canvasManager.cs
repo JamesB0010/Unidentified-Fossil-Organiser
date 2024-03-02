@@ -13,11 +13,18 @@ public class canvasManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         if (SceneManager.GetActiveScene().name == "EndScreen")
         {
-            finalScoreText.text = "Congratutions " + PlayerPrefs.GetString("PlayerCurrentName") + "! You succesfully fixed the skeleton in " + PlayerPrefs.GetFloat("playerTime").ToString("F") + " seconds";
-
-            SaveLeaderBoard();
+            if (PlayerPrefs.GetString("PlayerCurrentName") == "ResetLeaderboard")
+            {
+                PlayerPrefs.DeleteAll();
+            }
+            else
+            {
+                finalScoreText.text = "Congratutions " + PlayerPrefs.GetString("PlayerCurrentName") + "! You succesfully fixed the skeleton in " + PlayerPrefs.GetFloat("playerTime").ToString("F") + " seconds";
+                SaveLeaderBoard();
+            }
         }
     }
 
@@ -30,11 +37,11 @@ public class canvasManager : MonoBehaviour
 
     private void LoadLeaderBoard()
     {
-        string p1Stats = PlayerPrefs.GetString("P1Stats", "JD, 65.62");
-        string p2Stats = PlayerPrefs.GetString("P2Stats", "TM, 32.56");
-        string p3Stats = PlayerPrefs.GetString("P3Stats", "JB, 55.32");
-        string p4Stats = PlayerPrefs.GetString("P4Stats", "JT, 47.52");
-        string p5Stats = PlayerPrefs.GetString("P5Stats", "JF, 25.52");
+        string p1Stats = PlayerPrefs.GetString("P1Stats", "XX, 999.99");
+        string p2Stats = PlayerPrefs.GetString("P2Stats", "XX, 999.99");
+        string p3Stats = PlayerPrefs.GetString("P3Stats", "XX, 999.99");
+        string p4Stats = PlayerPrefs.GetString("P4Stats", "XX, 999.99");
+        string p5Stats = PlayerPrefs.GetString("P5Stats", "XX, 999.99");
 
         string[] inputStrings = {p1Stats, p2Stats, p3Stats, p4Stats, p5Stats};
         List<string> sortedScores = SortScores(inputStrings);
