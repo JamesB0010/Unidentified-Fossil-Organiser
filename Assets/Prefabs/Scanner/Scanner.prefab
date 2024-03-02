@@ -35,7 +35,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -92.7, y: 2.3724}
+  m_AnchoredPosition: {x: -88.5, y: 2.3724}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5645655199039222148
@@ -361,6 +361,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxRed: -92.7
   MaxGreen: 92.7
+  sensitivityMin: 1
+  sensitivityMax: 25
+  gradientTransform: {fileID: 7701276779669420307}
 --- !u!1 &6508336097753804538
 GameObject:
   m_ObjectHideFlags: 0
@@ -632,6 +635,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 557f43a851bb4d84b9266175c07803ee, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: db735133a649aa249ac4958f3fdba7e2, type: 2}
     - target: {fileID: -7511558181221131132, guid: 557f43a851bb4d84b9266175c07803ee, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
