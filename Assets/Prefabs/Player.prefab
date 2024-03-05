@@ -434,6 +434,38 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!1 &1475240561442334465
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8283121026530727890}
+  m_Layer: 0
+  m_Name: GravGun
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8283121026530727890
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1475240561442334465}
+  m_LocalRotation: {x: 0.16573916, y: -0.6575548, z: -0.7289174, w: 0.09397669}
+  m_LocalPosition: {x: -1.9354, y: 0.8388, z: 0.1615}
+  m_LocalScale: {x: 0.026680531, y: 0.026680535, z: 0.02668053}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 6532348615815472723}
+  m_Father: {fileID: 4127326609936354554}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3351197030778455268
 GameObject:
   m_ObjectHideFlags: 0
@@ -2443,7 +2475,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 39ef42d5b6535cc4f9932307cf07bae0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8283121026530727890}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39ef42d5b6535cc4f9932307cf07bae0, type: 3}
 --- !u!4 &4127326609936354554 stripped
@@ -2536,4 +2571,86 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 7238580090415739303, guid: c30c0aa6770dd884287d158c54af20ad, type: 3}
   m_PrefabInstance: {fileID: 5736323672569002362}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &6714067741131620792
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 8283121026530727890}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 8bb042129fce67d40827fcf67e0bb81d, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8bb042129fce67d40827fcf67e0bb81d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 69.063995
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8bb042129fce67d40827fcf67e0bb81d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 69.063995
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8bb042129fce67d40827fcf67e0bb81d, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 69.063995
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8bb042129fce67d40827fcf67e0bb81d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 9.189184
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8bb042129fce67d40827fcf67e0bb81d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5.2405243
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8bb042129fce67d40827fcf67e0bb81d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.7111163
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8bb042129fce67d40827fcf67e0bb81d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.46972245
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8bb042129fce67d40827fcf67e0bb81d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.3553037
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8bb042129fce67d40827fcf67e0bb81d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.48753583
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8bb042129fce67d40827fcf67e0bb81d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.6445378
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8bb042129fce67d40827fcf67e0bb81d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -74.209
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8bb042129fce67d40827fcf67e0bb81d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8bb042129fce67d40827fcf67e0bb81d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -107.833
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8bb042129fce67d40827fcf67e0bb81d, type: 3}
+      propertyPath: m_Name
+      value: GravityGun
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8bb042129fce67d40827fcf67e0bb81d, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8bb042129fce67d40827fcf67e0bb81d, type: 3}
+--- !u!4 &6532348615815472723 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8bb042129fce67d40827fcf67e0bb81d, type: 3}
+  m_PrefabInstance: {fileID: 6714067741131620792}
   m_PrefabAsset: {fileID: 0}
