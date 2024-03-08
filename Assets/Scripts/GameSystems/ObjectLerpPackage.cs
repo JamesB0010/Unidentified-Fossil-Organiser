@@ -54,7 +54,7 @@ class FloatLerpPackage<CustomComponent>: ObjectLerpPackage<CustomComponent>
     
     #region Methods
     public FloatLerpPackage(float start,
-        float target, FloatLerpStep stepCallback, float lerpSpeed = 1.0f, GameObject objectToLerp = null)
+        float target, FloatLerpStep stepCallback, GameObject objectToLerp, float lerpSpeed = 1.0f)
     {
         this.objectToLerp = objectToLerp;
         this.start = start;
@@ -95,7 +95,7 @@ class Vector3LerpPackage<CustomComponent>: ObjectLerpPackage<CustomComponent>
     }
     #endregion
 
-    public Vector3LerpPackage(Vector3 start, Vector3 target, Vector3LerpStep stepCallback, float lerpSpeed = 1.0f, GameObject objectToLerp = null)
+    public Vector3LerpPackage(Vector3 start, Vector3 target, Vector3LerpStep stepCallback, GameObject objectToLerp, float lerpSpeed = 1.0f)
     {
         this.objectToLerp = objectToLerp;
         this.start = start;

@@ -60,41 +60,30 @@ public class SkeletonStand : MonoBehaviour, I_Interactable
         }
     }
 
-    public new void HandleInteraction(CameraForwardsSampler playerCamSampler)
+    public void HandleInteraction(CameraForwardsSampler playerCamSampler)
     {
-        if (playerCamSampler.InteractableObjectInRangeRef != this.gameObject)
+        //Get a reference to the object the player is holding
+        GameObject bone = playerCamSampler.ObjectInRange;
+        
+        //if the player is not holding a bone then return
+        if (!bone.TryGetComponent(out Bone BoneCastObj))
             return;
-
-        try
-        {
-            //Get a reference to the object the player is holding
-            GameObject bone = playerCamSampler.ObjectInRange;
-
-            //if the player is not holding a bone then return
-            if (!bone.TryGetComponent(out Bone BoneCastObj))
-                return;
-
-            AddNewLerpPackageToPkgQueue(bone, BoneCastObj);
-            this.BonesDelivered++;
-        }
-        catch (NullReferenceException e)
-        {
-            return;
-        }
+        
+        AddNewLerpPackageToPkgQueue(bone, BoneCastObj);
+        this.BonesDelivered++;
     }
 
     private void AddNewLerpPackageToPkgQueue(GameObject bone, Bone BoneCastObj)
     {
         //finally create a new LerpPackage and add it to the queue
-        this.boneProcessingData.LerpPackageProcessor.AddPackage(new ObjectLerpPackage<Bone>(bone, start, end, this.boneProcessingData.processedPackageFinalizationCallback));
-        this.boneProcessingData.LerpPackageProcessor.AddPackage(new Vector3LerpPackage<Bone>(bone.transform.position,boneNameTransforms[BoneCastObj.GetSkeletonStandBoneName()].position,
-            (pos, obj) => { obj.transform.position = pos;}));
-        this.boneProcessingData.LerpPackageProcessor.AddPackage(new Vector3LerpPackage<Bone>(bone.transform.rotation.eulerAngles,boneNameTransforms[BoneCastObj.GetSkeletonStandBoneName()].rotation.eulerAngles,
-            (rot, obj) => { obj.gameObject.transform.rotation = Quaternion.Euler(rot);}));
+        //this.boneProcessingData.LerpPackageProcessor.AddPackage(new Vector3LerpPackage<Bone>(bone.transform.position,boneNameTransforms[BoneCastObj.GetSkeletonStandBoneName()].position,
+            //(pos, obj) => { obj.transform.position = pos;}));
+        //this.boneProcessingData.LerpPackageProcessor.AddPackage(new Vector3LerpPackage<Bone>(bone.transform.rotation.eulerAngles,boneNameTransforms[BoneCastObj.GetSkeletonStandBoneName()].rotation.eulerAngles,
+            //(rot, obj) => { obj.gameObject.transform.rotation = Quaternion.Euler(rot);}));
     }
 
     private void Update()
     {
-        this.boneProcessingData.LerpPackageProcessor.ProcessLerpPackageList();
+        this.boneProcessingData.LerpPackageProcessor.ProcessLerpPackageList(boneProcessingData.processedPackageFinalizationCallback);
     }
 }
