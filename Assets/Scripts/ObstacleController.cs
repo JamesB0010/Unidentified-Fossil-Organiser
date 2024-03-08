@@ -40,7 +40,7 @@ public class ObstacleController : MonoBehaviour
         {
             this.lightPackageProccessor.AddPackage(
                 new FloatLerpPackage<Light>(
-                    light.intensity, light.intensity * 10,
+                    light.intensity, light.intensity * 20,
                     (val, obj) =>
                     {
                         obj.intensity = val;
