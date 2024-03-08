@@ -85,22 +85,12 @@ public class SkeletonStand : MonoBehaviour, I_Interactable
 
     private void AddNewLerpPackageToPkgQueue(GameObject bone, Bone BoneCastObj)
     {
-        //define a start position and rotation
-        PositionRotationPair start = new PositionRotationPair
-        {
-            position = bone.transform.position,
-            rotation = bone.transform.rotation.eulerAngles
-        };
-
-        //define a end/target position and rotation
-        PositionRotationPair end = new PositionRotationPair()
-        {
-            position = boneNameTransforms[BoneCastObj.GetSkeletonStandBoneName()].position,
-            rotation = boneNameTransforms[BoneCastObj.GetSkeletonStandBoneName()].rotation.eulerAngles
-        };
-        
         //finally create a new LerpPackage and add it to the queue
         this.boneProcessingData.LerpPackageProcessor.AddPackage(new ObjectLerpPackage<Bone>(bone, start, end, this.boneProcessingData.processedPackageFinalizationCallback));
+        this.boneProcessingData.LerpPackageProcessor.AddPackage(new Vector3LerpPackage<Bone>(bone.transform.position,boneNameTransforms[BoneCastObj.GetSkeletonStandBoneName()].position,
+            (pos, obj) => { obj.transform.position = pos;}));
+        this.boneProcessingData.LerpPackageProcessor.AddPackage(new Vector3LerpPackage<Bone>(bone.transform.rotation.eulerAngles,boneNameTransforms[BoneCastObj.GetSkeletonStandBoneName()].rotation.eulerAngles,
+            (rot, obj) => { obj.gameObject.transform.rotation.eulerAngles = rot;}));
     }
 
     private void Update()

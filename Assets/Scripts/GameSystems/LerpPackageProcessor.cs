@@ -43,35 +43,33 @@ class LerpPackageProcessor <CustomComponent>
     
     private void RemovePackageAtIndexIfCompleted(ObjectLerpPackage<ListType> pkg, int i)
     {
-        if ((float)pkg.current == 1)
+        if (pkg.current == 1)
         {
             this.packageList.RemoveAt(i);
             pkg.callback(pkg);
         }
     }
-    private void LerpPackagePositionRotation(ObjectLerpPackage<CustomComponent> pkg)
+    private void LerpPackagePositionRotation<T>(T pkg)
+    where T : ObjectLerpPackage<CustomComponent>
     {
         updateCurrentLerpPercentage(pkg);
 
-        LerpPosition(pkg);
+        if (pkg is FloatLerpPackage<CustomComponent>)
+        {
+            Mathf.Lerp((float)pkg.start, (float)pkg.target, pkg.current);
+            return;
+        }
 
-        LerpRotation(pkg);
+        if (pkg is Vector3LerpPackage<CustomComponent>)
+        {
+            Vector3.Lerp((Vector3)pkg.start, (Vector3)pkg.target, pkg.current);
+            return;
+        }
     }
 
     private void updateCurrentLerpPercentage(LerpData.ObjectLerpPackage<CustomComponent> pkg)
     {
         pkg.current = Mathf.MoveTowards(pkg.current, moveTowardsTarget, pkg.lerpSpeed * Time.deltaTime);
     }
-    private static void LerpPosition(LerpData.ObjectLerpPackage<CustomComponent> pkg)
-    {
-        pkg.objectToLerp.transform.position = Vector3.Lerp(pkg.start.position, pkg.target.position, pkg.current);
-    }
-    private static void LerpRotation(LerpData.ObjectLerpPackage<ListType> pkg)
-    {
-        Vector3 lerpedRotation = Vector3.Lerp(pkg.start.rotation, pkg.target.rotation, pkg.current);
-        pkg.objectToLerp.transform.rotation = Quaternion.Euler(lerpedRotation);
-    }
-    
-    
     #endregion
 }

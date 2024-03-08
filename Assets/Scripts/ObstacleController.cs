@@ -13,43 +13,19 @@ public class ObstacleController : MonoBehaviour
 
         foreach (var obstacle in obstacles)
         {
-            PositionRotationPair start = new PositionRotationPair
-            {
-                position = obstacle.transform.position,
-                rotation = obstacle.transform.rotation.eulerAngles
-            };
-
-            //define a end/target position and rotation
-            PositionRotationPair end = new PositionRotationPair()
-            {
-                position = obstacle.leftRightAnchors[obstacle.MovingTowards].position,
-                rotation = obstacle.leftRightAnchors[obstacle.MovingTowards].rotation.eulerAngles
-            };
-        
-            //finally create a new LerpPackage and add it to the queue
-            this.packageProcessor.AddPackage(new ObjectLerpPackage<Obstacle>(obstacle.gameObject, start, end, obstacle.Speed));
+            this.packageProcessor.AddPackage(new Vector3LerpPackage<Obstacle>(obstacle.transform.position,obstacle.leftRightAnchors[obstacle.MovingTowards].position, obstacle.Speed, obstacle.gameObject));
+            this.packageProcessor.AddPackage(new Vector3LerpPackage<Obstacle>(obstacle.transform.rotation.eulerAngles,obstacle.leftRightAnchors[obstacle.MovingTowards].rotation.eulerAngles, obstacle.Speed, obstacle.gameObject));
         }
     }
 
     private void AddGameObjectBackToPackageProcessor(LerpData.ObjectLerpPackage<Obstacle> pkg)
     {
         pkg.customComponent.MovingTowards = (pkg.customComponent.MovingTowards + 1) % 2;
-            
-        PositionRotationPair start = new PositionRotationPair
-        {
-            position = pkg.objectToLerp.transform.position,
-            rotation = pkg.objectToLerp.transform.rotation.eulerAngles
-        };
-
-        //define a end/target position and rotation
-        PositionRotationPair end = new PositionRotationPair()
-        {
-            position = pkg.customComponent.leftRightAnchors[pkg.customComponent.MovingTowards].position,
-            rotation = pkg.customComponent.leftRightAnchors[pkg.customComponent.MovingTowards].rotation.eulerAngles
-        };
+        
         
         //finally create a new LerpPackage and add it to the queue
-        this.packageProcessor.AddPackage(new ObjectLerpPackage<Obstacle>(pkg.objectToLerp, start, end, pkg.customComponent.Speed));
+        this.packageProcessor.AddPackage(new Vector3LerpPackage<Obstacle>(pkg.objectToLerp.transform.position,pkg.customComponent.leftRightAnchors[pkg.customComponent.MovingTowards].position, pkg.lerpSpeed, pkg.objectToLerp));
+        this.packageProcessor.AddPackage(new Vector3LerpPackage<Obstacle>(pkg.objectToLerp.transform.rotation.eulerAngles,pkg.customComponent.leftRightAnchors[pkg.customComponent.MovingTowards].rotation.eulerAngles, pkg.lerpSpeed, pkg.objectToLerp));
     }
 
     // Update is called once per frame
