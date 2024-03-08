@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using LerpData;
 using UnityEngine;
 
-class LerpPackageProcessor <ListType>
+class LerpPackageProcessor <CustomComponent>
 {
     #region Attributes
     //define a callback type for when a package has been processed
-    public delegate void PackageProcessed(ObjectLerpPackage<ListType> pkg);
+    public delegate void PackageProcessed(ObjectLerpPackage<CustomComponent> pkg);
     
     //queue data
-    private List<ObjectLerpPackage<ListType>> packageList = new List<ObjectLerpPackage<ListType>>();
+    private List<ObjectLerpPackage<CustomComponent>> packageList = new List<ObjectLerpPackage<CustomComponent>>();
     
     //lerping data
     private const float moveTowardsTarget = 1.0f;
@@ -18,7 +18,7 @@ class LerpPackageProcessor <ListType>
     #endregion
 
     #region Methods
-    public void AddPackage(ObjectLerpPackage<ListType> newPackage)
+    public void AddPackage(ObjectLerpPackage<CustomComponent> newPackage)
     {
         this.packageList.Add(newPackage);
     }
@@ -32,21 +32,24 @@ class LerpPackageProcessor <ListType>
     }
 
 
-    private void ProcessPackage(ObjectLerpPackage<ListType> pkg, int i)
+    private void ProcessPackage(ObjectLerpPackage<CustomComponent> pkg, int i)
     {
         LerpPackagePositionRotation(pkg);
         RemovePackageAtIndexIfCompleted(pkg, i);
     }
+
+
+    private void RemovePackageAtIndexIfCompleted(ObjectLerpPackage<CustomComponent> pkg, PackageProcessed packageProcessedCallBack, int i)
     
     private void RemovePackageAtIndexIfCompleted(ObjectLerpPackage<ListType> pkg, int i)
     {
-        if (pkg.current == 1)
+        if ((float)pkg.current == 1)
         {
             this.packageList.RemoveAt(i);
             pkg.callback(pkg);
         }
     }
-    private void LerpPackagePositionRotation(ObjectLerpPackage<ListType> pkg)
+    private void LerpPackagePositionRotation(ObjectLerpPackage<CustomComponent> pkg)
     {
         updateCurrentLerpPercentage(pkg);
 
@@ -55,11 +58,11 @@ class LerpPackageProcessor <ListType>
         LerpRotation(pkg);
     }
 
-    private void updateCurrentLerpPercentage(LerpData.ObjectLerpPackage<ListType> pkg)
+    private void updateCurrentLerpPercentage(LerpData.ObjectLerpPackage<CustomComponent> pkg)
     {
         pkg.current = Mathf.MoveTowards(pkg.current, moveTowardsTarget, pkg.lerpSpeed * Time.deltaTime);
     }
-    private static void LerpPosition(LerpData.ObjectLerpPackage<ListType> pkg)
+    private static void LerpPosition(LerpData.ObjectLerpPackage<CustomComponent> pkg)
     {
         pkg.objectToLerp.transform.position = Vector3.Lerp(pkg.start.position, pkg.target.position, pkg.current);
     }
