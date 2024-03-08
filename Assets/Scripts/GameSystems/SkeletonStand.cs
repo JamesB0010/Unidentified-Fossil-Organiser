@@ -90,7 +90,7 @@ public class SkeletonStand : MonoBehaviour, I_Interactable
         this.boneProcessingData.LerpPackageProcessor.AddPackage(new Vector3LerpPackage<Bone>(bone.transform.position,boneNameTransforms[BoneCastObj.GetSkeletonStandBoneName()].position,
             (pos, obj) => { obj.transform.position = pos;}));
         this.boneProcessingData.LerpPackageProcessor.AddPackage(new Vector3LerpPackage<Bone>(bone.transform.rotation.eulerAngles,boneNameTransforms[BoneCastObj.GetSkeletonStandBoneName()].rotation.eulerAngles,
-            (rot, obj) => { obj.gameObject.transform.rotation.eulerAngles = rot;}));
+            (rot, obj) => { obj.gameObject.transform.rotation = Quaternion.Euler(rot);}));
     }
 
     private void Update()

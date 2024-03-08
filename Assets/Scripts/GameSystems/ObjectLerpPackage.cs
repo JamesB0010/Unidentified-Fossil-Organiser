@@ -20,13 +20,21 @@ namespace LerpData
         
         public abstract object start { get; set; }
         public abstract object target { get; set; }
+
+        public virtual void RunStepCallback(float val)
+        {
+        }
+
+        public virtual void RunStepCallback(Vector3 val)
+        {
+        }
     }
     
 class FloatLerpPackage<CustomComponent>: ObjectLerpPackage<CustomComponent>
 {
     #region attributes
 
-    private FloatLerpStep lerpStepCallback;
+    public FloatLerpStep lerpStepCallback;
 
     private float _start;
     private float _target;
@@ -56,6 +64,12 @@ class FloatLerpPackage<CustomComponent>: ObjectLerpPackage<CustomComponent>
         this.lerpSpeed = lerpSpeed;
         this.lerpStepCallback = stepCallback;
     }
+
+    public override void RunStepCallback(float value)
+    {
+        this.lerpStepCallback(value, this.customComponent);
+    }
+
     #endregion
 }
 
@@ -63,7 +77,7 @@ class Vector3LerpPackage<CustomComponent>: ObjectLerpPackage<CustomComponent>
 {
     #region attributes
     
-    private Vector3LerpStep lerpStepCallback;
+    public Vector3LerpStep lerpStepCallback;
 
     private Vector3 _start;
     private Vector3 _target;
@@ -91,6 +105,11 @@ class Vector3LerpPackage<CustomComponent>: ObjectLerpPackage<CustomComponent>
         this.lerpSpeed = lerpSpeed;
         this.callback = callback;
         this.lerpStepCallback = stepCallback;
+    }
+
+    public override void RunStepCallback(Vector3 val)
+    {
+        this.lerpStepCallback(val, this.customComponent);
     }
 }
 }

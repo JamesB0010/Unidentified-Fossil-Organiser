@@ -13,8 +13,17 @@ public class ObstacleController : MonoBehaviour
 
         foreach (var obstacle in obstacles)
         {
-            this.packageProcessor.AddPackage(new Vector3LerpPackage<Obstacle>(obstacle.transform.position,obstacle.leftRightAnchors[obstacle.MovingTowards].position, obstacle.Speed, obstacle.gameObject));
-            this.packageProcessor.AddPackage(new Vector3LerpPackage<Obstacle>(obstacle.transform.rotation.eulerAngles,obstacle.leftRightAnchors[obstacle.MovingTowards].rotation.eulerAngles, obstacle.Speed, obstacle.gameObject));
+            this.packageProcessor.AddPackage(new Vector3LerpPackage<Obstacle>(obstacle.transform.position,
+                obstacle.leftRightAnchors[obstacle.MovingTowards].position, (val, obj) =>
+                {
+                    obj.gameObject.transform.position = new Vector3(val.x, val.y, val.z);
+                },
+        obstacle.Speed, obstacle.gameObject));
+            this.packageProcessor.AddPackage(new Vector3LerpPackage<Obstacle>(obstacle.transform.rotation.eulerAngles,obstacle.leftRightAnchors[obstacle.MovingTowards].rotation.eulerAngles, (val, obj) =>
+                {
+                    obj.gameObject.transform.rotation = Quaternion.Euler(val);
+                }, 
+                obstacle.Speed, obstacle.gameObject));
         }
     }
 
@@ -24,8 +33,14 @@ public class ObstacleController : MonoBehaviour
         
         
         //finally create a new LerpPackage and add it to the queue
-        this.packageProcessor.AddPackage(new Vector3LerpPackage<Obstacle>(pkg.objectToLerp.transform.position,pkg.customComponent.leftRightAnchors[pkg.customComponent.MovingTowards].position, pkg.lerpSpeed, pkg.objectToLerp));
-        this.packageProcessor.AddPackage(new Vector3LerpPackage<Obstacle>(pkg.objectToLerp.transform.rotation.eulerAngles,pkg.customComponent.leftRightAnchors[pkg.customComponent.MovingTowards].rotation.eulerAngles, pkg.lerpSpeed, pkg.objectToLerp));
+        this.packageProcessor.AddPackage(new Vector3LerpPackage<Obstacle>(pkg.objectToLerp.transform.position,pkg.customComponent.leftRightAnchors[pkg.customComponent.MovingTowards].position,(val, obj) =>
+        {
+            obj.gameObject.transform.position = new Vector3(val.x, val.y, val.z);
+        }, pkg.lerpSpeed, pkg.objectToLerp));
+        this.packageProcessor.AddPackage(new Vector3LerpPackage<Obstacle>(pkg.objectToLerp.transform.rotation.eulerAngles,pkg.customComponent.leftRightAnchors[pkg.customComponent.MovingTowards].rotation.eulerAngles, (val, obj) =>
+        {
+            obj.gameObject.transform.rotation = Quaternion.Euler(val);
+        }, pkg.lerpSpeed, pkg.objectToLerp));
     }
 
     // Update is called once per frame

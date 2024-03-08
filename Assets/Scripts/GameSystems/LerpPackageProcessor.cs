@@ -56,7 +56,7 @@ class LerpPackageProcessor <CustomComponent>
 
         if (pkg is FloatLerpPackage<CustomComponent>)
         {
-            Mathf.Lerp((float)pkg.start, (float)pkg.target, pkg.current);
+            pkg.RunStepCallback(Mathf.Lerp((float)pkg.start, (float)pkg.target, pkg.current));
             return;
         }
 
