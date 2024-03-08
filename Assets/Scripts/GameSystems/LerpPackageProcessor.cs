@@ -34,7 +34,7 @@ class LerpPackageProcessor <CustomComponent>
 
     private void ProcessPackage(ObjectLerpPackage<CustomComponent> pkg, int i)
     {
-        LerpPackagePositionRotation(pkg);
+        LerpValue(pkg);
         RemovePackageAtIndexIfCompleted(pkg, i);
     }
     
@@ -46,7 +46,7 @@ class LerpPackageProcessor <CustomComponent>
             pkg.finalCallback(pkg);
         }
     }
-    private void LerpPackagePositionRotation<T>(T pkg)
+    private void LerpValue<T>(T pkg)
     where T : ObjectLerpPackage<CustomComponent>
     {
         updateCurrentLerpPercentage(pkg);
@@ -59,7 +59,7 @@ class LerpPackageProcessor <CustomComponent>
 
         if (pkg is Vector3LerpPackage<CustomComponent>)
         {
-            Vector3.Lerp((Vector3)pkg.start, (Vector3)pkg.target, pkg.current);
+            pkg.RunStepCallback(Vector3.Lerp((Vector3)pkg.start, (Vector3)pkg.target, pkg.current));
             return;
         }
     }
