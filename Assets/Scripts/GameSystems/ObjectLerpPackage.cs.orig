@@ -12,8 +12,6 @@ namespace LerpData
         public delegate void Vector3LerpStep(Vector3 currentValue, CustomComponent customComponent);
 
         public delegate void FloatLerpStep(float currentValue, CustomComponent customComponent);
-
-        public LerpPackageProcessor<CustomComponent>.PackageProcessed finalCallback;
         public GameObject objectToLerp;
         public CustomComponent customComponent;
         public float lerpSpeed;
@@ -22,21 +20,13 @@ namespace LerpData
         
         public abstract object start { get; set; }
         public abstract object target { get; set; }
-
-        public virtual void RunStepCallback(float val)
-        {
-        }
-
-        public virtual void RunStepCallback(Vector3 val)
-        {
-        }
     }
     
 class FloatLerpPackage<CustomComponent>: ObjectLerpPackage<CustomComponent>
 {
     #region attributes
 
-    public FloatLerpStep lerpStepCallback;
+    private FloatLerpStep lerpStepCallback;
 
     private float _start;
     private float _target;
@@ -56,7 +46,7 @@ class FloatLerpPackage<CustomComponent>: ObjectLerpPackage<CustomComponent>
     
     #region Methods
     public FloatLerpPackage(float start,
-        float target, FloatLerpStep stepCallback, LerpPackageProcessor<CustomComponent>.PackageProcessed finalCb, GameObject objectToLerp, float lerpSpeed = 1.0f)
+        float target, FloatLerpStep stepCallback, float lerpSpeed = 1.0f, GameObject objectToLerp = null)
     {
         this.objectToLerp = objectToLerp;
         this.start = start;
@@ -65,14 +55,7 @@ class FloatLerpPackage<CustomComponent>: ObjectLerpPackage<CustomComponent>
         this.customComponent = this.objectToLerp.GetComponent<CustomComponent>();
         this.lerpSpeed = lerpSpeed;
         this.lerpStepCallback = stepCallback;
-        this.finalCallback = finalCb;
     }
-
-    public override void RunStepCallback(float value)
-    {
-        this.lerpStepCallback(value, this.customComponent);
-    }
-
     #endregion
 }
 
@@ -80,7 +63,7 @@ class Vector3LerpPackage<CustomComponent>: ObjectLerpPackage<CustomComponent>
 {
     #region attributes
     
-    public Vector3LerpStep lerpStepCallback;
+    private Vector3LerpStep lerpStepCallback;
 
     private Vector3 _start;
     private Vector3 _target;
@@ -98,7 +81,7 @@ class Vector3LerpPackage<CustomComponent>: ObjectLerpPackage<CustomComponent>
     }
     #endregion
 
-    public Vector3LerpPackage(Vector3 start, Vector3 target, Vector3LerpStep stepCallback, LerpPackageProcessor<CustomComponent>.PackageProcessed finalCb, GameObject objectToLerp, float lerpSpeed = 1.0f)
+    public Vector3LerpPackage(Vector3 start, Vector3 target, Vector3LerpStep stepCallback, float lerpSpeed = 1.0f, GameObject objectToLerp = null)
     {
         this.objectToLerp = objectToLerp;
         this.start = start;
@@ -106,13 +89,11 @@ class Vector3LerpPackage<CustomComponent>: ObjectLerpPackage<CustomComponent>
         this.rb = this.objectToLerp.GetComponent<Rigidbody>();
         this.customComponent = this.objectToLerp.GetComponent<CustomComponent>();
         this.lerpSpeed = lerpSpeed;
+<<<<<<< HEAD
+        this.callback = callback;
+=======
         this.lerpStepCallback = stepCallback;
-        this.finalCallback = finalCb;
-    }
-
-    public override void RunStepCallback(Vector3 val)
-    {
-        this.lerpStepCallback(val, this.customComponent);
+>>>>>>> 91134e0 (Progress)
     }
 }
 }

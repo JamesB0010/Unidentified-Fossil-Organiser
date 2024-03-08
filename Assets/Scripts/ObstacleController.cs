@@ -18,12 +18,20 @@ public class ObstacleController : MonoBehaviour
                 {
                     obj.gameObject.transform.position = new Vector3(val.x, val.y, val.z);
                 },
+                pkg =>
+                {
+                    Debug.Log("Fin");
+                },
                 obstacle.gameObject,
         obstacle.Speed));
             this.packageProcessor.AddPackage(new Vector3LerpPackage<Obstacle>(obstacle.transform.rotation.eulerAngles,obstacle.leftRightAnchors[obstacle.MovingTowards].rotation.eulerAngles, (val, obj) =>
                 {
                     obj.gameObject.transform.rotation = Quaternion.Euler(val);
                 }, 
+                pkg =>
+                {
+                    Debug.Log("Fin");
+                },
                 obstacle.gameObject,
                 obstacle.Speed));
         }
@@ -38,19 +46,23 @@ public class ObstacleController : MonoBehaviour
         this.packageProcessor.AddPackage(new Vector3LerpPackage<Obstacle>(pkg.objectToLerp.transform.position,pkg.customComponent.leftRightAnchors[pkg.customComponent.MovingTowards].position,(val, obj) =>
         {
             obj.gameObject.transform.position = new Vector3(val.x, val.y, val.z);
-        }, pkg.objectToLerp, pkg.lerpSpeed));
+        }, pkg =>
+        {
+            Debug.Log("Fin");
+        },pkg.objectToLerp,
+        pkg.lerpSpeed));
         this.packageProcessor.AddPackage(new Vector3LerpPackage<Obstacle>(pkg.objectToLerp.transform.rotation.eulerAngles,pkg.customComponent.leftRightAnchors[pkg.customComponent.MovingTowards].rotation.eulerAngles, (val, obj) =>
         {
             obj.gameObject.transform.rotation = Quaternion.Euler(val);
+        }, pkg =>
+        {
+            Debug.Log("Fin");
         }, pkg.objectToLerp, pkg.lerpSpeed));
     }
 
     // Update is called once per frame
     void Update()
     {
-        this.packageProcessor.ProcessLerpPackageList(pkg =>
-        {
-            this.AddGameObjectBackToPackageProcessor(pkg);
-        });
+        this.packageProcessor.ProcessLerpPackageList();
     }
 }

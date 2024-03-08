@@ -35,8 +35,8 @@ public class ToiletFlusher : MonoBehaviour, I_Interactable
         if (this.ineractionInProgress)
             return;
 
-        if (this.bowlFull)
-            this.Flush();
+        /*if (this.bowlFull)
+            this.Flush();*/
         
         this.audioSource.Play();
     }
@@ -46,9 +46,9 @@ public class ToiletFlusher : MonoBehaviour, I_Interactable
         this.audioSource = GetComponent<AudioSource>();
     }
 
-    private void Flush()
-    {
-        this.ineractionInProgress = true;
+    /*private void Flush()
+    {*/
+        /*this.ineractionInProgress = true;
         PositionRotationPair start = new PositionRotationPair
         {
             position = this.topPosition.transform.position,
@@ -95,13 +95,13 @@ public class ToiletFlusher : MonoBehaviour, I_Interactable
             this.ineractionInProgress = false;
             this.bowlFull = true;
         }, this.fillSpeed));
-    }
+    }*/
 
-    public IEnumerator waitBeforeRefil()
+    /*public IEnumerator waitBeforeRefil()
     {
-        yield return new WaitForSeconds(5);
-        this.Refill();
-    }
+        /*yield return new WaitForSeconds(5);
+        this.Refill();#1#
+    }*/
 
     // Update is called once per frame
     void Update()

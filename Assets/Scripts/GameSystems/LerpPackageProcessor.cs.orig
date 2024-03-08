@@ -37,23 +37,35 @@ class LerpPackageProcessor <CustomComponent>
         LerpPackagePositionRotation(pkg);
         RemovePackageAtIndexIfCompleted(pkg, i);
     }
+
+
+    private void RemovePackageAtIndexIfCompleted(ObjectLerpPackage<CustomComponent> pkg, PackageProcessed packageProcessedCallBack, int i)
     
-    private void RemovePackageAtIndexIfCompleted(ObjectLerpPackage<CustomComponent> pkg, int i)
+    private void RemovePackageAtIndexIfCompleted(ObjectLerpPackage<ListType> pkg, int i)
     {
         if (pkg.current == 1)
         {
             this.packageList.RemoveAt(i);
-            pkg.finalCallback(pkg);
+            pkg.callback(pkg);
         }
+    }
+<<<<<<< HEAD
+    private void LerpPackagePositionRotation(ObjectLerpPackage<CustomComponent> pkg)
+=======
+    private void RemovePackageAtIndexIfCompleted(ObjectLerpPackage<CustomComponent> pkg, int i)
+    {
+        if (pkg.current == 1)
+            this.packageList.RemoveAt(i);
     }
     private void LerpPackagePositionRotation<T>(T pkg)
     where T : ObjectLerpPackage<CustomComponent>
+>>>>>>> 91134e0 (Progress)
     {
         updateCurrentLerpPercentage(pkg);
 
         if (pkg is FloatLerpPackage<CustomComponent>)
         {
-            pkg.RunStepCallback(Mathf.Lerp((float)pkg.start, (float)pkg.target, pkg.current));
+            Mathf.Lerp((float)pkg.start, (float)pkg.target, pkg.current);
             return;
         }
 

@@ -54,14 +54,14 @@ public class DoctorsSink : MonoBehaviour, I_Interactable
             return;
         
         
-        if (this.sinkFull == false)
+        /*if (this.sinkFull == false)
             this.FillSink();
 
         if (this.sinkFull == true)
-            this.DrainSink();
+            this.DrainSink();*/
     }
 
-    private void FillSink()
+    /*private void FillSink()
     {
         this.interactionInProgress = true;
         PositionRotationPair start = new PositionRotationPair
@@ -115,7 +115,7 @@ public class DoctorsSink : MonoBehaviour, I_Interactable
 
         this.audioSource.clip = this.emptySound;
         this.audioSource.Play();
-    }
+    }*/
 
     // Update is called once per frame
     void Update()
