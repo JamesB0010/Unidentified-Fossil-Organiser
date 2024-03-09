@@ -33,7 +33,7 @@ public class LerpingUi : MonoBehaviour
                 },
                 text.gameObject
                 );
-            GlobalProcessorHandler.reference.AddPackage(pkg);
+            GlobalProcessorHandler.reference.AddLerpPackage(pkg);
         }
     }
 }

@@ -12,7 +12,7 @@ public class ObstacleController : MonoBehaviour
 
         foreach (var obstacle in obstacles)
         {
-            GlobalProcessorHandler.reference.AddPackage(new Vector3LerpPackage<Obstacle>(obstacle.transform.position,
+            GlobalProcessorHandler.reference.AddLerpPackage(new Vector3LerpPackage<Obstacle>(obstacle.transform.position,
                 obstacle.leftRightAnchors[obstacle.MovingTowards].position,
                 (val, obj) => { obj.gameObject.transform.position = new Vector3(val.x, val.y, val.z); },
                 pkg => { PingPongObstacle(pkg);
@@ -23,7 +23,7 @@ public class ObstacleController : MonoBehaviour
                 obstacle.TimeToLerp,
                 obstacle.animCurve));
             
-            GlobalProcessorHandler.reference.AddPackage(new Vector3LerpPackage<Obstacle>(
+            GlobalProcessorHandler.reference.AddLerpPackage(new Vector3LerpPackage<Obstacle>(
                 obstacle.transform.rotation.eulerAngles, new Vector3(Random.Range(0, 180),Random.Range(0, 180), Random.Range(0, 180)),
                 (value, component) =>
                 {
@@ -41,7 +41,7 @@ public class ObstacleController : MonoBehaviour
 
         foreach (var light in FindObjectsOfType<Light>())
         {
-           GlobalProcessorHandler.reference.AddPackage(
+           GlobalProcessorHandler.reference.AddLerpPackage(
                 new FloatLerpPackage<Light>(
                     light.intensity, light.intensity * 2,
                     (val, obj) =>
@@ -53,14 +53,14 @@ public class ObstacleController : MonoBehaviour
                         (pkg.start, pkg.target) = (pkg.target, pkg.start);
                         pkg.current = 0.0f;
                         pkg.elapsedTime = 0;
-                        GlobalProcessorHandler.reference.AddPackage(pkg);
+                        GlobalProcessorHandler.reference.AddLerpPackage(pkg);
                         Debug.Log(Time.time);
                     },
                     light.gameObject,
                     5f
                     )
                 );
-            GlobalProcessorHandler.reference.AddPackage(
+            GlobalProcessorHandler.reference.AddLerpPackage(
                 new Vector3LerpPackage<Light>(
                     new Vector3(light.color.r, light.color.g, light.color.b), new Vector3(Random.Range(0,255), Random.Range(0,255), Random.Range(0,255)),
                     (val, obj) =>
@@ -74,7 +74,7 @@ public class ObstacleController : MonoBehaviour
                         pkg.current = 0.0f;
                         pkg.elapsedTime = 0;
                         pkg.target = new Vector3(Random.Range(0, 255), Random.Range(0, 255), Random.Range(0, 255));
-                        GlobalProcessorHandler.reference.AddPackage(pkg);
+                        GlobalProcessorHandler.reference.AddLerpPackage(pkg);
                         Debug.Log(Time.time);
                     },
                     light.gameObject,
@@ -98,6 +98,6 @@ public class ObstacleController : MonoBehaviour
 
         //finally create a new LerpPackage and add it to the queue
 
-        GlobalProcessorHandler.reference.AddPackage(pkg);
+        GlobalProcessorHandler.reference.AddLerpPackage(pkg);
     }
 }

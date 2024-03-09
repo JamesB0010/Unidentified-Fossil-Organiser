@@ -11,7 +11,7 @@ public class GlobalProcessorHandler : MonoBehaviour
 
     public static GlobalProcessorHandler reference = null;
 
-    private Dictionary<System.Type, GenericLerpProcessor> processors =
+    private Dictionary<System.Type, GenericLerpProcessor> lerpProcessors =
         new Dictionary<System.Type, GenericLerpProcessor>();
 
     private void Start()
@@ -24,21 +24,21 @@ public class GlobalProcessorHandler : MonoBehaviour
         Destroy(this.gameObject);
     }
 
-    public void AddPackage<packageCustomComponent>(ObjectLerpPackage<packageCustomComponent> pkg)
+    public void AddLerpPackage<packageCustomComponent>(ObjectLerpPackage<packageCustomComponent> pkg)
     {
         System.Type packageType = typeof(packageCustomComponent);
-        if(this.processors.ContainsKey(packageType))
-            ((LerpPackageProcessor<packageCustomComponent>)this.processors[packageType]).AddPackage(pkg);
+        if(this.lerpProcessors.ContainsKey(packageType))
+            ((LerpPackageProcessor<packageCustomComponent>)this.lerpProcessors[packageType]).AddPackage(pkg);
         else
         {
             var newProcessor = new LerpPackageProcessor<packageCustomComponent>();
             newProcessor.AddPackage(pkg);
-            this.processors.Add(packageType, newProcessor);
+            this.lerpProcessors.Add(packageType, newProcessor);
         }
     }
     void Update()
     {
-        foreach (var processor in this.processors.Values)
+        foreach (var processor in this.lerpProcessors.Values)
         {
             processor.Update();
         }
