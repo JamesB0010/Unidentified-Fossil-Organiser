@@ -84,6 +84,6 @@ public class SkeletonStand : MonoBehaviour, I_Interactable
 
     private void Update()
     {
-        this.boneProcessingData.LerpPackageProcessor.ProcessLerpPackageList();
+        this.boneProcessingData.LerpPackageProcessor.Update();
     }
 }

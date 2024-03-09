@@ -4,11 +4,15 @@ using System.Collections.Generic;
 using LerpData;
 using UnityEngine;
 
+//gpt refactored list to dictionary
+
 public class GlobalProcessorHandler : MonoBehaviour
 {
 
     public static GlobalProcessorHandler reference = null;
-    private List<GenericLerpProcessor> processors = new List<GenericLerpProcessor>();
+
+    private Dictionary<System.Type, GenericLerpProcessor> processors =
+        new Dictionary<System.Type, GenericLerpProcessor>();
 
     private void Start()
     {
@@ -22,23 +26,21 @@ public class GlobalProcessorHandler : MonoBehaviour
 
     public void AddPackage<packageCustomComponent>(ObjectLerpPackage<packageCustomComponent> pkg)
     {
-        for (int i = 0; i < processors.Count; i++)
+        System.Type packageType = typeof(packageCustomComponent);
+        if(this.processors.ContainsKey(packageType))
+            ((LerpPackageProcessor<packageCustomComponent>)this.processors[packageType]).AddPackage(pkg);
+        else
         {
-            if (processors[i] is LerpPackageProcessor<packageCustomComponent>)
-            {
-                ((LerpPackageProcessor<packageCustomComponent>)this.processors[i]).AddPackage(pkg);
-                return;
-            }
+            var newProcessor = new LerpPackageProcessor<packageCustomComponent>();
+            newProcessor.AddPackage(pkg);
+            this.processors.Add(packageType, newProcessor);
         }
-        
-        processors.Add(new LerpPackageProcessor<packageCustomComponent>());
-        ((LerpPackageProcessor<packageCustomComponent>)processors[processors.Count - 1]).AddPackage(pkg);
     }
     void Update()
     {
-        for(int i = 0; i < processors.Count; i++)
+        foreach (var processor in this.processors.Values)
         {
-            this.processors[i].ProcessLerpPackageList();
+            processor.Update();
         }
     }
 }

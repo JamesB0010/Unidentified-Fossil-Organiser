@@ -120,6 +120,6 @@ public class DoctorsSink : MonoBehaviour, I_Interactable
     // Update is called once per frame
     void Update()
     {
-        this._lerpProcessor.ProcessLerpPackageList();
+        this._lerpProcessor.Update();
     }
 }

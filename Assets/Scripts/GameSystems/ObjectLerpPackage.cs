@@ -20,6 +20,7 @@ namespace LerpData
         public float elapsedTime = 0.0f;
         public Rigidbody rb = null;
         public float current = 0.0f;
+        public AnimationCurve animCurve;
         
         public abstract object start { get; set; }
         public abstract object target { get; set; }
@@ -63,7 +64,7 @@ class FloatLerpPackage<CustomComponent>: ObjectLerpPackage<CustomComponent>
     
     #region Methods
     public FloatLerpPackage(float start,
-        float target, FloatLerpStep stepCallback, LerpPackageProcessor<CustomComponent>.PackageProcessed finalCb, GameObject objectToLerp, float timeToLerp = 1.0f)
+        float target, FloatLerpStep stepCallback, LerpPackageProcessor<CustomComponent>.PackageProcessed finalCb, GameObject objectToLerp, float timeToLerp = 1.0f, AnimationCurve animCurve = null)
     {
         this.objectToLerp = objectToLerp;
         this.start = start;
@@ -73,6 +74,7 @@ class FloatLerpPackage<CustomComponent>: ObjectLerpPackage<CustomComponent>
         this.timeToLerp = timeToLerp;
         this.lerpStepCallback = stepCallback;
         this.finalCallback = finalCb;
+        this.animCurve = animCurve != null ? animCurve : AnimationCurve.Linear(0, 0, 1, 1);
     }
 
     public override void RunStepCallback(float value)
@@ -105,7 +107,7 @@ class Vector3LerpPackage<CustomComponent>: ObjectLerpPackage<CustomComponent>
     }
     #endregion
 
-    public Vector3LerpPackage(Vector3 start, Vector3 target, Vector3LerpStep stepCallback, LerpPackageProcessor<CustomComponent>.PackageProcessed finalCb, GameObject objectToLerp, float timeToLerp = 1.0f)
+    public Vector3LerpPackage(Vector3 start, Vector3 target, Vector3LerpStep stepCallback, LerpPackageProcessor<CustomComponent>.PackageProcessed finalCb, GameObject objectToLerp, float timeToLerp = 1.0f, AnimationCurve animCurve = null)
     {
         this.objectToLerp = objectToLerp;
         this.start = start;
@@ -115,6 +117,7 @@ class Vector3LerpPackage<CustomComponent>: ObjectLerpPackage<CustomComponent>
         this.timeToLerp = timeToLerp;
         this.lerpStepCallback = stepCallback;
         this.finalCallback = finalCb;
+        this.animCurve = animCurve != null ? animCurve : AnimationCurve.Linear(0, 0, 1, 1);
     }
 
     public override void RunStepCallback(Vector3 val)

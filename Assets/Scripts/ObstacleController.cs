@@ -17,9 +17,11 @@ public class ObstacleController : MonoBehaviour
                 (val, obj) => { obj.gameObject.transform.position = new Vector3(val.x, val.y, val.z); },
                 pkg => { PingPongObstacle(pkg);
                     pkg.elapsedTime = 0;
+                    Debug.Log(Time.time);
                 },
                 obstacle.gameObject,
-                obstacle.TimeToLerp));
+                obstacle.TimeToLerp,
+                obstacle.animCurve));
             
             GlobalProcessorHandler.reference.AddPackage(new Vector3LerpPackage<Obstacle>(
                 obstacle.transform.rotation.eulerAngles, new Vector3(Random.Range(0, 180),Random.Range(0, 180), Random.Range(0, 180)),

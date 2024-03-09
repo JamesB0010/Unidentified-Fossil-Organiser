@@ -5,7 +5,7 @@ using UnityEngine;
 
 public abstract class GenericLerpProcessor
 {
-    public abstract void ProcessLerpPackageList();
+    public abstract void Update();
 }
 
 public class LerpPackageProcessor <CustomComponent>: GenericLerpProcessor
@@ -28,7 +28,7 @@ public class LerpPackageProcessor <CustomComponent>: GenericLerpProcessor
         this.packageList.Add(newPackage);
     }
 
-    public override void ProcessLerpPackageList()
+    public override void Update()
     {
         for (int i = this.packageList.Count - 1; i >= 0; i--)
         {
@@ -73,7 +73,9 @@ public class LerpPackageProcessor <CustomComponent>: GenericLerpProcessor
     {
         pkg.elapsedTime += Time.deltaTime;
         
-        pkg.current = Mathf.Clamp01(pkg.elapsedTime / pkg.timeToLerp);
+        pkg.current = pkg.animCurve.Evaluate(pkg.elapsedTime / pkg.timeToLerp);
+
+        pkg.current = Mathf.Clamp01(pkg.current);
     }
     #endregion
 }
