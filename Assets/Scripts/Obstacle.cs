@@ -1,19 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Obstacle : MonoBehaviour
 {
     [SerializeField]
     public Transform[] leftRightAnchors;
 
-    [SerializeField] private float speed;
+    [SerializeField] private float timeToLerp;
 
-    public float Speed
+    public float TimeToLerp
     {
         get
         {
-            return this.speed;
+            return this.timeToLerp;
         }
     }
 

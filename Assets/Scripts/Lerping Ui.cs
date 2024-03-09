@@ -9,15 +9,12 @@ public class LerpingUi : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI text;
 
-    private LerpPackageProcessor<TextMeshProUGUI> textLerper = new LerpPackageProcessor<TextMeshProUGUI>();
-
     private float scaleTarget = 125.0f;
     private bool centerTextLerping = false;
 
     // Update is called once per frame
     void Update()
     {
-        textLerper.ProcessLerpPackageList();
         if (Input.GetKeyUp(KeyCode.Space))
         {
             if (this.centerTextLerping)
@@ -36,7 +33,7 @@ public class LerpingUi : MonoBehaviour
                 },
                 text.gameObject
                 );
-            this.textLerper.AddPackage(pkg);
+            GlobalProcessorHandler.reference.AddPackage(pkg);
         }
     }
 }

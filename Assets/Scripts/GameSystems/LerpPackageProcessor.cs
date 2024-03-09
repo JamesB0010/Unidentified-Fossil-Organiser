@@ -3,7 +3,12 @@ using System.Collections.Generic;
 using LerpData;
 using UnityEngine;
 
-class LerpPackageProcessor <CustomComponent>
+public abstract class GenericLerpProcessor
+{
+    public abstract void ProcessLerpPackageList();
+}
+
+public class LerpPackageProcessor <CustomComponent>: GenericLerpProcessor
 {
     #region Attributes
     //define a callback type for when a package has been processed
@@ -23,7 +28,7 @@ class LerpPackageProcessor <CustomComponent>
         this.packageList.Add(newPackage);
     }
 
-    public void ProcessLerpPackageList()
+    public override void ProcessLerpPackageList()
     {
         for (int i = this.packageList.Count - 1; i >= 0; i--)
         {
@@ -66,7 +71,9 @@ class LerpPackageProcessor <CustomComponent>
 
     private void updateCurrentLerpPercentage(LerpData.ObjectLerpPackage<CustomComponent> pkg)
     {
-        pkg.current = Mathf.MoveTowards(pkg.current, moveTowardsTarget, pkg.lerpSpeed * Time.deltaTime);
+        pkg.elapsedTime += Time.deltaTime;
+        
+        pkg.current = Mathf.Clamp01(pkg.elapsedTime / pkg.timeToLerp);
     }
     #endregion
 }
