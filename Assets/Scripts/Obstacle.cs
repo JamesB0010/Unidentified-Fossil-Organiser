@@ -10,6 +10,8 @@ public class Obstacle : MonoBehaviour
 
     [SerializeField] private float timeToLerp;
 
+    [SerializeField] private AnimationCurve animCurve;
+
     public float TimeToLerp
     {
         get
