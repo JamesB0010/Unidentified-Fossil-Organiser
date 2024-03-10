@@ -6,7 +6,9 @@ using UnityEngine;
 
 public static class TypeLerpExtensions
 {
-    public static void LerpTo(this float value, float endValue, float timeToTake, ObjectLerpPackage.FloatLerpStep updateCallback = null, LerpPackageProcessor.PackageProcessed finishedCb = null)
+    public static void LerpTo(this float value, float endValue, float timeToTake,
+        ObjectLerpPackage.FloatLerpStep updateCallback = null, LerpPackageProcessor.PackageProcessed finishedCb = null,
+        AnimationCurve animCurve = null)
     {
         if (updateCallback == null)
         {
@@ -24,20 +26,27 @@ public static class TypeLerpExtensions
                 Debug.Log("finished Lerping: " + value);
             };
         }
+
+        if (animCurve == null)
+        {
+            AnimationCurve.Linear(0, 0, 1, 1);
+        }
         GlobalProcessorHandler.AddLerpPackage(
             new LerpData.FloatLerpPackage(
                 value,
                 endValue,
                 updateCallback,
                 finishedCb,
-                timeToTake
+                timeToTake,
+                animCurve
                 )
             );
     }
 
     public static void LerpTo(this Vector3 value, Vector3 endValue, float timeToTake,
         ObjectLerpPackage.Vector3LerpStep updateCallback = null,
-        LerpPackageProcessor.PackageProcessed finishedCb = null)
+        LerpPackageProcessor.PackageProcessed finishedCb = null,
+        AnimationCurve animCurve = null)
     {
         GameObject obj = GlobalProcessorHandler.reference.gameObject;
 
@@ -58,13 +67,19 @@ public static class TypeLerpExtensions
             };
         }
         
+        if (animCurve == null)
+        {
+            AnimationCurve.Linear(0, 0, 1, 1);
+        }
+        
         GlobalProcessorHandler.AddLerpPackage(
             new Vector3LerpPackage(
                 value,
             endValue,
             updateCallback,
             finishedCb,
-            timeToTake
+            timeToTake,
+                animCurve
            ));
     }
 }
