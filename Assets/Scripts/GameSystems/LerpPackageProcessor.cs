@@ -12,10 +12,10 @@ public class LerpPackageProcessor : GenericLerpProcessor
 {
     #region Attributes
     //define a callback type for when a package has been processed
-    public delegate void PackageProcessed(ObjectLerpPackage pkg);
+    public delegate void PackageProcessed(LerpPackage pkg);
     
     //queue data
-    private List<ObjectLerpPackage> packageList = new List<ObjectLerpPackage>();
+    private List<LerpPackage> packageList = new List<LerpPackage>();
     
     //lerping data
     private const float moveTowardsTarget = 1.0f;
@@ -23,7 +23,7 @@ public class LerpPackageProcessor : GenericLerpProcessor
     #endregion
 
     #region Methods
-    public void AddPackage(ObjectLerpPackage newPackage)
+    public void AddPackage(LerpPackage newPackage)
     {
         this.packageList.Add(newPackage);
     }
@@ -37,13 +37,13 @@ public class LerpPackageProcessor : GenericLerpProcessor
     }
 
 
-    private void ProcessPackage(ObjectLerpPackage pkg, int i)
+    private void ProcessPackage(LerpPackage pkg, int i)
     {
         LerpValue(pkg);
         RemovePackageAtIndexIfCompleted(pkg, i);
     }
     
-    private void RemovePackageAtIndexIfCompleted(ObjectLerpPackage pkg, int i)
+    private void RemovePackageAtIndexIfCompleted(LerpPackage pkg, int i)
     {
         if (pkg.current == 1)
         {
@@ -51,14 +51,14 @@ public class LerpPackageProcessor : GenericLerpProcessor
             pkg.finalCallback(pkg);
         }
     }
-    private void LerpValue(ObjectLerpPackage pkg)
+    private void LerpValue(LerpPackage pkg)
     {
         updateCurrentLerpPercentage(pkg);
         
         pkg.RunStepCallback();
     }
 
-    private void updateCurrentLerpPercentage(LerpData.ObjectLerpPackage pkg)
+    private void updateCurrentLerpPercentage(LerpData.LerpPackage pkg)
     {
         pkg.elapsedTime += Time.deltaTime;
         

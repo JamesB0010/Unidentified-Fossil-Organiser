@@ -8,7 +8,7 @@ using UnityEngine;
 namespace LerpData
 {
 
-    public abstract class ObjectLerpPackage
+    public abstract class LerpPackage
     {
         public delegate void Vector3LerpStep(Vector3 currentValue);
 
@@ -42,7 +42,7 @@ namespace LerpData
         public abstract void RunStepCallback();
     }
     
-class FloatLerpPackage: ObjectLerpPackage
+class FloatLerpPackage: LerpPackage
 {
     #region attributes
 
@@ -94,7 +94,7 @@ class FloatLerpPackage: ObjectLerpPackage
     #endregion
 }
 
-class Vector3LerpPackage: ObjectLerpPackage
+class Vector3LerpPackage: LerpPackage
 {
     #region attributes
     
@@ -143,7 +143,7 @@ class Vector3LerpPackage: ObjectLerpPackage
 }
 }
 
-class Vector3SlerpPackage : ObjectLerpPackage
+class Vector3SlerpPackage : LerpPackage
 {
     #region attributes
     

@@ -12,7 +12,7 @@ public class GlobalProcessorHandler : MonoBehaviour
 
     public static GlobalProcessorHandler reference = null;
 
-    public static void AddLerpPackage(ObjectLerpPackage pkg)
+    public static void AddLerpPackage(LerpPackage pkg)
     {
         try
         {

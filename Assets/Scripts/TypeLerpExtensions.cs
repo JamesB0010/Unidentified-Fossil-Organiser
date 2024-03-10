@@ -7,7 +7,7 @@ using UnityEngine;
 public static class TypeLerpExtensions
 {
     public static void LerpTo(this float value, float endValue, float timeToTake,
-        ObjectLerpPackage.FloatLerpStep updateCallback = null, LerpPackageProcessor.PackageProcessed finishedCb = null,
+        LerpPackage.FloatLerpStep updateCallback = null, LerpPackageProcessor.PackageProcessed finishedCb = null,
         AnimationCurve animCurve = null)
     {
         if (updateCallback == null)
@@ -44,7 +44,7 @@ public static class TypeLerpExtensions
     }
 
     public static void LerpTo(this Vector3 value, Vector3 endValue, float timeToTake,
-        ObjectLerpPackage.Vector3LerpStep updateCallback = null,
+        LerpPackage.Vector3LerpStep updateCallback = null,
         LerpPackageProcessor.PackageProcessed finishedCb = null,
         AnimationCurve animCurve = null)
     {
@@ -82,7 +82,7 @@ public static class TypeLerpExtensions
     }
     
     public static void SlerpTo(this Vector3 value, Vector3 endValue, float timeToTake,
-        ObjectLerpPackage.Vector3LerpStep updateCallback = null,
+        LerpPackage.Vector3LerpStep updateCallback = null,
         LerpPackageProcessor.PackageProcessed finishedCb = null,
         AnimationCurve animCurve = null)
     {
