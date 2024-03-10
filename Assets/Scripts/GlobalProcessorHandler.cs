@@ -14,7 +14,17 @@ public class GlobalProcessorHandler : MonoBehaviour
 
     public static void AddLerpPackage(ObjectLerpPackage pkg)
     {
-        pkg.AddToProcessor(ref reference.lerpProcessors);
+        try
+        {
+            pkg.AddToProcessor(ref reference.lerpProcessors);
+        }
+        catch (NullReferenceException err)
+        {
+            GameObject obj = new GameObject("Global Lerp Processor Handler");
+            GlobalProcessorHandler component = obj.AddComponent<GlobalProcessorHandler>();
+            reference = component;
+            pkg.AddToProcessor(ref reference.lerpProcessors);
+        }
     }
 
     private LerpPackageProcessor lerpProcessors = new LerpPackageProcessor();
