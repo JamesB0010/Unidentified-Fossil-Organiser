@@ -48,8 +48,6 @@ public static class TypeLerpExtensions
         LerpPackageProcessor.PackageProcessed finishedCb = null,
         AnimationCurve animCurve = null)
     {
-        GameObject obj = GlobalProcessorHandler.reference.gameObject;
-
         if (updateCallback == null)
         {
             updateCallback = (val) =>
@@ -81,5 +79,43 @@ public static class TypeLerpExtensions
             timeToTake,
                 animCurve
            ));
+    }
+    
+    public static void SlerpTo(this Vector3 value, Vector3 endValue, float timeToTake,
+        ObjectLerpPackage.Vector3LerpStep updateCallback = null,
+        LerpPackageProcessor.PackageProcessed finishedCb = null,
+        AnimationCurve animCurve = null)
+    {
+        if (updateCallback == null)
+        {
+            updateCallback = (val) =>
+            {
+                value = val;
+                Debug.Log(value);
+            };
+        }
+
+        if (finishedCb == null)
+        {
+            finishedCb = pkg =>
+            {
+                Debug.Log("finished Lerping: " + value);
+            };
+        }
+        
+        if (animCurve == null)
+        {
+            AnimationCurve.Linear(0, 0, 1, 1);
+        }
+        
+        GlobalProcessorHandler.AddLerpPackage(
+            new Vector3SlerpPackage(
+                value,
+                endValue,
+                updateCallback,
+                finishedCb,
+                timeToTake,
+                animCurve
+            ));
     }
 }

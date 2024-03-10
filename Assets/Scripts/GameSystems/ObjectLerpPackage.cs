@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
+using LerpData;
 using UnityEngine;
 
 
@@ -140,4 +141,52 @@ class Vector3LerpPackage: ObjectLerpPackage
         this.lerpStepCallback(Vector3.Lerp(this._start,  this._target, this.current));
     }
 }
+}
+
+class Vector3SlerpPackage : ObjectLerpPackage
+{
+    #region attributes
+    
+    public Vector3LerpStep lerpStepCallback;
+
+    private Vector3 _start;
+    private Vector3 _target;
+    
+    public override object start
+    {
+        get => this._start;
+        set => this._start = (Vector3)value;
+    }
+
+    public override object target
+    {
+        get => this._target;
+        set => this._target = (Vector3)value;
+    }
+    #endregion
+
+    public Vector3SlerpPackage(Vector3 start, Vector3 target, Vector3LerpStep stepCallback, LerpPackageProcessor.PackageProcessed finalCb, float timeToLerp = 1.0f, AnimationCurve animCurve = null)
+    {
+        this.start = start;
+        this.target = target;
+        this.timeToLerp = timeToLerp;
+        this.lerpStepCallback = stepCallback;
+        this.finalCallback = finalCb;
+        this.animCurve = animCurve != null ? animCurve : AnimationCurve.Linear(0, 0, 1, 1);
+    }
+
+    public override void RunStepCallback(Vector3 val)
+    {
+        this.lerpStepCallback(val);
+    }
+    
+    public override void AddToProcessor(ref LerpPackageProcessor processor)
+    {
+        processor.AddPackage(this);
+    }
+    
+    public override void RunStepCallback()
+    {
+        this.lerpStepCallback(Vector3.Slerp(this._start,  this._target, this.current));
+    }
 }
