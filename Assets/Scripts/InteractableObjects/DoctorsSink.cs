@@ -27,7 +27,7 @@ public class DoctorsSink : MonoBehaviour, I_Interactable
 
     private AudioSource audioSource;
 
-    private LerpPackageProcessor<GameObject> _lerpProcessor = new LerpPackageProcessor<GameObject>();
+    /*private LerpPackageProcessor<GameObject> _lerpProcessor = new LerpPackageProcessor<GameObject>();*/
 
     [SerializeField]
     private GameObject water;
@@ -120,6 +120,6 @@ public class DoctorsSink : MonoBehaviour, I_Interactable
     // Update is called once per frame
     void Update()
     {
-        this._lerpProcessor.Update();
+        /*this._lerpProcessor.Update();*/
     }
 }

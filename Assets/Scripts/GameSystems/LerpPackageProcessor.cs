@@ -8,14 +8,14 @@ public abstract class GenericLerpProcessor
     public abstract void Update();
 }
 
-public class LerpPackageProcessor <CustomComponent>: GenericLerpProcessor
+public class LerpPackageProcessor : GenericLerpProcessor
 {
     #region Attributes
     //define a callback type for when a package has been processed
-    public delegate void PackageProcessed(ObjectLerpPackage<CustomComponent> pkg);
+    public delegate void PackageProcessed(ObjectLerpPackage pkg);
     
     //queue data
-    private List<ObjectLerpPackage<CustomComponent>> packageList = new List<ObjectLerpPackage<CustomComponent>>();
+    private List<ObjectLerpPackage> packageList = new List<ObjectLerpPackage>();
     
     //lerping data
     private const float moveTowardsTarget = 1.0f;
@@ -23,7 +23,7 @@ public class LerpPackageProcessor <CustomComponent>: GenericLerpProcessor
     #endregion
 
     #region Methods
-    public void AddPackage(ObjectLerpPackage<CustomComponent> newPackage)
+    public void AddPackage(ObjectLerpPackage newPackage)
     {
         this.packageList.Add(newPackage);
     }
@@ -37,13 +37,13 @@ public class LerpPackageProcessor <CustomComponent>: GenericLerpProcessor
     }
 
 
-    private void ProcessPackage(ObjectLerpPackage<CustomComponent> pkg, int i)
+    private void ProcessPackage(ObjectLerpPackage pkg, int i)
     {
         LerpValue(pkg);
         RemovePackageAtIndexIfCompleted(pkg, i);
     }
     
-    private void RemovePackageAtIndexIfCompleted(ObjectLerpPackage<CustomComponent> pkg, int i)
+    private void RemovePackageAtIndexIfCompleted(ObjectLerpPackage pkg, int i)
     {
         if (pkg.current == 1)
         {
@@ -52,24 +52,24 @@ public class LerpPackageProcessor <CustomComponent>: GenericLerpProcessor
         }
     }
     private void LerpValue<T>(T pkg)
-    where T : ObjectLerpPackage<CustomComponent>
+    where T : ObjectLerpPackage
     {
         updateCurrentLerpPercentage(pkg);
 
-        if (pkg is FloatLerpPackage<CustomComponent>)
+        if (pkg is FloatLerpPackage)
         {
             pkg.RunStepCallback(Mathf.Lerp((float)pkg.start, (float)pkg.target, pkg.current));
             return;
         }
 
-        if (pkg is Vector3LerpPackage<CustomComponent>)
+        if (pkg is Vector3LerpPackage)
         {
             pkg.RunStepCallback(Vector3.Lerp((Vector3)pkg.start, (Vector3)pkg.target, pkg.current));
             return;
         }
     }
 
-    private void updateCurrentLerpPercentage(LerpData.ObjectLerpPackage<CustomComponent> pkg)
+    private void updateCurrentLerpPercentage(LerpData.ObjectLerpPackage pkg)
     {
         pkg.elapsedTime += Time.deltaTime;
         

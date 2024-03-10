@@ -6,13 +6,11 @@ using UnityEngine;
 
 public static class TypeLerpExtensions
 {
-    public static void LerpTo(this float value, float endValue, float timeToTake, ObjectLerpPackage<GameObject>.FloatLerpStep updateCallback = null, LerpPackageProcessor<GameObject>.PackageProcessed finishedCb = null)
+    public static void LerpTo(this float value, float endValue, float timeToTake, ObjectLerpPackage.FloatLerpStep updateCallback = null, LerpPackageProcessor.PackageProcessed finishedCb = null)
     {
-        GameObject obj = GlobalProcessorHandler.reference.gameObject;
-
         if (updateCallback == null)
         {
-            updateCallback = (val, obj) =>
+            updateCallback = (val) =>
             {
                 value = val;
                 Debug.Log(value);
@@ -27,26 +25,25 @@ public static class TypeLerpExtensions
             };
         }
         GlobalProcessorHandler.AddLerpPackage(
-            new LerpData.FloatLerpPackage<GameObject>(
+            new LerpData.FloatLerpPackage(
                 value,
                 endValue,
                 updateCallback,
                 finishedCb,
-                obj,
                 timeToTake
                 )
             );
     }
 
     public static void LerpTo(this Vector3 value, Vector3 endValue, float timeToTake,
-        ObjectLerpPackage<GameObject>.Vector3LerpStep updateCallback = null,
-        LerpPackageProcessor<GameObject>.PackageProcessed finishedCb = null)
+        ObjectLerpPackage.Vector3LerpStep updateCallback = null,
+        LerpPackageProcessor.PackageProcessed finishedCb = null)
     {
         GameObject obj = GlobalProcessorHandler.reference.gameObject;
 
         if (updateCallback == null)
         {
-            updateCallback = (val, obj) =>
+            updateCallback = (val) =>
             {
                 value = val;
                 Debug.Log(value);
@@ -62,12 +59,11 @@ public static class TypeLerpExtensions
         }
         
         GlobalProcessorHandler.AddLerpPackage(
-            new Vector3LerpPackage<GameObject>(
+            new Vector3LerpPackage(
                 value,
             endValue,
             updateCallback,
             finishedCb,
-            obj,
             timeToTake
            ));
     }

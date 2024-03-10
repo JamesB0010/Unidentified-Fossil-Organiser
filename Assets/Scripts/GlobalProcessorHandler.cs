@@ -12,14 +12,17 @@ public class GlobalProcessorHandler : MonoBehaviour
 
     public static GlobalProcessorHandler reference = null;
 
-    public static void AddLerpPackage<packageCustomComponent>(ObjectLerpPackage<packageCustomComponent> pkg)
+    public static void AddLerpPackage(ObjectLerpPackage pkg)
     {
-        reference.AddPkgToProcessorsDictionary(pkg);
+        if(pkg is FloatLerpPackage)
+            reference.AddPkgToProcessor((FloatLerpPackage)pkg);
+        else if(pkg is Vector3LerpPackage)
+            reference.AddPkgToProcessor((Vector3LerpPackage)pkg);
     }
 
-    private Dictionary<System.Type, GenericLerpProcessor> lerpProcessors =
-        new Dictionary<System.Type, GenericLerpProcessor>();
-
+    private LerpPackageProcessor floatlerpProcessors = new LerpPackageProcessor();
+    private LerpPackageProcessor vector3LerpProcessors = new LerpPackageProcessor();
+    
     private void Awake()
     {
         if (reference == null)
@@ -30,23 +33,18 @@ public class GlobalProcessorHandler : MonoBehaviour
         Destroy(this.gameObject);
     }
 
-    private void AddPkgToProcessorsDictionary<packageCustomComponent>(ObjectLerpPackage<packageCustomComponent> pkg)
+    private void AddPkgToProcessor(FloatLerpPackage pkg)
     {
-        System.Type packageType = typeof(packageCustomComponent);
-        if(this.lerpProcessors.ContainsKey(packageType))
-            ((LerpPackageProcessor<packageCustomComponent>)this.lerpProcessors[packageType]).AddPackage(pkg);
-        else
-        {
-            var newProcessor = new LerpPackageProcessor<packageCustomComponent>();
-            newProcessor.AddPackage(pkg);
-            this.lerpProcessors.Add(packageType, newProcessor);
-        }
+        this.floatlerpProcessors.AddPackage(pkg);
+    }
+    
+    private void AddPkgToProcessor(Vector3LerpPackage pkg)
+    {
+        this.floatlerpProcessors.AddPackage(pkg);
     }
     void Update()
     {
-        foreach (var processor in this.lerpProcessors.Values)
-        {
-            processor.Update();
-        }
+        this.floatlerpProcessors.Update();
+        this.vector3LerpProcessors.Update();
     }
 }

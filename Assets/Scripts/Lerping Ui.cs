@@ -22,7 +22,7 @@ public class LerpingUi : MonoBehaviour
             
             
             this.centerTextLerping = true;
-            text.fontSize.LerpTo(scaleTarget, 1, (value, component) =>
+            text.fontSize.LerpTo(scaleTarget, 1, (value) =>
             {
                 text.fontSize = value;
             }, 

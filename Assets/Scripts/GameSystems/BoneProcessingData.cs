@@ -4,7 +4,7 @@ using UnityEngine;
 using UFO_PickupStuff;
 struct BoneProcessingData
 {
-    public LerpPackageProcessor<Bone> LerpPackageProcessor;
+    /*public LerpPackageProcessor<Bone> LerpPackageProcessor;
     public LerpPackageProcessor<Bone>.PackageProcessed processedPackageFinalizationCallback;
 
     public BoneProcessingData(float bonePlacementSpeed)
@@ -19,5 +19,5 @@ struct BoneProcessingData
             pkg.rb.isKinematic = true;
             pkg.customComponent.IsEnabled = false;
         };
-    }
+    }*/
 }

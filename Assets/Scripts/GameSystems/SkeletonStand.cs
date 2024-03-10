@@ -47,9 +47,9 @@ public class SkeletonStand : MonoBehaviour, I_Interactable
     
     private void Start()
     {
-        this.bonesNeededToWin = this.skeletonBones.Count;
+        /*this.bonesNeededToWin = this.skeletonBones.Count;
         this.boneProcessingData = new BoneProcessingData(this.bonePlacementSpeed);
-        PopulateBoneNameTransforms();
+        PopulateBoneNameTransforms();*/
     }
 
     private void PopulateBoneNameTransforms()
@@ -84,6 +84,6 @@ public class SkeletonStand : MonoBehaviour, I_Interactable
 
     private void Update()
     {
-        this.boneProcessingData.LerpPackageProcessor.Update();
+        /*this.boneProcessingData.LerpPackageProcessor.Update();*/
     }
 }
