@@ -14,14 +14,10 @@ public class GlobalProcessorHandler : MonoBehaviour
 
     public static void AddLerpPackage(ObjectLerpPackage pkg)
     {
-        if(pkg is FloatLerpPackage)
-            reference.AddPkgToProcessor((FloatLerpPackage)pkg);
-        else if(pkg is Vector3LerpPackage)
-            reference.AddPkgToProcessor((Vector3LerpPackage)pkg);
+        pkg.AddToProcessor(ref reference.lerpProcessors);
     }
 
-    private LerpPackageProcessor floatlerpProcessors = new LerpPackageProcessor();
-    private LerpPackageProcessor vector3LerpProcessors = new LerpPackageProcessor();
+    private LerpPackageProcessor lerpProcessors = new LerpPackageProcessor();
     
     private void Awake()
     {
@@ -35,16 +31,15 @@ public class GlobalProcessorHandler : MonoBehaviour
 
     private void AddPkgToProcessor(FloatLerpPackage pkg)
     {
-        this.floatlerpProcessors.AddPackage(pkg);
+        this.lerpProcessors.AddPackage(pkg);
     }
     
     private void AddPkgToProcessor(Vector3LerpPackage pkg)
     {
-        this.floatlerpProcessors.AddPackage(pkg);
+        this.lerpProcessors.AddPackage(pkg);
     }
     void Update()
     {
-        this.floatlerpProcessors.Update();
-        this.vector3LerpProcessors.Update();
+        this.lerpProcessors.Update();
     }
 }

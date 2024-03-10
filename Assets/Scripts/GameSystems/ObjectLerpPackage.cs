@@ -35,6 +35,10 @@ namespace LerpData
             this.elapsedTime = 0.0f;
             this.current = 0.0f;
         }
+
+        public abstract void AddToProcessor(ref LerpPackageProcessor processor);
+
+        public abstract void RunStepCallback();
     }
     
 class FloatLerpPackage: ObjectLerpPackage
@@ -48,13 +52,13 @@ class FloatLerpPackage: ObjectLerpPackage
 
     public override object start
     {
-        get => this._start;
+        get => (float)this._start;
         set => this._start = (float)value;
     }
 
     public override object target
     {
-        get => this._target;
+        get => (float)this._target;
         set => this._target = (float)value;
     }
     #endregion
@@ -74,6 +78,16 @@ class FloatLerpPackage: ObjectLerpPackage
     public override void RunStepCallback(float value)
     {
         this.lerpStepCallback(value);
+    }
+
+    public override void AddToProcessor(ref LerpPackageProcessor processor)
+    {
+        processor.AddPackage(this);
+    }
+
+    public override void RunStepCallback()
+    {
+        this.lerpStepCallback(Mathf.Lerp(this._start,  this._target, this.current));
     }
 
     #endregion
@@ -114,6 +128,16 @@ class Vector3LerpPackage: ObjectLerpPackage
     public override void RunStepCallback(Vector3 val)
     {
         this.lerpStepCallback(val);
+    }
+    
+    public override void AddToProcessor(ref LerpPackageProcessor processor)
+    {
+        processor.AddPackage(this);
+    }
+    
+    public override void RunStepCallback()
+    {
+        this.lerpStepCallback(Vector3.Lerp(this._start,  this._target, this.current));
     }
 }
 }

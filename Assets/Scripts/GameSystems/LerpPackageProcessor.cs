@@ -51,22 +51,11 @@ public class LerpPackageProcessor : GenericLerpProcessor
             pkg.finalCallback(pkg);
         }
     }
-    private void LerpValue<T>(T pkg)
-    where T : ObjectLerpPackage
+    private void LerpValue(ObjectLerpPackage pkg)
     {
         updateCurrentLerpPercentage(pkg);
-
-        if (pkg is FloatLerpPackage)
-        {
-            pkg.RunStepCallback(Mathf.Lerp((float)pkg.start, (float)pkg.target, pkg.current));
-            return;
-        }
-
-        if (pkg is Vector3LerpPackage)
-        {
-            pkg.RunStepCallback(Vector3.Lerp((Vector3)pkg.start, (Vector3)pkg.target, pkg.current));
-            return;
-        }
+        
+        pkg.RunStepCallback();
     }
 
     private void updateCurrentLerpPercentage(LerpData.ObjectLerpPackage pkg)
