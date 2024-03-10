@@ -9,6 +9,8 @@ public class LerpingUi : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI text;
 
+    [SerializeField] private AnimationCurve animCurve;
+
     private float scaleTarget = 125.0f;
     private bool centerTextLerping = false;
 
@@ -30,7 +32,8 @@ public class LerpingUi : MonoBehaviour
                 {
                     scaleTarget = scaleTarget == 70.0f? 125.0f : 70.0f;
                     this.centerTextLerping = false;
-                });
+                },
+                this.animCurve);
         }
     }
 }
