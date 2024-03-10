@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using LerpData;
 using UnityEngine;
 
@@ -11,10 +12,15 @@ public class GlobalProcessorHandler : MonoBehaviour
 
     public static GlobalProcessorHandler reference = null;
 
+    public static void AddLerpPackage<packageCustomComponent>(ObjectLerpPackage<packageCustomComponent> pkg)
+    {
+        reference.AddPkgToProcessorsDictionary(pkg);
+    }
+
     private Dictionary<System.Type, GenericLerpProcessor> lerpProcessors =
         new Dictionary<System.Type, GenericLerpProcessor>();
 
-    private void Start()
+    private void Awake()
     {
         if (reference == null)
         {
@@ -24,7 +30,7 @@ public class GlobalProcessorHandler : MonoBehaviour
         Destroy(this.gameObject);
     }
 
-    public void AddLerpPackage<packageCustomComponent>(ObjectLerpPackage<packageCustomComponent> pkg)
+    private void AddPkgToProcessorsDictionary<packageCustomComponent>(ObjectLerpPackage<packageCustomComponent> pkg)
     {
         System.Type packageType = typeof(packageCustomComponent);
         if(this.lerpProcessors.ContainsKey(packageType))

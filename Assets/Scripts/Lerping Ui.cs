@@ -19,21 +19,18 @@ public class LerpingUi : MonoBehaviour
         {
             if (this.centerTextLerping)
                 return;
+            
+            
             this.centerTextLerping = true;
-            ObjectLerpPackage<TextMeshProUGUI> pkg = new FloatLerpPackage<TextMeshProUGUI>(
-                text.fontSize, scaleTarget,
-                ((value, component) =>
+            text.fontSize.LerpTo(scaleTarget, 1, (value, component) =>
+            {
+                text.fontSize = value;
+            }, 
+                pkg => 
                 {
-                    component.fontSize = value;
-                }),
-                pkg =>
-                {
-                    scaleTarget = scaleTarget == 70.0f ? 125.0f : 70.0f;
+                    scaleTarget = scaleTarget == 70.0f? 125.0f : 70.0f;
                     this.centerTextLerping = false;
-                },
-                text.gameObject
-                );
-            GlobalProcessorHandler.reference.AddLerpPackage(pkg);
+                });
         }
     }
 }
