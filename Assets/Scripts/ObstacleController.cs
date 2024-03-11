@@ -1,8 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using LerpData;
 using UnityEngine;
-
+using Random = UnityEngine.Random;
 
 
 public class ObstacleController : MonoBehaviour
@@ -10,6 +11,8 @@ public class ObstacleController : MonoBehaviour
     [SerializeField]
     private Light light1;
 
+    private float test = 0;
+    
     [SerializeField] private Light light2;
     // Start is called before the first frame update
     void Start()
@@ -46,5 +49,12 @@ public class ObstacleController : MonoBehaviour
                 2f
             )
         );
+        
+        this.test.LerpTo(100.0f, 10.0f);
+    }
+
+    private void Update()
+    {
+        Debug.Log(this.test);
     }
 }

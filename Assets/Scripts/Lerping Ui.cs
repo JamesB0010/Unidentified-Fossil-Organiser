@@ -17,13 +17,14 @@ public class LerpingUi : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyUp(KeyCode.Space))
+        bool readyToLerp = Input.GetKeyUp(KeyCode.Space) && !this.centerTextLerping;
+        if (readyToLerp)
         {
-            if (this.centerTextLerping)
-                return;
-            
-            
+            //set a flag variable
             this.centerTextLerping = true;
+            
+            
+            //do the lerp
             text.fontSize.LerpTo(scaleTarget, 1, (value) =>
             {
                 text.fontSize = value;
