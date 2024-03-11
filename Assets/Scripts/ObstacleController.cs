@@ -41,7 +41,7 @@ public class ObstacleController : MonoBehaviour
                 pkg =>
                 {
                     (pkg.start, pkg.target) = (pkg.target, pkg.start);
-                    pkg.elapsedTime = 0;
+                    pkg.ResetTiming();
                     GlobalProcessorHandler.AddLerpPackage(pkg);
                 },
                 obstacle.animCurve

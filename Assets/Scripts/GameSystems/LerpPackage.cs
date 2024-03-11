@@ -34,7 +34,6 @@ namespace LerpData
         public void ResetTiming()
         {
             this.elapsedTime = 0.0f;
-            this.current = 0.0f;
         }
 
         public abstract void AddToProcessor(ref LerpPackageProcessor processor);
