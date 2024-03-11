@@ -3,12 +3,7 @@ using System.Collections.Generic;
 using LerpData;
 using UnityEngine;
 
-public abstract class GenericLerpProcessor
-{
-    public abstract void Update();
-}
-
-public class LerpPackageProcessor : GenericLerpProcessor
+public class LerpPackageProcessor
 {
     #region Attributes
     //define a callback type for when a package has been processed
@@ -28,7 +23,7 @@ public class LerpPackageProcessor : GenericLerpProcessor
         this.packageList.Add(newPackage);
     }
 
-    public override void Update()
+    public void Update()
     {
         for (int i = this.packageList.Count - 1; i >= 0; i--)
         {
