@@ -1,8 +1,7 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
+using LerpData;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class Obstacle : MonoBehaviour
 {
@@ -13,8 +12,9 @@ public class Obstacle : MonoBehaviour
 
     [SerializeField] public AnimationCurve animCurve;
 
-    private Vector4 test = new Vector4();
-
+    [SerializeField]
+    private float pauseTimeBetweenLerps = 0;
+    
     public float TimeToLerp
     {
         get
@@ -37,13 +37,27 @@ public class Obstacle : MonoBehaviour
         }
     }
 
+    
+    public IEnumerator PingPongPackageAfterSeconds(LerpPackage pkg, float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        (pkg.start, pkg.target) = (pkg.target, pkg.start);
+        pkg.ResetTiming();
+        GlobalProcessorHandler.AddLerpPackage(pkg);
+    }
     private void Start()
     {
-        this.test.LerpTo(new Vector4(10, 10, 10, 10), 5);
+        this.transform.position.LerpTo(this.leftRightAnchors[this.MovingTowards].position, this.TimeToLerp,
+            (Vector3 value) =>
+            {
+                this.transform.position = value;
+            },
+            pkg =>
+            {
+                StartCoroutine(PingPongPackageAfterSeconds(pkg, this.pauseTimeBetweenLerps));
+            },
+            this.animCurve
+        );
     }
-
-    private void Update()
-    {
-        Debug.Log(this.test);
-    }
+    
 }

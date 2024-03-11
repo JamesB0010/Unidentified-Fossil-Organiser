@@ -7,90 +7,44 @@ using UnityEngine;
 
 public class ObstacleController : MonoBehaviour
 {
-    public IEnumerator PingPongPackageAfter4Seconds(LerpPackage pkg)
-    {
-        yield return new WaitForSeconds(4);
-        (pkg.start, pkg.target) = (pkg.target, pkg.start);
-        pkg.ResetTiming();
-        GlobalProcessorHandler.AddLerpPackage(pkg);
-    }
+    [SerializeField]
+    private Light light1;
+
+    [SerializeField] private Light light2;
     // Start is called before the first frame update
     void Start()
     {
-        Obstacle[] obstacles = FindObjectsOfType<Obstacle>();
+        light1.intensity.LerpTo(light1.intensity * 50, 5, (value) =>
+            {
+                light1.intensity = value;
+            },
+            pkg =>
+            {
+                (pkg.start, pkg.target) = (pkg.target, pkg.start);
+                pkg.elapsedTime = 0;
+                GlobalProcessorHandler.AddLerpPackage(pkg);
+            });
+            
 
-        foreach (var obstacle in obstacles)
-        {
-            GlobalProcessorHandler.AddLerpPackage(new Vector3LerpPackage(
-                obstacle.transform.rotation.eulerAngles, new Vector3(Random.Range(0, 180),Random.Range(0, 180), Random.Range(0, 180)),
-                (value) =>
+        
+        GlobalProcessorHandler.AddLerpPackage(
+            new Vector3LerpPackage(
+                new Vector3(light2.color.r, light2.color.g, light2.color.b), new Vector3(Random.Range(0,255), Random.Range(0,255), Random.Range(0,255)),
+                (val) =>
                 {
-                    obstacle.gameObject.transform.parent.rotation = Quaternion.Euler(value);
+                    Color color = new Color(val.x, val.y, val.z);
+                    light2.color = color;
                 },
                 pkg =>
                 {
-                    //swap start and end 
                     (pkg.start, pkg.target) = (pkg.target, pkg.start);
                     pkg.current = 0.0f;
-                    pkg.elapsedTime = 0.0f;
-                    pkg.target = new Vector3(Random.Range(0, 360), Random.Range(0, 360), Random.Range(0, 360));
-
-                    //finally create a new LerpPackage and add it to the queue
-
-                    GlobalProcessorHandler.AddLerpPackage(pkg);
-                },
-                2
-                ));
-            
-            obstacle.transform.position.LerpTo(obstacle.leftRightAnchors[obstacle.MovingTowards].position, obstacle.TimeToLerp,
-                (Vector3 value) =>
-                {
-                    obstacle.transform.position = value;
-                },
-                pkg =>
-                {
-                    //StartCoroutine(PingPongPackageAfter4Seconds(pkg));
-                    (pkg.start, pkg.target) = (pkg.target, pkg.start);
-                    pkg.ResetTiming();
-                    GlobalProcessorHandler.AddLerpPackage(pkg);
-                },
-                obstacle.animCurve
-            );
-            
-        }
-
-        foreach (var light in FindObjectsOfType<Light>())
-        {
-            light.intensity.LerpTo(light.intensity * 2, 5, (value) =>
-            {
-                light.intensity = value;
-            },
-                pkg =>
-                {
-                    (pkg.start, pkg.target) = (pkg.target, pkg.start);
                     pkg.elapsedTime = 0;
+                    pkg.target = new Vector3(Random.Range(0, 255), Random.Range(0, 255), Random.Range(0, 255));
                     GlobalProcessorHandler.AddLerpPackage(pkg);
-                });
-           
-            GlobalProcessorHandler.AddLerpPackage(
-                new Vector3LerpPackage(
-                    new Vector3(light.color.r, light.color.g, light.color.b), new Vector3(Random.Range(0,255), Random.Range(0,255), Random.Range(0,255)),
-                    (val) =>
-                    {
-                        Color color = new Color(val.x, val.y, val.z);
-                        light.color = color;
-                    },
-                    pkg =>
-                    {
-                        (pkg.start, pkg.target) = (pkg.target, pkg.start);
-                        pkg.current = 0.0f;
-                        pkg.elapsedTime = 0;
-                        pkg.target = new Vector3(Random.Range(0, 255), Random.Range(0, 255), Random.Range(0, 255));
-                        GlobalProcessorHandler.AddLerpPackage(pkg);
-                    },
-                    2f
-                )
-            );
-        }
+                },
+                2f
+            )
+        );
     }
 }
