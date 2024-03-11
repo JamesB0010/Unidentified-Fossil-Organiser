@@ -3,8 +3,17 @@ using System.Collections.Generic;
 using LerpData;
 using UnityEngine;
 
+
+
 public class ObstacleController : MonoBehaviour
 {
+    public IEnumerator PingPongPackageAfter4Seconds(LerpPackage pkg)
+    {
+        yield return new WaitForSeconds(4);
+        (pkg.start, pkg.target) = (pkg.target, pkg.start);
+        pkg.ResetTiming();
+        GlobalProcessorHandler.AddLerpPackage(pkg);
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +25,7 @@ public class ObstacleController : MonoBehaviour
                 obstacle.transform.rotation.eulerAngles, new Vector3(Random.Range(0, 180),Random.Range(0, 180), Random.Range(0, 180)),
                 (value) =>
                 {
-                    obstacle.gameObject.transform.parent.transform.rotation = Quaternion.Euler(value);
+                    obstacle.gameObject.transform.parent.rotation = Quaternion.Euler(value);
                 },
                 pkg =>
                 {
@@ -40,6 +49,7 @@ public class ObstacleController : MonoBehaviour
                 },
                 pkg =>
                 {
+                    //StartCoroutine(PingPongPackageAfter4Seconds(pkg));
                     (pkg.start, pkg.target) = (pkg.target, pkg.start);
                     pkg.ResetTiming();
                     GlobalProcessorHandler.AddLerpPackage(pkg);
