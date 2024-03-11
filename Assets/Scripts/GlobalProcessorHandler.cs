@@ -16,18 +16,18 @@ public class GlobalProcessorHandler : MonoBehaviour
     {
         try
         {
-            pkg.AddToProcessor(ref reference.lerpProcessors);
+            pkg.AddToProcessor(ref reference.lerpProcessor);
         }
         catch (NullReferenceException err)
         {
             GameObject obj = new GameObject("Global Lerp Processor Handler");
             GlobalProcessorHandler component = obj.AddComponent<GlobalProcessorHandler>();
             reference = component;
-            pkg.AddToProcessor(ref reference.lerpProcessors);
+            pkg.AddToProcessor(ref reference.lerpProcessor);
         }
     }
 
-    private LerpPackageProcessor lerpProcessors = new LerpPackageProcessor();
+    private LerpPackageProcessor lerpProcessor = new LerpPackageProcessor();
     
     private void Awake()
     {
@@ -38,18 +38,9 @@ public class GlobalProcessorHandler : MonoBehaviour
         }
         Destroy(this.gameObject);
     }
-
-    private void AddPkgToProcessor(FloatLerpPackage pkg)
-    {
-        this.lerpProcessors.AddPackage(pkg);
-    }
     
-    private void AddPkgToProcessor(Vector3LerpPackage pkg)
-    {
-        this.lerpProcessors.AddPackage(pkg);
-    }
     void Update()
     {
-        this.lerpProcessors.Update();
+        this.lerpProcessor.Update();
     }
 }

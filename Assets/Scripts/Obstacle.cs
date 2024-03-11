@@ -13,6 +13,8 @@ public class Obstacle : MonoBehaviour
 
     [SerializeField] public AnimationCurve animCurve;
 
+    private Vector4 test = new Vector4();
+
     public float TimeToLerp
     {
         get
@@ -37,5 +39,11 @@ public class Obstacle : MonoBehaviour
 
     private void Start()
     {
+        this.test.LerpTo(new Vector4(10, 10, 10, 10), 5);
+    }
+
+    private void Update()
+    {
+        Debug.Log(this.test);
     }
 }

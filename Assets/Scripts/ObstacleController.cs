@@ -34,7 +34,7 @@ public class ObstacleController : MonoBehaviour
                 ));
             
             obstacle.transform.position.LerpTo(obstacle.leftRightAnchors[obstacle.MovingTowards].position, obstacle.TimeToLerp,
-                (value) =>
+                (Vector3 value) =>
                 {
                     obstacle.transform.position = value;
                 },
