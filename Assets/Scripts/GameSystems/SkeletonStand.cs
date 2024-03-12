@@ -17,11 +17,6 @@ public class SkeletonStand : MonoBehaviour, I_Interactable
     private List<GameObject> skeletonBones = new List<GameObject>();
     private Dictionary<string, Transform> boneNameTransforms = new Dictionary<string, Transform>();
     
-    //Bone processing data
-    [SerializeField] 
-    private float bonePlacementSpeed = 1;
-    private BoneProcessingData boneProcessingData;
-    
     //Progress data
 
     [SerializeField] 
@@ -47,9 +42,8 @@ public class SkeletonStand : MonoBehaviour, I_Interactable
     
     private void Start()
     {
-        /*this.bonesNeededToWin = this.skeletonBones.Count;
-        this.boneProcessingData = new BoneProcessingData(this.bonePlacementSpeed);
-        PopulateBoneNameTransforms();*/
+        this.bonesNeededToWin = this.skeletonBones.Count;
+        PopulateBoneNameTransforms();
     }
 
     private void PopulateBoneNameTransforms()
@@ -75,15 +69,18 @@ public class SkeletonStand : MonoBehaviour, I_Interactable
 
     private void AddNewLerpPackageToPkgQueue(GameObject bone, Bone BoneCastObj)
     {
-        //finally create a new LerpPackage and add it to the queue
-        //this.boneProcessingData.LerpPackageProcessor.AddPackage(new Vector3LerpPackage<Bone>(bone.transform.position,boneNameTransforms[BoneCastObj.GetSkeletonStandBoneName()].position,
-            //(pos, obj) => { obj.transform.position = pos;}));
-        //this.boneProcessingData.LerpPackageProcessor.AddPackage(new Vector3LerpPackage<Bone>(bone.transform.rotation.eulerAngles,boneNameTransforms[BoneCastObj.GetSkeletonStandBoneName()].rotation.eulerAngles,
-            //(rot, obj) => { obj.gameObject.transform.rotation = Quaternion.Euler(rot);}));
-    }
-
-    private void Update()
-    {
-        /*this.boneProcessingData.LerpPackageProcessor.Update();*/
+        bone.transform.position.LerpTo(boneNameTransforms[BoneCastObj.GetSkeletonStandBoneName()].position, 
+            1,
+            value => { bone.transform.position = value;}
+            );
+        
+        bone.transform.rotation.eulerAngles.LerpTo(boneNameTransforms[BoneCastObj.GetSkeletonStandBoneName()].rotation.eulerAngles, 
+            1, 
+            value =>{bone.transform.rotation = Quaternion.Euler(value);},
+            pkg =>
+            {
+                BoneCastObj.GetComponent<Rigidbody>().isKinematic = true;
+                BoneCastObj.IsEnabled = false;
+            });
     }
 }

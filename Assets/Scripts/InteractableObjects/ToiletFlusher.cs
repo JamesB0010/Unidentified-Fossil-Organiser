@@ -16,9 +16,7 @@ public class ToiletFlusher : MonoBehaviour, I_Interactable
 
     private float emptySpeed = 0.7f;
 
-    private float fillSpeed = 0.15f;
-
-    /*private LerpPackageProcessor<GameObject> _lerpProcessor = new LerpPackageProcessor<GameObject>();*/
+    private float fillSpeed = 2f;
 
     [SerializeField] private GameObject water;
 
@@ -35,10 +33,8 @@ public class ToiletFlusher : MonoBehaviour, I_Interactable
         if (this.ineractionInProgress)
             return;
 
-        /*if (this.bowlFull)
-            this.Flush();*/
-        
-        this.audioSource.Play();
+        if (this.bowlFull)
+            this.Flush();
     }
     // Start is called before the first frame update
     void Start()
@@ -46,66 +42,44 @@ public class ToiletFlusher : MonoBehaviour, I_Interactable
         this.audioSource = GetComponent<AudioSource>();
     }
 
-    /*private void Flush()
-    {*/
-        /*this.ineractionInProgress = true;
-        PositionRotationPair start = new PositionRotationPair
-        {
-            position = this.topPosition.transform.position,
-            rotation = this.topPosition.transform.rotation.eulerAngles
-        };
-
-        //define a end/target position and rotation
-        PositionRotationPair end = new PositionRotationPair()
-        {
-            position = this.bottomPosition.transform.position,
-            rotation = this.bottomPosition.transform.rotation.eulerAngles
-        };
+    private void Flush()
+    {
+        this.audioSource.Play();
+        this.ineractionInProgress = true;
         
-        //finally create a new LerpPackage and add it to the queue
-        this.lerpProcessor.AddPackage(new ObjectLerpPackage<GameObject>(this.water, start, end, pkg =>
-        {
-            this.bowlFull = false;
-            StartCoroutine(this.waitBeforeRefil());
-        }, this.emptySpeed));
+        this.topPosition.transform.position.LerpTo(this.bottomPosition.transform.position,
+            emptySpeed,
+            value =>
+            {
+                this.water.transform.position = value;
+            },
+            pkg =>
+            {
+                this.bowlFull = false;
+                StartCoroutine(this.waitBeforeRefil(pkg));
+            }
+            );
         
         this.audioSource.Play();
     }
 
-    private void Refill()
+    private void Refill(LerpPackage pkg)
     {
-        this.ineractionInProgress = true;
-        PositionRotationPair start = new PositionRotationPair
+        (pkg.start, pkg.target) = (pkg.target, pkg.start);
+        pkg.ResetTiming();
+        pkg.timeToLerp = this.fillSpeed;
+        pkg.finalCallback = pkg =>
         {
-            position = this.bottomPosition.transform.position,
-            rotation = this.bottomPosition.transform.rotation.eulerAngles
-        };
-
-        //define a end/target position and rotation
-        PositionRotationPair end = new PositionRotationPair()
-        {
-            
-            position = this.topPosition.transform.position,
-            rotation = this.topPosition.transform.rotation.eulerAngles
+            this.bowlFull = true;
+            this.ineractionInProgress = false;
         };
         
-        //finally create a new LerpPackage and add it to the queue
-        this.lerpProcessor.AddPackage(new ObjectLerpPackage<GameObject>(this.water, start, end, pkg =>
-        {
-            this.ineractionInProgress = false;
-            this.bowlFull = true;
-        }, this.fillSpeed));
-    }*/
+        GlobalProcessorHandler.AddLerpPackage(pkg);
+    }
 
-    /*public IEnumerator waitBeforeRefil()
+    public IEnumerator waitBeforeRefil(LerpPackage pkg)
     {
-        /*yield return new WaitForSeconds(5);
-        this.Refill();#1#
-    }*/
-
-    // Update is called once per frame
-    void Update()
-    {
-        /*this._lerpProcessor.Update();*/
+        yield return new WaitForSeconds(5);
+        this.Refill(pkg);
     }
 }
