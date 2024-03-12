@@ -49,8 +49,6 @@ public class ObstacleController : MonoBehaviour
                 2f
             )
         );
-        
-        this.test.LerpTo(100.0f, 10.0f);
     }
 
     private void Update()
