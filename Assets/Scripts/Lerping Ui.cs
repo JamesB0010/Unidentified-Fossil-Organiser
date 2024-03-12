@@ -25,7 +25,8 @@ public class LerpingUi : MonoBehaviour
             
             
             //do the lerp
-            text.fontSize.LerpTo(scaleTarget, 1, (value) =>
+            text.fontSize.LerpTo(scaleTarget, 1, 
+                value =>
             {
                 text.fontSize = value;
             }, 

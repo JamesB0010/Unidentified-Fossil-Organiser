@@ -10,8 +10,6 @@ public class ObstacleController : MonoBehaviour
 {
     [SerializeField]
     private Light light1;
-
-    private float test = 0;
     
     [SerializeField] private Light light2;
     // Start is called before the first frame update
@@ -53,6 +51,5 @@ public class ObstacleController : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(this.test);
     }
 }
