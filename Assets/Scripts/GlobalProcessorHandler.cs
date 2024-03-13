@@ -10,7 +10,7 @@ using UnityEngine;
 public class GlobalProcessorHandler : MonoBehaviour
 {
 
-    public static GlobalProcessorHandler reference = null;
+    private static GlobalProcessorHandler reference = null;
 
     public static AnimationCurve linearCurve = AnimationCurve.Linear(0, 0, 1, 1);
 

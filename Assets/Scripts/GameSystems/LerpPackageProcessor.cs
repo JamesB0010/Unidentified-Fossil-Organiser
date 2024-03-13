@@ -48,12 +48,12 @@ public class LerpPackageProcessor
     }
     private void LerpValue(LerpPackage pkg)
     {
-        updateCurrentLerpPercentage(pkg);
+        UpdateCurrentLerpPercentage(pkg);
         
         pkg.RunStepCallback();
     }
 
-    private void updateCurrentLerpPercentage(LerpData.LerpPackage pkg)
+    private void UpdateCurrentLerpPercentage(LerpPackage pkg)
     {
         pkg.elapsedTime += Time.deltaTime;
         
