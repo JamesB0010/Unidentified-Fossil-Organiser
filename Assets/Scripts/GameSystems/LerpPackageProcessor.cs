@@ -12,9 +12,6 @@ public class LerpPackageProcessor
     //queue data
     private List<LerpPackage> packageList = new List<LerpPackage>();
     
-    //lerping data
-    private const float moveTowardsTarget = 1.0f;
-    
     #endregion
 
     #region Methods
