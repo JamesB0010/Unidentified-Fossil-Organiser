@@ -39,17 +39,18 @@ public class timeManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        IsGameOver = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+
         if(isGameOver)
         {
             PlayerPrefs.SetFloat("playerTime", currentPlayTime);  
         }
-        else if (PlayerPrefs.GetFloat("playerTime") == 0 || PlayerPrefs.GetFloat("playerTime") == null)
+        else if (PlayerPrefs.GetFloat("playerTime", 0) == 0 || PlayerPrefs.GetFloat("playerTime", 0) == null)
         {
             currentPlayTime += Time.deltaTime;
         }
