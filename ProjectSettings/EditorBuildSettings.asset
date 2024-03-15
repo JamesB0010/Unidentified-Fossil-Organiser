@@ -9,8 +9,8 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 62745f2abcf4a10408b49641a4b29470
   - enabled: 1
-    path: Assets/Scenes/James Test Level.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
+    path: Assets/Scenes/WhiteBoxOfficeJames2.unity
+    guid: 6b769280afafa5b41b179e8a2f05e8f6
   - enabled: 1
     path: Assets/Scenes/EndScreen.unity
     guid: 4af18e2e315008c4aa2a7e694d5bd3d2
