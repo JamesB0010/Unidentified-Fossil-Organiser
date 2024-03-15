@@ -27,8 +27,6 @@ public class DoctorsSink : MonoBehaviour, I_Interactable
 
     private AudioSource audioSource;
 
-    private LerpPackageProcessor<GameObject> lerpProcessor = new LerpPackageProcessor<GameObject>();
-
     [SerializeField]
     private GameObject water;
 
@@ -64,26 +62,18 @@ public class DoctorsSink : MonoBehaviour, I_Interactable
     private void FillSink()
     {
         this.interactionInProgress = true;
-        PositionRotationPair start = new PositionRotationPair
-        {
-            position = this.bottomPosition.transform.position,
-            rotation = this.bottomPosition.transform.rotation.eulerAngles
-        };
-
-        //define a end/target position and rotation
-        PositionRotationPair end = new PositionRotationPair()
-        {
-            position = this.topPosition.transform.position,
-            rotation = this.topPosition.transform.rotation.eulerAngles
-        };
-        
-        //finally create a new LerpPackage and add it to the queue
-        this.lerpProcessor.AddPackage(new ObjectLerpPackage<GameObject>(this.water, start, end, pkg =>
-        {
-            this.interactionInProgress = false;
-            this.sinkFull = true;
-            this.OnSinkFull?.Invoke();
-        }, this.fillSpeed));
+        this.bottomPosition.transform.position.LerpTo(this.topPosition.transform.position,
+            4,
+            value =>
+            {
+                this.water.transform.position = value;
+            },
+            pkg =>
+            {
+                this.interactionInProgress = false;
+                this.sinkFull = true;
+                this.OnSinkFull?.Invoke();
+            });
 
         this.audioSource.clip = this.fillSound;
         this.audioSource.Play();
@@ -92,34 +82,21 @@ public class DoctorsSink : MonoBehaviour, I_Interactable
     private void DrainSink()
     {
         this.interactionInProgress = true;
-        PositionRotationPair start = new PositionRotationPair
-        {
-            position = this.topPosition.transform.position,
-            rotation = this.topPosition.transform.rotation.eulerAngles
-        };
-
-        //define a end/target position and rotation
-        PositionRotationPair end = new PositionRotationPair()
-        {
-            position = this.bottomPosition.transform.position,
-            rotation = this.bottomPosition.transform.rotation.eulerAngles
-        };
         
-        //finally create a new LerpPackage and add it to the queue
-        this.lerpProcessor.AddPackage(new ObjectLerpPackage<GameObject>(this.water, start, end, pkg =>
-        {
-            this.interactionInProgress = false;
-            this.sinkFull = false;
-            this.OnSinkEmpty?.Invoke();
-        }, this.emptySpeed));
+        this.topPosition.transform.position.LerpTo(this.bottomPosition.transform.position,
+            6,
+            value =>
+            {
+                this.water.transform.position = value;
+            },
+            pkg =>
+            {
+                this.interactionInProgress = false;
+                this.sinkFull = false;
+                this.OnSinkEmpty?.Invoke();
+            });
 
         this.audioSource.clip = this.emptySound;
         this.audioSource.Play();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        this.lerpProcessor.ProcessLerpPackageList();
     }
 }
