@@ -53,6 +53,14 @@ public class TextLookTowards : MonoBehaviour
     {
 
         parentBone = cameraSampler.ObjectInRange;
+        AudioSource aiSources = parentBone.GetComponent<boneFacts>().Source;
+
+        if (!parentBone.GetComponent<boneFacts>().isPlayed)
+        {
+            aiSources.clip = parentBone.GetComponent<boneFacts>().aiVoice;
+            aiSources.Play();
+            parentBone.GetComponent<boneFacts>().isPlayed = true;
+        }
     }
 
     public void OnDropBone()
