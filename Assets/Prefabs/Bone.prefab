@@ -36,8 +36,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0.85, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 5103386671944768600}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -103,7 +102,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8ee528756d2d0244b211b447b8e3602, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickupEffect: {fileID: 1700106828341154351}
   SkeletonStandBoneName: L_Foot
 --- !u!54 &4771115396082134003
 Rigidbody:
@@ -5118,79 +5116,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boneFact: 
-  aiVoice: {fileID: 0}
---- !u!1001 &4704472074449735102
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 848883091274030484}
-    m_Modifications:
-    - target: {fileID: 548167356772864486, guid: 35ff2af486e9f4a4cbbd43dcf1e87dd7, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 548167356772864486, guid: 35ff2af486e9f4a4cbbd43dcf1e87dd7, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 548167356772864486, guid: 35ff2af486e9f4a4cbbd43dcf1e87dd7, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 548167356772864486, guid: 35ff2af486e9f4a4cbbd43dcf1e87dd7, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 548167356772864486, guid: 35ff2af486e9f4a4cbbd43dcf1e87dd7, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 548167356772864486, guid: 35ff2af486e9f4a4cbbd43dcf1e87dd7, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 548167356772864486, guid: 35ff2af486e9f4a4cbbd43dcf1e87dd7, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 548167356772864486, guid: 35ff2af486e9f4a4cbbd43dcf1e87dd7, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 548167356772864486, guid: 35ff2af486e9f4a4cbbd43dcf1e87dd7, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 548167356772864486, guid: 35ff2af486e9f4a4cbbd43dcf1e87dd7, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 548167356772864486, guid: 35ff2af486e9f4a4cbbd43dcf1e87dd7, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4631867715809543939, guid: 35ff2af486e9f4a4cbbd43dcf1e87dd7, type: 3}
-      propertyPath: m_Name
-      value: PickupEffect
-      objectReference: {fileID: 0}
-    - target: {fileID: 6259539806941863825, guid: 35ff2af486e9f4a4cbbd43dcf1e87dd7, type: 3}
-      propertyPath: playOnAwake
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 35ff2af486e9f4a4cbbd43dcf1e87dd7, type: 3}
---- !u!198 &1700106828341154351 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 6259539806941863825, guid: 35ff2af486e9f4a4cbbd43dcf1e87dd7, type: 3}
-  m_PrefabInstance: {fileID: 4704472074449735102}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &5103386671944768600 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 548167356772864486, guid: 35ff2af486e9f4a4cbbd43dcf1e87dd7, type: 3}
-  m_PrefabInstance: {fileID: 4704472074449735102}
-  m_PrefabAsset: {fileID: 0}

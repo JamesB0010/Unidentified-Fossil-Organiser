@@ -157,7 +157,6 @@ namespace UFO_PickupStuff
             PushHeldObjectAway();
             this.droppedObject.Invoke();
             this.PlayThrowSound();
-            this.spaceSampler.ObjectInRange.GetComponent<Pickupable>().Dropped();
         }
 
         private void PushHeldObjectAway()
@@ -180,7 +179,6 @@ namespace UFO_PickupStuff
             this.pickupStateData.holdingObject = true;
             this.pickupStateData.readyToPickup = false;
             this.pickedUpObject.Invoke();
-            this.spaceSampler.ObjectInRange.GetComponent<Pickupable>().PickedUp();
 
             PlayPickupSound();
         }

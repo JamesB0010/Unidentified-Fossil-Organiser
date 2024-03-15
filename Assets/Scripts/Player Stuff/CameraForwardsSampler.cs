@@ -147,7 +147,7 @@ namespace UFO_PlayerStuff
             if (!hit.rigidbody)
                 return false;
 
-            if (!hit.rigidbody.gameObject.TryGetComponent(out UFO_PickupStuff.Pickupable pickupable))
+            if (!hit.rigidbody.gameObject.TryGetComponent(out UFO_PickupStuff.I_Pickupable pickupable))
                 return false;
 
             if (hit.rigidbody.gameObject.TryGetComponent(out Bone bone) && bone.IsEnabled == false)

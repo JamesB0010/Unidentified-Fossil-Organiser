@@ -648,7 +648,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba2f14d5b178614d8cb19eb6db90eb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickupEffect: {fileID: 0}
 --- !u!54 &20681898
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1524,14 +1523,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1700106828341154351, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
-      propertyPath: EmissionModule.enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1831123925136931268, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 4215791674165123727, guid: 1f42cbd37368ba34b8a9aed4bfcee3b9, type: 3}
     - target: {fileID: 4352509164021170822, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: SkeletonStandBoneName
       value: L_ShoulderBlade
@@ -2011,10 +2002,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 66.423
       objectReference: {fileID: 0}
-    - target: {fileID: 1700106828341154351, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
-      propertyPath: EmissionModule.enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1831123925136931268, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -2197,10 +2184,6 @@ PrefabInstance:
     - target: {fileID: 848883091274030484, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -4.959
-      objectReference: {fileID: 0}
-    - target: {fileID: 1700106828341154351, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
-      propertyPath: EmissionModule.enabled
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1831123925136931268, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: m_Mesh
@@ -4701,7 +4684,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba2f14d5b178614d8cb19eb6db90eb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickupEffect: {fileID: 0}
 --- !u!54 &306853411
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4957,10 +4939,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 848883091274030484, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1700106828341154351, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
-      propertyPath: EmissionModule.enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1831123925136931268, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
@@ -6069,7 +6047,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba2f14d5b178614d8cb19eb6db90eb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickupEffect: {fileID: 0}
 --- !u!54 &417139771
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6529,7 +6506,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba2f14d5b178614d8cb19eb6db90eb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickupEffect: {fileID: 0}
 --- !u!54 &429621771
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6913,10 +6889,6 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 4306bf7cb3ffae24fba152ffcc4ad6be, type: 2}
-    - target: {fileID: 1700106828341154351, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
-      propertyPath: EmissionModule.enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1831123925136931268, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -7551,14 +7523,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1700106828341154351, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
-      propertyPath: looping
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1700106828341154351, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
-      propertyPath: EmissionModule.enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1831123925136931268, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -7650,7 +7614,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba2f14d5b178614d8cb19eb6db90eb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickupEffect: {fileID: 0}
 --- !u!64 &495881725
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -9193,10 +9156,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1700106828341154351, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
-      propertyPath: EmissionModule.enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1831123925136931268, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -9864,7 +9823,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba2f14d5b178614d8cb19eb6db90eb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickupEffect: {fileID: 0}
 --- !u!64 &651397207
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -15786,10 +15744,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1700106828341154351, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
-      propertyPath: EmissionModule.enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1831123925136931268, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -16478,10 +16432,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 848883091274030484, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1700106828341154351, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
-      propertyPath: EmissionModule.enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1831123925136931268, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
@@ -18032,10 +17982,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 848883091274030484, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1700106828341154351, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
-      propertyPath: EmissionModule.enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5567800274400738817, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
@@ -19912,7 +19858,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba2f14d5b178614d8cb19eb6db90eb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickupEffect: {fileID: 0}
 --- !u!54 &1417856470
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -20190,7 +20135,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba2f14d5b178614d8cb19eb6db90eb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickupEffect: {fileID: 0}
 --- !u!54 &1424439614
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -24469,10 +24413,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1700106828341154351, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
-      propertyPath: EmissionModule.enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1831123925136931268, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -26653,10 +26593,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1700106828341154351, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
-      propertyPath: EmissionModule.enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1831123925136931268, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -28144,10 +28080,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 848883091274030484, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1700106828341154351, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
-      propertyPath: EmissionModule.enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1831123925136931268, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}

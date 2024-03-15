@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace UFO_PickupStuff{
     [ExecuteInEditMode]
-public class Bone : UFO_PickupStuff.Pickupable
+public class Bone : MonoBehaviour, UFO_PickupStuff.I_Pickupable
 {
     #region Attributes
     

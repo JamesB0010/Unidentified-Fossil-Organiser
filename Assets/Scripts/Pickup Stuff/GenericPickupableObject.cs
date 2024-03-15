@@ -4,7 +4,7 @@ using UFO_PickupStuff;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody)), RequireComponent(typeof(MeshCollider))]
-public class GenericPickupableObject : UFO_PickupStuff.Pickupable
+public class GenericPickupableObject : MonoBehaviour, UFO_PickupStuff.I_Pickupable
 {
     // Start is called before the first frame update
     void Start()
