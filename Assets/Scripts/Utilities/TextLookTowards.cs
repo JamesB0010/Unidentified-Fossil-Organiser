@@ -6,6 +6,7 @@ using TMPro;
 using System.Runtime.CompilerServices;
 using UFO_PlayerStuff;
 using UnityEngine.UI;
+using System;
 
 public class TextLookTowards : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class TextLookTowards : MonoBehaviour
     private GameObject parentBone = null;
 
     private CameraForwardsSampler cameraSampler;
+
+    private bool isPlayerHoldingBone = false;
 
     public TMP_Text boneText; 
 
@@ -27,8 +30,7 @@ public class TextLookTowards : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        if (parentBone != null)
+        if (parentBone != null && isPlayerHoldingBone)
         {
             TextLookAt();
             followParent();
@@ -51,16 +53,21 @@ public class TextLookTowards : MonoBehaviour
 
     public void OnPickupBone()
     {
+        AudioSource aiSources = null;
 
-        parentBone = cameraSampler.ObjectInRange;
-        AudioSource aiSources = parentBone.GetComponent<boneFacts>().Source;
-
-        if (!parentBone.GetComponent<boneFacts>().isPlayed)
+        try
         {
-            aiSources.clip = parentBone.GetComponent<boneFacts>().aiVoice;
-            aiSources.Play();
-            parentBone.GetComponent<boneFacts>().isPlayed = true;
-        }
+            parentBone = cameraSampler.ObjectInRange;
+            aiSources = parentBone.GetComponent<boneFacts>().Source;
+            isPlayerHoldingBone = true;
+            if (!parentBone.GetComponent<boneFacts>().isPlayed && isPlayerHoldingBone)
+            {
+                aiSources.clip = parentBone.GetComponent<boneFacts>().aiVoice;
+                aiSources.Play();
+                parentBone.GetComponent<boneFacts>().isPlayed = true;
+            }
+        } catch (NullReferenceException error) { isPlayerHoldingBone = false; }
+
     }
 
     public void OnDropBone()
