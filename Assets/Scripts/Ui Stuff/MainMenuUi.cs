@@ -15,6 +15,8 @@ namespace UFO_UI
         public TMP_Text placeholderTxt;
         public void StartGame()
         {
+            canvasManager.timeRun = 0;
+
             string initials = InitialsInput.text;
 
             Debug.Log(InitialsInput.text);
