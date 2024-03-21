@@ -17,4 +17,13 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadSceneAsync(2, LoadSceneMode.Single);
     }
 
+
+    private void Update()
+    {
+        if(Input.GetKey(KeyCode.L))
+        {
+            GameObject.FindGameObjectWithTag("GameManager").GetComponent<timeManager>().IsGameOver = true;
+            SceneManager.LoadSceneAsync(2, LoadSceneMode.Single);
+        }
+    }
 }
