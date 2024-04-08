@@ -5,9 +5,7 @@ using UnityEngine;
 
 public class LerpPackageProcessor
 {
-    #region Attributes
-    //define a callback type for when a package has been processed
-    public delegate void PackageProcessed(LerpPackage pkg);
+    #region Attributes    
     
     //queue data
     private List<LerpPackage> packageList = new List<LerpPackage>();

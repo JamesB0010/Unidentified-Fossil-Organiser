@@ -36,6 +36,12 @@ public class LerpingUi : MonoBehaviour
                     this.centerTextLerping = false;
                 },
                 this.animCurve);
+            
+            // OMG LERPING
+
+            int a = 0;
+            
+            print(a);
         }
     }
 }
