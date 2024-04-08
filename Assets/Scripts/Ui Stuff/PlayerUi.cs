@@ -12,6 +12,8 @@ public class PlayerUi : MonoBehaviour
     private TextMeshProUGUI pressEToPickup;
 
     private bool playerHoldingObject = false;
+
+    [SerializeField] private GameObject InactivityScreen;
     
     #endregion
 
@@ -52,6 +54,36 @@ public class PlayerUi : MonoBehaviour
     public void ReactToOutOfRangeOfInteraction()
     {
         pressEToPickup.enabled = false;
+    }
+
+
+    private bool playerInactive;
+
+    private bool PlayerInactive
+    {
+        get
+        {
+            return playerInactive;
+        }
+
+        set
+        {
+            if (value == playerInactive)
+                return;
+
+            playerInactive = value;
+            
+            this.InactivityScreen.SetActive(this.playerInactive);
+        }
+    }
+    public void ReactToInactivityDetected()
+    {
+        this.PlayerInactive = true;
+    }
+
+    public void ReactToActivityDetected()
+    {
+        this.playerInactive = false;
     }
 }
 
