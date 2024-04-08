@@ -15,6 +15,8 @@ public class WhenPlayerIdleReset : MonoBehaviour
 
      private bool inactivityNotified = false;
 
+     private bool currentlyActive = false;
+
      [SerializeField] private UnityEvent InactivityDetected, ActivityDetected;
      private void Start()
      {
@@ -24,16 +26,32 @@ public class WhenPlayerIdleReset : MonoBehaviour
      private void Update()
      {
           this.currentTime = Time.time - this.LastImputTimeStamp;
-          
-          if(this.currentTime >= this.inactivityThreshold && inactivityNotified == false)
+
+          if (this.currentTime >= this.inactivityThreshold && inactivityNotified == false)
+          {
+               if (this.currentlyActive)
+               {
+                    this.LastImputTimeStamp = Time.time;
+                    return;
+               }
+
+               this.inactivityNotified = true;
                InactivityDetected.Invoke();
+          }
           
           Debug.Log(this.currentTime);
      }
 
      public void PlayerHasDoneSomething()
      {
+          this.currentlyActive = true;
+          this.inactivityNotified = false;
           this.LastImputTimeStamp = Time.time;
           this.ActivityDetected.Invoke();
+     }
+
+     public void PlayerStoppedMoving()
+     {
+          this.currentlyActive = false;
      }
 }
