@@ -1723,7 +1723,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2791,8 +2791,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 0
+  m_fontColor: {r: 0, g: 0, b: 0, a: 0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -4741,7 +4741,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &308925318
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10207,8 +10207,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 0
+  m_fontColor: {r: 0, g: 0, b: 0, a: 0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -16225,6 +16225,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pressEToPickup: {fileID: 1898068164}
   InactivityScreen: {fileID: 308925317}
+  inactivityNotificationLerpCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  timerText: {fileID: 217254166}
 --- !u!114 &1214739853
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16378,8 +16403,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 0
+  m_fontColor: {r: 0, g: 0, b: 0, a: 0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -20578,7 +20603,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 657415492471015853, guid: 29420d0ee6d3c744e941638a43d9303a, type: 3}
       propertyPath: StoppedWalking.m_PersistentCalls.m_Calls.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 657415492471015853, guid: 29420d0ee6d3c744e941638a43d9303a, type: 3}
       propertyPath: StartedWalking.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
@@ -20590,6 +20615,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 657415492471015853, guid: 29420d0ee6d3c744e941638a43d9303a, type: 3}
       propertyPath: StoppedWalking.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 657415492471015853, guid: 29420d0ee6d3c744e941638a43d9303a, type: 3}
+      propertyPath: StoppedWalking.m_PersistentCalls.m_Calls.Array.data[3].m_Mode
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 657415492471015853, guid: 29420d0ee6d3c744e941638a43d9303a, type: 3}
@@ -20605,6 +20634,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 287483736}
     - target: {fileID: 657415492471015853, guid: 29420d0ee6d3c744e941638a43d9303a, type: 3}
+      propertyPath: StoppedWalking.m_PersistentCalls.m_Calls.Array.data[3].m_Target
+      value: 
+      objectReference: {fileID: 34119774}
+    - target: {fileID: 657415492471015853, guid: 29420d0ee6d3c744e941638a43d9303a, type: 3}
       propertyPath: StartedWalking.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
       value: 2
       objectReference: {fileID: 0}
@@ -20614,6 +20647,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 657415492471015853, guid: 29420d0ee6d3c744e941638a43d9303a, type: 3}
       propertyPath: StoppedWalking.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 657415492471015853, guid: 29420d0ee6d3c744e941638a43d9303a, type: 3}
+      propertyPath: StoppedWalking.m_PersistentCalls.m_Calls.Array.data[3].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 657415492471015853, guid: 29420d0ee6d3c744e941638a43d9303a, type: 3}
@@ -20629,6 +20666,10 @@ PrefabInstance:
       value: ReactStopWalking
       objectReference: {fileID: 0}
     - target: {fileID: 657415492471015853, guid: 29420d0ee6d3c744e941638a43d9303a, type: 3}
+      propertyPath: StoppedWalking.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
+      value: PlayerStoppedMoving
+      objectReference: {fileID: 0}
+    - target: {fileID: 657415492471015853, guid: 29420d0ee6d3c744e941638a43d9303a, type: 3}
       propertyPath: StartedWalking.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
       value: PlayerHeadVerticalMovement, Assembly-CSharp
       objectReference: {fileID: 0}
@@ -20641,6 +20682,10 @@ PrefabInstance:
       value: PlayerHeadVerticalMovement, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 657415492471015853, guid: 29420d0ee6d3c744e941638a43d9303a, type: 3}
+      propertyPath: StoppedWalking.m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
+      value: WhenPlayerIdleReset, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 657415492471015853, guid: 29420d0ee6d3c744e941638a43d9303a, type: 3}
       propertyPath: StartedWalking.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
@@ -20650,6 +20695,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 657415492471015853, guid: 29420d0ee6d3c744e941638a43d9303a, type: 3}
       propertyPath: StoppedWalking.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 657415492471015853, guid: 29420d0ee6d3c744e941638a43d9303a, type: 3}
+      propertyPath: StoppedWalking.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 764510490672572180, guid: 29420d0ee6d3c744e941638a43d9303a, type: 3}
@@ -22763,8 +22812,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 0
+  m_fontColor: {r: 0, g: 0, b: 0, a: 0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
