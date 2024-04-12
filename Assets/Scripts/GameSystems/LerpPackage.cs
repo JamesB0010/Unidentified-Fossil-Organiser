@@ -9,10 +9,12 @@ namespace LerpData
 {
         public delegate void LerpStep<T>(T currentValue);
 
+    public delegate void PackageProcessed(LerpPackage pkg);
+
     public abstract class LerpPackage
     {
 
-        public LerpPackageProcessor.PackageProcessed finalCallback;
+        public PackageProcessed finalCallback;
         public float timeToLerp;
         public float elapsedTime = 0.0f;
         public float current = 0.0f;
@@ -55,7 +57,7 @@ class FloatLerpPackage: LerpPackage
     
     #region Methods
     public FloatLerpPackage(float start,
-        float target, LerpStep<float> stepCallback, LerpPackageProcessor.PackageProcessed finalCb, float timeToLerp = 1.0f, AnimationCurve animCurve = null)
+        float target, LerpStep<float> stepCallback, PackageProcessed finalCb, float timeToLerp = 1.0f, AnimationCurve animCurve = null)
     {
         this.start = start;
         this.target = target;
@@ -100,7 +102,7 @@ class Vector3LerpPackage: LerpPackage
     }
     #endregion
 
-    public Vector3LerpPackage(Vector3 start, Vector3 target, LerpStep<Vector3> stepCallback, LerpPackageProcessor.PackageProcessed finalCb, float timeToLerp = 1.0f, AnimationCurve animCurve = null)
+    public Vector3LerpPackage(Vector3 start, Vector3 target, LerpStep<Vector3> stepCallback, PackageProcessed finalCb, float timeToLerp = 1.0f, AnimationCurve animCurve = null)
     {
         this.start = start;
         this.target = target;
@@ -144,7 +146,7 @@ class Vector3SlerpPackage : LerpPackage
     }
     #endregion
 
-    public Vector3SlerpPackage(Vector3 start, Vector3 target, LerpStep<Vector3> stepCallback, LerpPackageProcessor.PackageProcessed finalCb, float timeToLerp = 1.0f, AnimationCurve animCurve = null)
+    public Vector3SlerpPackage(Vector3 start, Vector3 target, LerpStep<Vector3> stepCallback, PackageProcessed finalCb, float timeToLerp = 1.0f, AnimationCurve animCurve = null)
     {
         this.start = start;
         this.target = target;
@@ -187,7 +189,7 @@ class Vector4LerpPackage: LerpPackage
     }
     #endregion
 
-    public Vector4LerpPackage(Vector4 start, Vector4 target, LerpStep<Vector4> stepCallback, LerpPackageProcessor.PackageProcessed finalCb, float timeToLerp = 1.0f, AnimationCurve animCurve = null)
+    public Vector4LerpPackage(Vector4 start, Vector4 target, LerpStep<Vector4> stepCallback, PackageProcessed finalCb, float timeToLerp = 1.0f, AnimationCurve animCurve = null)
     {
         this.start = start;
         this.target = target;

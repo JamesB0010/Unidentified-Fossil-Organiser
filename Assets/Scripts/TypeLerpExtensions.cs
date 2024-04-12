@@ -7,7 +7,7 @@ using UnityEngine;
 public static class TypeLerpExtensions
 {
     public static void LerpTo(this float value, float endValue, float timeToTake = 1,
-       LerpStep<float> updateCallback = null, LerpPackageProcessor.PackageProcessed finishedCb = null,
+       LerpStep<float> updateCallback = null, PackageProcessed finishedCb = null,
         AnimationCurve animCurve = null)
     {
         updateCallback ??= (val) => { value = val; Debug.Log(value); };
@@ -30,7 +30,7 @@ public static class TypeLerpExtensions
 
     public static void LerpTo(this Vector3 value, Vector3 endValue, float timeToTake = 1,
         LerpStep<Vector3> updateCallback = null,
-        LerpPackageProcessor.PackageProcessed finishedCb = null,
+        PackageProcessed finishedCb = null,
         AnimationCurve animCurve = null)
     {
         updateCallback ??= (val) => { value = val; Debug.Log(value); };
@@ -52,7 +52,7 @@ public static class TypeLerpExtensions
     
     public static void SlerpTo(this Vector3 value, Vector3 endValue, float timeToTake = 1,
         LerpStep<Vector3> updateCallback = null,
-        LerpPackageProcessor.PackageProcessed finishedCb = null,
+        PackageProcessed finishedCb = null,
         AnimationCurve animCurve = null)
     {
         updateCallback ??= (val) => { value = val; Debug.Log(value); };
@@ -74,7 +74,7 @@ public static class TypeLerpExtensions
     
     public static void LerpTo(this Vector4 value, Vector4 endValue, float timeToTake = 1,
         LerpStep<Vector4> updateCallback = null,
-        LerpPackageProcessor.PackageProcessed finishedCb = null,
+            PackageProcessed finishedCb = null,
         AnimationCurve animCurve = null)
     {
         updateCallback ??= (val) => { value = val; Debug.Log(value); };
