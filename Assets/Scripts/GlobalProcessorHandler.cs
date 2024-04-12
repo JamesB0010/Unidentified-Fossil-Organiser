@@ -14,6 +14,7 @@ public class GlobalProcessorHandler : MonoBehaviour
 
     public static AnimationCurve linearCurve = AnimationCurve.Linear(0, 0, 1, 1);
 
+    private LerpPackageProcessor lerpProcessor = new LerpPackageProcessor();
     public static void AddLerpPackage(LerpPackage pkg)
     {
         try
@@ -29,7 +30,6 @@ public class GlobalProcessorHandler : MonoBehaviour
         }
     }
 
-    private LerpPackageProcessor lerpProcessor = new LerpPackageProcessor();
     
     private void Awake()
     {

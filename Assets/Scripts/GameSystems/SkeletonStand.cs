@@ -59,6 +59,9 @@ public class SkeletonStand : MonoBehaviour, I_Interactable
         //Get a reference to the object the player is holding
         GameObject bone = playerCamSampler.ObjectInRange;
         
+        if(bone == null)
+            return;
+        
         //if the player is not holding a bone then return
         if (!bone.TryGetComponent(out Bone BoneCastObj))
             return;
