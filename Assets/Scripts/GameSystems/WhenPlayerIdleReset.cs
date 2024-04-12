@@ -11,7 +11,7 @@ public class WhenPlayerIdleReset : MonoBehaviour
 
      private float currentTime;
 
-     private float inactivityThreshold = 10.0f;
+     private float inactivityThreshold = 20.0f;
 
      private bool inactivityNotified = false;
 
@@ -38,8 +38,6 @@ public class WhenPlayerIdleReset : MonoBehaviour
                this.inactivityNotified = true;
                InactivityDetected.Invoke();
           }
-          
-          Debug.Log(this.currentTime);
      }
 
      public void PlayerHasDoneSomething()
