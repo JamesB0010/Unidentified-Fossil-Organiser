@@ -12,7 +12,7 @@ public class GravGunSpline : MonoBehaviour
 {
     [FormerlySerializedAs("MySpline")] [FormerlySerializedAs("spline")] [SerializeField] private SplineContainer SplineContainer;
 
-    private Spline spline = new Spline();
+    private Spline spline;
 
     [SerializeField] private CameraForwardsSampler forwardsSampler;
 
@@ -21,6 +21,8 @@ public class GravGunSpline : MonoBehaviour
     [SerializeField] private Transform targetTransform;
 
     private SplineExtrude spineExtrudeComp;
+
+    private Transform lastHeldObjectTransform;
     
     // Start is called before the first frame update
     void Start()
@@ -28,11 +30,11 @@ public class GravGunSpline : MonoBehaviour
         this.spineExtrudeComp = this.SplineContainer.gameObject.GetComponent<SplineExtrude>();
         this.spineExtrudeComp.Range = new Vector2(0, 0);
         this.spineExtrudeComp.Capped = false;
+        this.spline = this.SplineContainer.Spline;
     }
 
 
     private void Update(){
-        spline = this.SplineContainer.Spline;
         
         var firstKnot = spline.ToArray()[0];
         
@@ -46,15 +48,16 @@ public class GravGunSpline : MonoBehaviour
             var thirdKnot = spline.ToArray()[2];
             var secondKnot = spline.ToArray()[1];
             secondKnot.Position = (firstKnot.Position + thirdKnot.Position) / 2;
+            secondKnot.Position.y -= 0.1f;
+            secondKnot.Position.x -= 0.1f;
             spline.SetKnot(1, secondKnot);
 
-            secondKnot.Position.y += 20;
             
             thirdKnot.Position =
                 this.SplineContainer.transform.InverseTransformPoint(this.forwardsSampler.ObjectInRange.transform
                     .position);
 
-            /*thirdKnot.Position.y = firstKnot.Position.y;*/
+            //thirdKnot.Position.y = firstKnot.Position.y;
             
             
             
@@ -65,6 +68,7 @@ public class GravGunSpline : MonoBehaviour
     public void OnPickup()
     {
         this.objectIsPickedUp = true;
+        this.lastHeldObjectTransform = this.forwardsSampler.ObjectInRange.transform;
 
         this.spineExtrudeComp.Capped = true;
         0.0f.LerpTo(1, 0.3f, value =>
@@ -77,9 +81,17 @@ public class GravGunSpline : MonoBehaviour
     {
         this.objectIsPickedUp = false;
         
-        1.0f.LerpTo(0, 0.3f, value =>
+        
+        var thirdKnot = spline.ToArray()[2];
+        
+        0.0f.LerpTo(1.0f, 0.3f, value =>
         {
-            this.spineExtrudeComp.Range = new Vector2(0, value);
+            this.spineExtrudeComp.Range = new Vector2(value, 1);
+            
+            thirdKnot.Position =
+                this.SplineContainer.transform.InverseTransformPoint(this.lastHeldObjectTransform.position);
+            
+            spline.SetKnot(2, thirdKnot);
         }, 
             pkg =>
             {

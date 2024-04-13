@@ -897,7 +897,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 34119771}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c5a430e5caddc4f43a4a55bf378d35aa, type: 3}
   m_Name: 
@@ -20615,15 +20615,39 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 603302343636880994, guid: 29420d0ee6d3c744e941638a43d9303a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.195
+      value: -2.202
       objectReference: {fileID: 0}
     - target: {fileID: 603302343636880994, guid: 29420d0ee6d3c744e941638a43d9303a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.574
+      value: 0.626
       objectReference: {fileID: 0}
     - target: {fileID: 603302343636880994, guid: 29420d0ee6d3c744e941638a43d9303a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.313
+      value: 0.305
+      objectReference: {fileID: 0}
+    - target: {fileID: 603302343636880994, guid: 29420d0ee6d3c744e941638a43d9303a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 603302343636880994, guid: 29420d0ee6d3c744e941638a43d9303a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 603302343636880994, guid: 29420d0ee6d3c744e941638a43d9303a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 603302343636880994, guid: 29420d0ee6d3c744e941638a43d9303a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 603302343636880994, guid: 29420d0ee6d3c744e941638a43d9303a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 603302343636880994, guid: 29420d0ee6d3c744e941638a43d9303a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 657415492471015853, guid: 29420d0ee6d3c744e941638a43d9303a, type: 3}
       propertyPath: StartedWalking.m_PersistentCalls.m_Calls.Array.size
@@ -20805,6 +20829,10 @@ PrefabInstance:
       propertyPath: pickedUpObject.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 3702743938007271688, guid: 29420d0ee6d3c744e941638a43d9303a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.36
+      objectReference: {fileID: 0}
     - target: {fileID: 7143745276558298983, guid: 29420d0ee6d3c744e941638a43d9303a, type: 3}
       propertyPath: m_RootOrder
       value: 87
@@ -20905,6 +20933,10 @@ PrefabInstance:
       propertyPath: OnInteractWithObject.m_PersistentCalls.m_Calls.Array.data[9].m_Target
       value: 
       objectReference: {fileID: 997347005}
+    - target: {fileID: 9203637188111358901, guid: 29420d0ee6d3c744e941638a43d9303a, type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 4096
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -23224,7 +23256,7 @@ GameObject:
   - component: {fileID: 1768648303}
   - component: {fileID: 1768648302}
   - component: {fileID: 1768648301}
-  m_Layer: 13
+  m_Layer: 12
   m_Name: Spline
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23248,9 +23280,9 @@ MonoBehaviour:
   m_RebuildFrequency: 30
   m_UpdateColliders: 1
   m_Sides: 8
-  m_SegmentsPerUnit: 4
+  m_SegmentsPerUnit: 8.52
   m_Capped: 1
-  m_Radius: 0.09
+  m_Radius: 0.02
   m_Range: {x: 0, y: 1}
 --- !u!23 &1768648302
 MeshRenderer:
@@ -23593,7 +23625,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1768648300}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -19.760574, y: 2.14, z: 18.463055}
+  m_LocalPosition: {x: -19.760574, y: 5.54, z: 18.463055}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
