@@ -31,10 +31,13 @@ public class GravGunSpline : MonoBehaviour
         this.spineExtrudeComp.Range = new Vector2(0, 0);
         this.spineExtrudeComp.Capped = false;
         this.spline = this.SplineContainer.Spline;
+        this.spineExtrudeComp.enabled = false;
     }
 
-
-    private void Update(){
+    private void Update()
+    {
+        if (this.objectIsPickedUp == false)
+            return;
         
         var firstKnot = spline.ToArray()[0];
         
@@ -68,6 +71,7 @@ public class GravGunSpline : MonoBehaviour
     public void OnPickup()
     {
         this.objectIsPickedUp = true;
+        this.spineExtrudeComp.enabled = true;
         this.lastHeldObjectTransform = this.forwardsSampler.ObjectInRange.transform;
 
         this.spineExtrudeComp.Capped = true;
@@ -77,10 +81,16 @@ public class GravGunSpline : MonoBehaviour
         });
     }
 
+    IEnumerator setObjectPickedUp()
+    {
+        yield return new WaitForSeconds(2);
+        this.objectIsPickedUp = false;
+        this.spineExtrudeComp.enabled = false;
+    }
     public void OnDrop()
     {
-        this.objectIsPickedUp = false;
-        
+
+        StartCoroutine(this.setObjectPickedUp());
         
         var thirdKnot = spline.ToArray()[2];
         

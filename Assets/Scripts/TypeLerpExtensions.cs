@@ -35,7 +35,7 @@ public static class TypeLerpExtensions
     {
         updateCallback ??= (val) => { value = val; Debug.Log(value); };
 
-        finishedCb ??= pkg => { Debug.Log("finished Lerping: " + value); };
+        finishedCb ??= pkg => {  };
         
         animCurve ??= AnimationCurve.Linear(0, 0, 1, 1);
         

@@ -181,6 +181,30 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 4809002797382897022}
+        m_TargetAssemblyTypeName: PlayerHeadVerticalMovement, Assembly-CSharp
+        m_MethodName: ReactStartWalking
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: WhenPlayerIdleReset, Assembly-CSharp
+        m_MethodName: PlayerHasDoneSomething
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   StoppedWalking:
     m_PersistentCalls:
       m_Calls:
@@ -199,6 +223,30 @@ MonoBehaviour:
       - m_Target: {fileID: 5975226692323634936}
         m_TargetAssemblyTypeName: PlayerAnimBP, Assembly-CSharp
         m_MethodName: ReactToStopWalking
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4809002797382897022}
+        m_TargetAssemblyTypeName: PlayerHeadVerticalMovement, Assembly-CSharp
+        m_MethodName: ReactStopWalking
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: WhenPlayerIdleReset, Assembly-CSharp
+        m_MethodName: PlayerStoppedMoving
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -479,7 +527,38 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SplineContainer: {fileID: 0}
   forwardsSampler: {fileID: 7660136753072681436}
-  targetTransform: {fileID: 0}
+  targetTransform: {fileID: 603302343636880994}
+--- !u!1 &2248630215069459805
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2107845278116036227}
+  m_Layer: 0
+  m_Name: ArmUpPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2107845278116036227
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2248630215069459805}
+  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
+  m_LocalPosition: {x: -2.025999, y: -0.57930005, z: 1.5834993}
+  m_LocalScale: {x: 5.263159, y: 1, z: 1.4295108}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 9158764412206650970}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3351197030778455268
 GameObject:
   m_ObjectHideFlags: 0
@@ -506,7 +585,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3351197030778455268}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.08999675, y: 0.691, z: -0.08400034}
+  m_LocalPosition: {x: 0.08999675, y: 0.36, z: -0.08400034}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -785,6 +864,37 @@ Transform:
   m_Father: {fileID: 9158764412206650970}
   m_RootOrder: -2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5801495772008204965
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6556432082235920983}
+  m_Layer: 0
+  m_Name: ArmDownPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6556432082235920983
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5801495772008204965}
+  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
+  m_LocalPosition: {x: -2.025999, y: -0.97300005, z: 1.5834993}
+  m_LocalScale: {x: 5.263159, y: 1, z: 1.4295108}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 9158764412206650970}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7651297323634610371
 GameObject:
   m_ObjectHideFlags: 0
@@ -808,8 +918,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7651297323634610371}
-  m_LocalRotation: {x: 0.16573916, y: -0.6575548, z: -0.7289174, w: 0.0939767}
-  m_LocalPosition: {x: -1.924391, y: 0.6792646, z: 0.32034945}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.202, y: 0.626, z: 0.305}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -980,6 +1090,8 @@ Transform:
   m_Children:
   - {fileID: 2593714405945273972}
   - {fileID: 779258112609217023}
+  - {fileID: 2107845278116036227}
+  - {fileID: 6556432082235920983}
   - {fileID: 4865607676131625016}
   m_Father: {fileID: 7767881861629264984}
   m_RootOrder: -2
@@ -1082,6 +1194,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 320492126984362644}
+        m_TargetAssemblyTypeName: ArmUpDown, Assembly-CSharp
+        m_MethodName: ArmUp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   PickupableObjectOutOfRangeUnityEvent:
     m_PersistentCalls:
       m_Calls:
@@ -1100,6 +1224,18 @@ MonoBehaviour:
       - m_Target: {fileID: 3168038677353678654}
         m_TargetAssemblyTypeName: PickupScript, Assembly-CSharp
         m_MethodName: ObjectToBePickedUpOutOfRange
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 320492126984362644}
+        m_TargetAssemblyTypeName: ArmUpDown, Assembly-CSharp
+        m_MethodName: ArmDown
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1192,12 +1328,36 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2200812253976694647}
+        m_TargetAssemblyTypeName: GravGunSpline, Assembly-CSharp
+        m_MethodName: OnPickup
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   droppedObject:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UFO_UI.PlayerUi, Assembly-CSharp
         m_MethodName: ReactToPlayerDroppedObject
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2200812253976694647}
+        m_TargetAssemblyTypeName: GravGunSpline, Assembly-CSharp
+        m_MethodName: OnDrop
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1415,8 +1575,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4865607676131625016}
+  - component: {fileID: 320492126984362644}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: ArmUpDown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1438,6 +1599,20 @@ Transform:
   m_Father: {fileID: 9158764412206650970}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &320492126984362644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8277986815334448095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12bf5a7a1b2076440a748a16ef1a069f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  armUpPos: {fileID: 2107845278116036227}
+  armDownPos: {fileID: 6556432082235920983}
 --- !u!1 &8437888772054817450
 GameObject:
   m_ObjectHideFlags: 0
