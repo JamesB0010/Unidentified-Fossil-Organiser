@@ -14,8 +14,13 @@ public class GravGunSpline : MonoBehaviour
 
     private Spline spline;
 
+    [SerializeField] private GameObject particleSystem;
+
+    private ParticleSystem particleSystemSystem;
+
     [SerializeField] private CameraForwardsSampler forwardsSampler;
 
+    [SerializeField]
     private bool objectIsPickedUp = false;
 
     [SerializeField] private Transform targetTransform;
@@ -29,10 +34,11 @@ public class GravGunSpline : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        this.particleSystemSystem = this.particleSystem.GetComponent<ParticleSystem>();
+        this.particleSystemSystem.Stop();
         this.raygunAudio = gameObject.GetComponent<AudioSource>();
         this.spineExtrudeComp = this.SplineContainer.gameObject.GetComponent<SplineExtrude>();
         this.spineExtrudeComp.Range = new Vector2(0, 0);
-        this.spineExtrudeComp.Capped = false;
         this.spline = this.SplineContainer.Spline;
         this.spineExtrudeComp.enabled = false;
     }
@@ -48,6 +54,9 @@ public class GravGunSpline : MonoBehaviour
         firstKnot.Position = this.SplineContainer.transform.InverseTransformPoint(targetTransform.position);
         
         spline.SetKnot(0, firstKnot);
+
+        this.particleSystem.transform.position = this.targetTransform.position;
+        this.particleSystem.transform.rotation = this.targetTransform.rotation;
 
         if (this.objectIsPickedUp)
         {
@@ -73,19 +82,18 @@ public class GravGunSpline : MonoBehaviour
     
     public void OnPickup()
     {
+        this.particleSystemSystem.Play();
         this.raygunAudio.Play();
         this.objectIsPickedUp = true;
         this.spineExtrudeComp.enabled = true;
         this.lastHeldObjectTransform = this.forwardsSampler.ObjectInRange.transform;
-
-        this.spineExtrudeComp.Capped = true;
         0.0f.LerpTo(1, 0.3f, value =>
         {
             this.spineExtrudeComp.Range = new Vector2(0, value);
         });
     }
 
-    IEnumerator setObjectPickedUp()
+    IEnumerator setObjectDropped()
     {
         yield return new WaitForSeconds(2);
         this.objectIsPickedUp = false;
@@ -93,9 +101,10 @@ public class GravGunSpline : MonoBehaviour
     }
     public void OnDrop()
     {
-
+        this.particleSystemSystem.Stop();
+        this.particleSystemSystem.Clear();
         this.raygunAudio.Stop();
-        StartCoroutine(this.setObjectPickedUp());
+        StartCoroutine(this.setObjectDropped());
         
         var thirdKnot = spline.ToArray()[2];
         
@@ -110,7 +119,6 @@ public class GravGunSpline : MonoBehaviour
         }, 
             pkg =>
             {
-                this.spineExtrudeComp.Capped = false;
             });
     }
 }
