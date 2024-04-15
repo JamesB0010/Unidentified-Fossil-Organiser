@@ -23,10 +23,13 @@ public class GravGunSpline : MonoBehaviour
     private SplineExtrude spineExtrudeComp;
 
     private Transform lastHeldObjectTransform;
+
+    private AudioSource raygunAudio;
     
     // Start is called before the first frame update
     void Start()
     {
+        this.raygunAudio = gameObject.GetComponent<AudioSource>();
         this.spineExtrudeComp = this.SplineContainer.gameObject.GetComponent<SplineExtrude>();
         this.spineExtrudeComp.Range = new Vector2(0, 0);
         this.spineExtrudeComp.Capped = false;
@@ -70,6 +73,7 @@ public class GravGunSpline : MonoBehaviour
     
     public void OnPickup()
     {
+        this.raygunAudio.Play();
         this.objectIsPickedUp = true;
         this.spineExtrudeComp.enabled = true;
         this.lastHeldObjectTransform = this.forwardsSampler.ObjectInRange.transform;
@@ -90,6 +94,7 @@ public class GravGunSpline : MonoBehaviour
     public void OnDrop()
     {
 
+        this.raygunAudio.Stop();
         StartCoroutine(this.setObjectPickedUp());
         
         var thirdKnot = spline.ToArray()[2];
