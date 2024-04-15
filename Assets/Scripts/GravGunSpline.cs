@@ -95,7 +95,7 @@ public class GravGunSpline : MonoBehaviour
 
     IEnumerator setObjectDropped()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
         this.objectIsPickedUp = false;
         this.spineExtrudeComp.enabled = false;
     }
