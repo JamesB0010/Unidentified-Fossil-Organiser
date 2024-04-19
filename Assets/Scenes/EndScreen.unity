@@ -223,8 +223,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 4th - XX (XX.XX seconds)
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f1b04b45d11c6d94b938b606afeee6f3, type: 2}
+  m_sharedMaterial: {fileID: -2381176856487169831, guid: f1b04b45d11c6d94b938b606afeee6f3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -358,8 +358,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 3rd - XX (XX.XX seconds)
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f1b04b45d11c6d94b938b606afeee6f3, type: 2}
+  m_sharedMaterial: {fileID: -2381176856487169831, guid: f1b04b45d11c6d94b938b606afeee6f3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -642,8 +642,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 2nd - XX (XX.XX seconds)
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f1b04b45d11c6d94b938b606afeee6f3, type: 2}
+  m_sharedMaterial: {fileID: -2381176856487169831, guid: f1b04b45d11c6d94b938b606afeee6f3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1122,8 +1122,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Restart
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f1b04b45d11c6d94b938b606afeee6f3, type: 2}
+  m_sharedMaterial: {fileID: -2381176856487169831, guid: f1b04b45d11c6d94b938b606afeee6f3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1147,8 +1147,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 500
-  m_fontSizeBase: 500
+  m_fontSize: 380
+  m_fontSizeBase: 380
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1307,8 +1307,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 1st - XX (XX.XX seconds)
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f1b04b45d11c6d94b938b606afeee6f3, type: 2}
+  m_sharedMaterial: {fileID: -2381176856487169831, guid: f1b04b45d11c6d94b938b606afeee6f3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1516,17 +1516,17 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Congratutions JD! You succesfully fixed the skeleton in X.XX seconds
+  m_text: Congratulations JD! You succesfully fixed the skeleton in X.XX seconds
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f1b04b45d11c6d94b938b606afeee6f3, type: 2}
+  m_sharedMaterial: {fileID: -2381176856487169831, guid: f1b04b45d11c6d94b938b606afeee6f3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4284670951
-  m_fontColor: {r: 0.9058824, g: 0.89019614, b: 0.38431376, a: 1}
+    rgba: 4282777362
+  m_fontColor: {r: 0.07075471, g: 1, b: 0.27126196, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1728,12 +1728,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'LeaderBoard
+  m_text: 'Leaderboard
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f1b04b45d11c6d94b938b606afeee6f3, type: 2}
+  m_sharedMaterial: {fileID: -2381176856487169831, guid: f1b04b45d11c6d94b938b606afeee6f3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1757,8 +1757,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 500
-  m_fontSizeBase: 500
+  m_fontSize: 450
+  m_fontSizeBase: 450
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1793,7 +1793,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -0.13452166, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
