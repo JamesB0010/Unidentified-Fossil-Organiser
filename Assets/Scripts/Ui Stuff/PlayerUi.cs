@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 namespace UFO_UI
 {
@@ -15,6 +17,8 @@ public class PlayerUi : MonoBehaviour
     private bool playerHoldingObject = false;
 
     [SerializeField] private GameObject InactivityScreen;
+
+    [SerializeField] private UnityEngine.UI.Text countdownTimerUntilGameOver;
     
     #endregion
 
@@ -162,6 +166,11 @@ public class PlayerUi : MonoBehaviour
     public void ReactToActivityDetected()
     {
         this.PlayerInactive = false;
+    }
+
+    private void Update()
+    {
+        countdownTimerUntilGameOver.text = (240 - (int)Time.time).ToString();
     }
 }
 
