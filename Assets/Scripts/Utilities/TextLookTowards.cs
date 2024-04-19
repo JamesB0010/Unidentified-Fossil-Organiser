@@ -55,16 +55,21 @@ public class TextLookTowards : MonoBehaviour
     {
         AudioSource aiSources = null;
 
-        try
+        tryS
         {
             parentBone = cameraSampler.ObjectInRange;
+            Debug.Log(parentBone);
             aiSources = parentBone.GetComponent<boneFacts>().Source;
+            Debug.Log(aiSources);
             isPlayerHoldingBone = true;
+            Debug.Log("" + parentBone.GetComponent<boneFacts>().isPlayed + " " + isPlayerHoldingBone);
             if (!parentBone.GetComponent<boneFacts>().isPlayed && isPlayerHoldingBone)
             {
+                Debug.Log("throught the if, " + parentBone.GetComponent<boneFacts>().isPlayed + " " + isPlayerHoldingBone);
                 aiSources.clip = parentBone.GetComponent<boneFacts>().aiVoice;
                 aiSources.Play();
                 parentBone.GetComponent<boneFacts>().isPlayed = true;
+                Debug.Log("Player pickup bone success");
             }
         } catch (NullReferenceException error) { isPlayerHoldingBone = false; }
 

@@ -39,7 +39,7 @@ public class WhenPlayerIdleReset : MonoBehaviour
                InactivityDetected.Invoke();
           }
           
-          Debug.Log(this.currentTime);
+          //Debug.Log(this.currentTime);
      }
 
      public void PlayerHasDoneSomething()
