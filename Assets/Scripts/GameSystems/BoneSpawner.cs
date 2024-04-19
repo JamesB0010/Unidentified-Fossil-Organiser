@@ -24,7 +24,7 @@ public class BoneSpawner : MonoBehaviour
     {
         while(bonesCount < bones.Length)
         {
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(1f);
             foreach(GameObject b in bones)
             {
                 int randomNumber = UnityEngine.Random.Range(0, spawnLocs.Count);
@@ -32,6 +32,7 @@ public class BoneSpawner : MonoBehaviour
                 b.transform.position = currentSpawn.position;
                 spawnLocs.Remove(currentSpawn);
                 bonesCount++;
+                Debug.Log(bonesCount);
             }
 
         }

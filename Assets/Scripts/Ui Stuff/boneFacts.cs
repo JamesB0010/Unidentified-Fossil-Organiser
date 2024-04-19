@@ -37,13 +37,13 @@ public class boneFacts : MonoBehaviour
 
     void Start()
     {
-        /*aiSource = GameObject.FindGameObjectWithTag("BonesHolder").GetComponent<AudioSource>();
+        aiSource = GameObject.FindGameObjectWithTag("BonesHolder").GetComponent<AudioSource>();
 
 
         if(boneFact == null || boneFact == "")
         {
             boneFact = "No Fact Available";
-        }*/
+        }
         
     }
 }
