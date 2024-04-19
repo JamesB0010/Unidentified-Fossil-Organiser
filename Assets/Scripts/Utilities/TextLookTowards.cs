@@ -55,7 +55,7 @@ public class TextLookTowards : MonoBehaviour
     {
         AudioSource aiSources = null;
 
-        tryS
+        try
         {
             parentBone = cameraSampler.ObjectInRange;
             Debug.Log(parentBone);

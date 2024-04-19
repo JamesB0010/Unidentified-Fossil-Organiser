@@ -2150,7 +2150,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7430668484771239317, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: boneFact
-      value: 
+      value: The femur is the longest and strongest bone in the human body
       objectReference: {fileID: 0}
     - target: {fileID: 7813863751244188247, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: m_Mesh
@@ -6603,7 +6603,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7430668484771239317, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: boneFact
-      value: 
+      value: The human skull consists of 22 bones, 8 cranial bones, and 14 facial
+        bones
       objectReference: {fileID: 0}
     - target: {fileID: 7813863751244188247, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: m_Mesh
@@ -7172,7 +7173,7 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: 732a6e5f46e95424bbeb3332d4c7d7e5, type: 3}
     - target: {fileID: 7430668484771239317, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: boneFact
-      value: 
+      value: The arm is the most common broken bone
       objectReference: {fileID: 0}
     - target: {fileID: 7813863751244188247, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: m_Mesh
@@ -7375,7 +7376,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Room 1
+  m_text: the bones is the wall and the cow to the men and then the wall
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -7402,15 +7403,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 28.97
-  m_fontSizeBase: 28.97
+  m_fontSize: 75
+  m_fontSizeBase: 75
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -7438,7 +7439,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -0.5785341, w: -0.00036120415}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   _SortingLayer: 0
@@ -7497,8 +7498,8 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 498590759}
   m_LocalRotation: {x: -0, y: 0.998862, z: -0, w: -0.047693267}
-  m_LocalPosition: {x: 0, y: 0, z: 16.12}
-  m_LocalScale: {x: 0.090453275, y: 0.090453275, z: 0.090453275}
+  m_LocalPosition: {x: 0, y: 0, z: 50.379}
+  m_LocalScale: {x: 0.015576176, y: 0.015576176, z: 0.015576176}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -7506,8 +7507,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 185.467, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -22.06, y: 1.6}
-  m_SizeDelta: {x: 20, y: 5}
+  m_AnchoredPosition: {x: -67.927, y: 1.3256}
+  m_SizeDelta: {x: 387.622, y: 59.1525}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &498590763
 MonoBehaviour:
@@ -8854,7 +8855,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7430668484771239317, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: boneFact
-      value: 
+      value: ' The femur, tibia, and fibula are susceptible to fractures due to high-impact
+        injuries, falls, or repetitive stress'
       objectReference: {fileID: 0}
     - target: {fileID: 7813863751244188247, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: m_Mesh
@@ -15385,7 +15387,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7430668484771239317, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: boneFact
-      value: 
+      value: ' The spine is made up of 33 individual bones called vertebrae'
       objectReference: {fileID: 0}
     - target: {fileID: 7813863751244188247, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: m_Mesh
@@ -16188,7 +16190,7 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: 2c2b6bd0f3f166248bb0313ea58d9505, type: 3}
     - target: {fileID: 7430668484771239317, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: boneFact
-      value: 
+      value: The arm is made up of 3 bones, the radius, the ulna and the humerus
       objectReference: {fileID: 0}
     - target: {fileID: 7813863751244188247, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: m_Mesh
@@ -25741,7 +25743,7 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: 8f99e8f3d95fa0e4cbb1c5244cd8d2af, type: 3}
     - target: {fileID: 7430668484771239317, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: boneFact
-      value: 
+      value: The foot is made up of 26 bones
       objectReference: {fileID: 0}
     - target: {fileID: 7813863751244188247, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: m_Mesh
@@ -27178,7 +27180,7 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: c04e55b8ab0a7404e84df247853963ae, type: 3}
     - target: {fileID: 7430668484771239317, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: boneFact
-      value: 
+      value: There are over 100 muscles in your feet
       objectReference: {fileID: 0}
     - target: {fileID: 7813863751244188247, guid: ba47c02c8af03c14d82ab92d5dabda34, type: 3}
       propertyPath: m_Mesh
