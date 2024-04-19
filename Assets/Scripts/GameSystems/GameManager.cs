@@ -8,8 +8,14 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    IEnumerator EndGameAfter4Mins()
+    {
+        yield return new WaitForSeconds(240);
+        SceneManager.LoadSceneAsync(2, LoadSceneMode.Single);
+    }
     public void Start()
     {
+        StartCoroutine(EndGameAfter4Mins());
     }
 
     public void AllBonesCollected()
