@@ -35,9 +35,9 @@ namespace UFO_UI
             }
         }
 
-        public void QuitGame()
+        public void Credits()
         {
-            Application.Quit();
+            SceneManager.LoadScene(3, LoadSceneMode.Single);
         }
 }
 
