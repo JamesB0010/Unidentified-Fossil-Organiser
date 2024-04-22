@@ -656,6 +656,7 @@ GameObject:
   - component: {fileID: 322769360}
   - component: {fileID: 322769359}
   - component: {fileID: 322769358}
+  - component: {fileID: 322769361}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -676,8 +677,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SendPointerHoverToParent: 1
-  m_HorizontalAxis: Horizontal
-  m_VerticalAxis: Vertical
+  m_HorizontalAxis: HorizontalMenu
+  m_VerticalAxis: VerticalMenu
   m_SubmitButton: Submit
   m_CancelButton: Cancel
   m_InputActionsPerSecond: 10
@@ -695,7 +696,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 258082784}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &322769360
@@ -713,6 +714,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &322769361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 322769357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 720fceddc5bea784f80028dd8f6f0916, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputField: {fileID: 1488692461}
+  PlayButton: {fileID: 258082784}
+  CreditsButton: {fileID: 573855539}
 --- !u!1 &573855539
 GameObject:
   m_ObjectHideFlags: 0
@@ -1415,10 +1431,10 @@ RectTransform:
   m_Father: {fileID: 718366492}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -618.2604, y: -156}
-  m_SizeDelta: {x: 716.4907, y: 121.99}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 341.73962, y: 384}
+  m_SizeDelta: {x: 716.4907, y: 121.98999}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1488692463
 MonoBehaviour:
@@ -1436,7 +1452,7 @@ MonoBehaviour:
     m_Mode: 3
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
+    m_SelectOnDown: {fileID: 258082786}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1

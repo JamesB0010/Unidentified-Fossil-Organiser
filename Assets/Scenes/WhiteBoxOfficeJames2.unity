@@ -25457,6 +25457,10 @@ PrefabInstance:
       propertyPath: pickedUpObject.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 4809002797382897022, guid: 29420d0ee6d3c744e941638a43d9303a, type: 3}
+      propertyPath: rotationSensitivity
+      value: 3.6
+      objectReference: {fileID: 0}
     - target: {fileID: 7143745276558298983, guid: 29420d0ee6d3c744e941638a43d9303a, type: 3}
       propertyPath: m_RootOrder
       value: 89
