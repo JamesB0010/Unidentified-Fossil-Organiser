@@ -23,9 +23,14 @@ public class TextLookTowards : MonoBehaviour
 
     [SerializeField] private float forwardsOffset = 1;
 
+    private MusicBox musicBox;
+
+    [SerializeField] private AudioSource gravGunSound;
+
     // Start is called before the first frame update
     void Start()
     {
+        this.musicBox = FindObjectOfType<MusicBox>();
         playerCam = GameObject.FindGameObjectWithTag("MainCamera");
 
         cameraSampler = GameObject.FindAnyObjectByType<CameraForwardsSampler>();
@@ -55,6 +60,20 @@ public class TextLookTowards : MonoBehaviour
         this.transform.rotation = Quaternion.Euler(0, q.eulerAngles.y + 180, 0);
     }
 
+    IEnumerator turnMusicBackUp(float timeToWait)
+    {
+        yield return new WaitForSeconds(timeToWait);
+        
+        this.musicBox.Volume.LerpTo(0.191f, 0.8f, value =>
+            {
+                this.musicBox.Volume = value;
+            });
+        
+        this.gravGunSound.volume.LerpTo(0.396f, 0.8f, value =>
+        {
+            this.gravGunSound.volume = value;
+        });
+    }
     public void OnPickupBone()
     {
         AudioSource aiSources = null;
@@ -71,7 +90,22 @@ public class TextLookTowards : MonoBehaviour
             {
                 Debug.Log("throught the if, " + parentBone.GetComponent<boneFacts>().isPlayed + " " + isPlayerHoldingBone);
                 aiSources.clip = parentBone.GetComponent<boneFacts>().aiVoice;
-                aiSources.Play();
+                
+                this.gravGunSound.volume.LerpTo(0.1f, 0.8f, value =>
+                {
+                    this.gravGunSound.volume = value;
+                });
+                
+                this.musicBox.Volume.LerpTo(0.04f, 0.8f, value =>
+                {
+                    this.musicBox.Volume = value;
+                },
+                    pkg =>
+                    {
+                        aiSources.Play();
+                        StartCoroutine(turnMusicBackUp(aiSources.clip.length));
+                    });
+                
                 parentBone.GetComponent<boneFacts>().isPlayed = true;
                 Debug.Log("Player pickup bone success");
             }
