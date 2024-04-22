@@ -17,7 +17,11 @@ public class TextLookTowards : MonoBehaviour
 
     private bool isPlayerHoldingBone = false;
 
-    public TMP_Text boneText; 
+    public TMP_Text boneText;
+
+    [SerializeField] private float rightOffset = 0.5f;
+
+    [SerializeField] private float forwardsOffset = 1;
 
     // Start is called before the first frame update
     void Start()
@@ -41,7 +45,7 @@ public class TextLookTowards : MonoBehaviour
         string temp = parentBone.GetComponent<boneFacts>().boneFact;
         Debug.Log(temp);
         boneText.text = "" + temp;
-        this.transform.position = new Vector3(parentBone.transform.position.x, parentBone.transform.position.y + 0.3f, parentBone.transform.position.z);
+        this.transform.position = new Vector3(parentBone.transform.position.x, parentBone.transform.position.y + 0.3f, parentBone.transform.position.z) + (new Vector3(playerCam.transform.right.x, playerCam.transform.right.y, playerCam.transform.right.z) * this.rightOffset) + (new Vector3(playerCam.transform.forward.x, playerCam.transform.forward.y, playerCam.transform.forward.z) * this.forwardsOffset);
     }
     private void TextLookAt()
     {
