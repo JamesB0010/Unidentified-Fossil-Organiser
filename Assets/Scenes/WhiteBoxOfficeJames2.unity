@@ -21178,6 +21178,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 6032541082383246799, guid: a1d3d3996ea2afa409484dac43989334, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6261862833646433151, guid: a1d3d3996ea2afa409484dac43989334, type: 3}
       propertyPath: yipeeParticle
       value: 
@@ -24296,6 +24300,10 @@ PrefabInstance:
       propertyPath: SplineContainer
       value: 
       objectReference: {fileID: 613582844}
+    - target: {fileID: 2396818425867638198, guid: 29420d0ee6d3c744e941638a43d9303a, type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 24567
+      objectReference: {fileID: 0}
     - target: {fileID: 3168038677353678654, guid: 29420d0ee6d3c744e941638a43d9303a, type: 3}
       propertyPath: droppedObject.m_PersistentCalls.m_Calls.Array.size
       value: 3
