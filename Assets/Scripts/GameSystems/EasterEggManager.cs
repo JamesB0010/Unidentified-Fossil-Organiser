@@ -16,14 +16,17 @@ public class EasterEggManager : MonoBehaviour
 
     public int toiletsFlushed = 0;
 
+    private List<string> toiletsFlushedNames = new List<string>();
+
     public int sinksFilled = 0;
+
+    private List<string> filledSinksNames = new List<string>();
 
     public int secretRoomsFound = 0;
 
     public UnityEvent OpenShuttersEvent = new UnityEvent();
 
     public UnityEvent CloseShuttersEvent = new UnityEvent();
-
 
     private void Awake()
     {
@@ -48,20 +51,38 @@ public class EasterEggManager : MonoBehaviour
         }
     }
 
-    public void reactToToiletFlushed()
+    public void reactToToiletFlushed(string toiletName)
     {
-        this.toiletsFlushed = this.toiletsFlushed < 5 ? this.toiletsFlushed + 1 : 5;
+        if (this.toiletsFlushedNames.Contains(toiletName))
+        {
+            return;
+        }
+        else
+        {
+            Debug.Log("Toilet flushed" + toiletName);
+            this.toiletsFlushed++;
+            this.toiletsFlushedNames.Add(toiletName);
+        }
     }
 
-    public void ReactToSinkFull()
+    public void ReactToSinkFull(string sinkName)
     {
+        if (this.filledSinksNames.Contains(sinkName))
+        {
+        }
+        else
+        {
+            Debug.Log("sink filled");
+            this.sinksFilled++;
+            this.filledSinksNames.Add(sinkName);
+        }
         this.fullSinkCount++;
         this.sinksFilled = this.sinksFilled < 3? sinksFilled + 1: 3;
         if(this.fullSinkCount >= this.Sinks.Length)
             this.AllSinksFull();
     }
 
-    public void ReactToSinkEmpty()
+    public void ReactToSinkEmpty(string sinkName)
     {
         this.fullSinkCount--;
         if (this.shuttersOpen)

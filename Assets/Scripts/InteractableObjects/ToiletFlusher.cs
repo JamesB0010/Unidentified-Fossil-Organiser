@@ -25,7 +25,7 @@ public class ToiletFlusher : MonoBehaviour, I_Interactable
 
     [SerializeField] private GameObject bottomPosition;
 
-    [SerializeField] private UnityEvent flush;
+    [SerializeField] private UnityEvent<string> flush;
     
     public new void HandleInteraction(CameraForwardsSampler sampler)
     {
@@ -39,7 +39,7 @@ public class ToiletFlusher : MonoBehaviour, I_Interactable
         if (this.bowlFull)
         {
             this.Flush();
-            this.flush?.Invoke();
+            this.flush?.Invoke(this.gameObject.name);
         }
     }
     // Start is called before the first frame update
