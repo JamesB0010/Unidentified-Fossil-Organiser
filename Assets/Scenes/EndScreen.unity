@@ -2534,6 +2534,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6703b6b0d69b2b3419483f1f2f91e868, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ToiletsFlushed: {fileID: 1861894789}
+  SinksFilled: {fileID: 1482840677}
+  SecretRoomsFound: {fileID: 1038947583}
 --- !u!1 &2031699487
 GameObject:
   m_ObjectHideFlags: 0
