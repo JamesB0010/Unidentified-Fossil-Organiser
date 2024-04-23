@@ -86,6 +86,7 @@ public class NameInputField : MonoBehaviour
             {
                 this.ActivateKeyboard();
                 Debug.Log("start typing");
+                this.inputField.GetComponent<TMP_InputField>().text = "";
             }
         }
     }

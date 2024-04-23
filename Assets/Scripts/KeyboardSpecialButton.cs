@@ -22,6 +22,9 @@ public class KeyboardSpecialButton : KeyboardButton
 
     private void Start()
     {
+        this.playerNameInput = FindObjectOfType<PlayerNameInput>();
+        this.character = " ".ToCharArray()[0];
+        
         originalStartButtonPos = new Vector3(StartButton.transform.position.x, StartButton.transform.position.y, StartButton.transform.position.z );
         originalCreditsButtonPos = new Vector3(CreditsButton.transform.position.x, CreditsButton.transform.position.y, CreditsButton.transform.position.z);
         this.KeyboardContainerOriginalPos = new Vector3(this.KeyboardContainer.transform.position.x,
@@ -63,14 +66,15 @@ public class KeyboardSpecialButton : KeyboardButton
 
     public void Delete()
     {
-        int stringLength = this.inputField.text.Length;
+        int stringLength = this.playerNameInput.Name.Length;
         if (stringLength > 1)
         {
-            this.inputField.text = this.inputField.text.Substring(0, stringLength - 2);
+            
+            this.playerNameInput.Name = this.playerNameInput.Name.Substring(0, stringLength - 1);
         }
         else
         {
-            this.inputField.text = "";
+            this.playerNameInput.Name = "";
         }
     }
 

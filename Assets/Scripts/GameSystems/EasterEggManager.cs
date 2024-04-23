@@ -38,8 +38,7 @@ public class EasterEggManager : MonoBehaviour
     {
         SceneManager.activeSceneChanged += (arg0, scene) =>
         {
-            EndScreenUiScript endScreen = FindObjectOfType<EndScreenUiScript>();
-            endScreen.setGameStats(this.toiletsFlushed, this.sinksFilled, this.secretRoomsFound);
+            EndScreenUiScript endScreen = FindObjectOfType<EndScreenUiScript>(); endScreen.setGameStats(this.toiletsFlushed, this.sinksFilled, this.secretRoomsFound);
         };
         this.Sinks = FindObjectsOfType<DoctorsSink>();
 

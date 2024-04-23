@@ -7,20 +7,29 @@ using UnityEngine.UI;
 
 public class KeyboardButton : MonoBehaviour
 {
-    private char character;
+    public char character;
 
     [SerializeField] protected TMP_InputField inputField;
+
+    protected PlayerNameInput playerNameInput;
+
+    [SerializeField] protected bool Normalkey = true;
 
 
     private void Awake()
     {
         this.character = this.gameObject.name[0];
-        GetComponent<Button>().onClick.AddListener(this.OnPressed);
+        if(this.Normalkey)
+            GetComponent<Button>().onClick.AddListener(this.OnPressed);
+        this.playerNameInput = FindObjectOfType<PlayerNameInput>();
     }
 
     public void OnPressed()
     {
-        this.inputField.text += this.character;
+        if (this.Normalkey)
+        {
+            this.playerNameInput.Name += this.character;
+        }
     }
     
 }
