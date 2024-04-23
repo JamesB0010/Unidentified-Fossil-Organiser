@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UFO_UI;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -62,8 +63,6 @@ namespace UFO_PickupStuff
         [SerializeField] private UnityEvent pickedUpObject = new UnityEvent();
 
         [SerializeField] private UnityEvent droppedObject = new UnityEvent();
-
-
         #endregion
 
 

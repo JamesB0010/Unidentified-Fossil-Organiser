@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using LerpData;
 using UFO_PlayerStuff;
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(AudioSource))]
 public class ToiletFlusher : MonoBehaviour, I_Interactable
@@ -23,6 +24,8 @@ public class ToiletFlusher : MonoBehaviour, I_Interactable
     [SerializeField] private GameObject topPosition;
 
     [SerializeField] private GameObject bottomPosition;
+
+    [SerializeField] private UnityEvent<string> flush;
     
     public new void HandleInteraction(CameraForwardsSampler sampler)
     {
@@ -34,7 +37,10 @@ public class ToiletFlusher : MonoBehaviour, I_Interactable
             return;
 
         if (this.bowlFull)
+        {
             this.Flush();
+            this.flush?.Invoke(this.gameObject.name);
+        }
     }
     // Start is called before the first frame update
     void Start()
