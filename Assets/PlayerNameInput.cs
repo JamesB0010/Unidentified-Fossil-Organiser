@@ -11,6 +11,8 @@ public class PlayerNameInput : MonoBehaviour
 {
     private string name = "";
 
+    private string magicWord = "RESETLEADERBOARD";
+
     private TMP_InputField inputField;
 
     public string Name
@@ -19,6 +21,11 @@ public class PlayerNameInput : MonoBehaviour
 
         set
         {
+            if (value.Length >= 3)
+            {
+                if(value[value.Length -1] != magicWord[value.Length - 1])
+                    return;
+            }
             this.name = value;
             this.inputField.text = value;
         }

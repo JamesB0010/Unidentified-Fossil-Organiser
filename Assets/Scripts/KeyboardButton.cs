@@ -14,6 +14,11 @@ public class KeyboardButton : MonoBehaviour
     protected PlayerNameInput playerNameInput;
 
     [SerializeField] protected bool Normalkey = true;
+    
+    public delegate void KeyboardButtonPressed();
+
+    // Declare the event.
+    public event KeyboardButtonPressed OnButtonPressed;
 
 
     private void Awake()
@@ -30,6 +35,12 @@ public class KeyboardButton : MonoBehaviour
         {
             this.playerNameInput.Name += this.character;
         }
+        CallOnButtonPressed();
+    }
+
+    protected void CallOnButtonPressed()
+    {
+        this.OnButtonPressed?.Invoke();
     }
     
 }

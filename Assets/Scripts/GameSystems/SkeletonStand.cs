@@ -84,6 +84,8 @@ public class SkeletonStand : MonoBehaviour, I_Interactable
             return;
         
         AddNewLerpPackageToPkgQueue(bone, BoneCastObj);
+        bone.GetComponent<ParticleSystem>().enableEmission = false;
+        bone.GetComponent<AudioSource>().volume = 0;
         this.BonesDelivered++;
     }
 

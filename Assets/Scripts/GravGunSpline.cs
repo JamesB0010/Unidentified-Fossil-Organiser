@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UFO_PlayerStuff;
+using UFO_UI;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -32,6 +33,9 @@ public class GravGunSpline : MonoBehaviour
     private AudioSource raygunAudio;
 
     private GameObject PickedUpObject;
+    
+    [SerializeField] private PlayerUi playerUi;
+    
     
     // Start is called before the first frame update
     void Start()

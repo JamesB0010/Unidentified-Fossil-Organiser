@@ -37,6 +37,7 @@ public class KeyboardSpecialButton : KeyboardButton
     public void Enter()
     {
         Debug.Log("Enter");
+        this.CallOnButtonPressed();
         this.KeyboardContainer.transform.position.LerpTo(this.KeyboardContainerOriginalPos, 0.8f, value =>
         {
             this.KeyboardContainer.transform.position = value;
@@ -66,6 +67,7 @@ public class KeyboardSpecialButton : KeyboardButton
 
     public void Delete()
     {
+        this.CallOnButtonPressed();
         int stringLength = this.playerNameInput.Name.Length;
         if (stringLength > 1)
         {

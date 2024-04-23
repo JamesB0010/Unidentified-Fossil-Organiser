@@ -24,6 +24,7 @@ public class NameInputField : MonoBehaviour
     [SerializeField] private GameObject QButton;
 
     [SerializeField] private AnimationCurve playAndCreditsLeaveAnimCurve;
+    
 
     private void Awake()
     {
