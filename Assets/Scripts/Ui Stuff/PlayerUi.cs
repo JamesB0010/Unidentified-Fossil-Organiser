@@ -99,7 +99,11 @@ public class PlayerUi : MonoBehaviour
                     {
                         image.color = new Color(image.color.r, image.color.g, image.color.b, value);
                     },
-                    null,
+                    pkg =>
+                    {
+                        if(this.PlayerInactive == false)
+                            this.LerpMenuInOrOut(false);
+                    },
                     this.inactivityNotificationLerpCurve
                     );
                 
@@ -159,23 +163,35 @@ public class PlayerUi : MonoBehaviour
             yield return new WaitForSeconds(1);
         }
 
-        if (this.playerInactive) 
+        if (this.playerInactive)
+        {
+            foreach (MusicBox musicBox in FindObjectsOfType<MusicBox>())
+            {
+                Destroy(musicBox.gameObject);
+            }
+        
+            foreach (var easterEggManager in FindObjectsOfType<EasterEggManager>())
+            {
+                Destroy(easterEggManager.gameObject);
+            }
             SceneManager.LoadSceneAsync(0, LoadSceneMode.Single);
+        }
     }
     public void ReactToInactivityDetected()
     {
         this.PlayerInactive = true;
-        StartCoroutine(CountdownUntilExit());
+        StartCoroutine(nameof(CountdownUntilExit));
     }
 
     public void ReactToActivityDetected()
     {
+        StopCoroutine(nameof(CountdownUntilExit));
         this.PlayerInactive = false;
     }
 
     private void Update()
     {
-        countdownTimerUntilGameOver.text = (240 - (int)Time.time).ToString();
+        countdownTimerUntilGameOver.text = (240 - (int)Time.timeSinceLevelLoad).ToString();
     }
 }
 

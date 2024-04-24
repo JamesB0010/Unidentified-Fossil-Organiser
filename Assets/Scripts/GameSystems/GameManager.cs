@@ -15,7 +15,6 @@ public class GameManager : MonoBehaviour
     }
     public void Start()
     {
-        StartCoroutine(EndGameAfter4Mins());
     }
 
     private IEnumerator ExitToMainMenu()
@@ -26,5 +25,13 @@ public class GameManager : MonoBehaviour
     public void AllBonesCollected()
     {
         StartCoroutine(this.ExitToMainMenu());
+    }
+
+    private void Update()
+    {
+        if (240 - Time.timeSinceLevelLoad <= 0.0f)
+        {
+            SceneManager.LoadSceneAsync(2, LoadSceneMode.Single);
+        }
     }
 }
