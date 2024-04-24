@@ -156,6 +156,8 @@ namespace UFO_PickupStuff
             PushHeldObjectAway();
             this.droppedObject.Invoke();
             this.PlayThrowSound();
+            
+            this.spaceSampler.PickupableObjectOutOfRangeUnityEvent?.Invoke();
         }
 
         private void PushHeldObjectAway()
