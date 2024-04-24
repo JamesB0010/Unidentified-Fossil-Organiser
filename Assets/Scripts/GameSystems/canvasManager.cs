@@ -31,7 +31,7 @@ public class canvasManager : MonoBehaviour
                 }
                 else if (PlayerPrefs.GetString("PlayerCurrentName") != null && PlayerPrefs.GetString("PlayerCurrentName") != "ResetLeaderboard")
                 {
-                    finalScoreText.text = "Congratutions " + PlayerPrefs.GetString("PlayerCurrentName") + "! You succesfully fixed the skeleton in " + PlayerPrefs.GetFloat("playerTime").ToString("F") + " seconds";
+                    finalScoreText.text = "Congratulations " + PlayerPrefs.GetString("PlayerCurrentName") + "! You succesfully fixed the skeleton in " + PlayerPrefs.GetFloat("playerTime").ToString("F") + " seconds";
                     SaveLeaderBoard();
                 }
             }

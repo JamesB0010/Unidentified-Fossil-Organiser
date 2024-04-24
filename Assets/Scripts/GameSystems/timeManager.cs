@@ -46,9 +46,9 @@ public class timeManager : MonoBehaviour
     void Update()
     {
 
-        if(isGameOver)
+        if (isGameOver)
         {
-            PlayerPrefs.SetFloat("playerTime", currentPlayTime);  
+            PlayerPrefs.SetFloat("playerTime", currentPlayTime);
         }
         else if (PlayerPrefs.GetFloat("playerTime", 0) == 0 || PlayerPrefs.GetFloat("playerTime", 0) == null)
         {
@@ -58,5 +58,10 @@ public class timeManager : MonoBehaviour
         {
             PlayerPrefs.DeleteKey("playerTime");
         }
+    }
+
+    private void Destroy()
+    {
+        PlayerPrefs.SetFloat("playerTime", Time.timeSinceLevelLoad);
     }
 }
