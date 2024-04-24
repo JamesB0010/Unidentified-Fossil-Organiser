@@ -14,7 +14,18 @@ public class EndScreenUiScript : MonoBehaviour
         Cursor.visible = true;
     }
 
-    public void BackToMainMenu(){
+    public void BackToMainMenu()
+    {
+        foreach (MusicBox musicBox in FindObjectsOfType<MusicBox>())
+        {
+            Destroy(musicBox.gameObject);
+        }
+        
+        foreach (var easterEggManager in FindObjectsOfType<EasterEggManager>())
+        {
+            Destroy(easterEggManager.gameObject);
+        }
+
         SceneManager.LoadSceneAsync(0, LoadSceneMode.Single);
     }
 

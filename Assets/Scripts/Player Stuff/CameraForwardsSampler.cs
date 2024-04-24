@@ -80,9 +80,10 @@ namespace UFO_PlayerStuff
             if (this.ReadyToPickupObject(hit, raycastCollision))
                 StageObjectPickup(hit);
 
-            int oldLayer;
+            layerMaskToIgnore = ~(1 << LayerMask.NameToLayer("Bone"));
             if (this.objectInRange && !this.objectInRange.TryGetComponent(out I_Interactable interactableObject))
             {
+                int oldLayer;
                 oldLayer = this.objectInRange.layer;
                 this.objectInRange.layer = LayerMask.NameToLayer("Ignore Raycast");
                 raycastCollision = 
