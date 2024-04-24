@@ -15,7 +15,7 @@ public class DoctorsSink : MonoBehaviour, I_Interactable
 
     [SerializeField] private AudioClip fillSound;
 
-    public delegate void SinkStateNotification();
+    public delegate void SinkStateNotification(string sinkName);
 
     public event SinkStateNotification OnSinkFull;
 
@@ -72,7 +72,7 @@ public class DoctorsSink : MonoBehaviour, I_Interactable
             {
                 this.interactionInProgress = false;
                 this.sinkFull = true;
-                this.OnSinkFull?.Invoke();
+                this.OnSinkFull?.Invoke(this.gameObject.name);
             });
 
         this.audioSource.clip = this.fillSound;
@@ -93,7 +93,7 @@ public class DoctorsSink : MonoBehaviour, I_Interactable
             {
                 this.interactionInProgress = false;
                 this.sinkFull = false;
-                this.OnSinkEmpty?.Invoke();
+                this.OnSinkEmpty?.Invoke(this.gameObject.name);
             });
 
         this.audioSource.clip = this.emptySound;

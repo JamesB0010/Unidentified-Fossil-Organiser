@@ -47,6 +47,9 @@ public class PlayerHeadVerticalMovement : MonoBehaviour
     /// <param name="rotationAmount">The rotation amount to be subtracted from rotationY</param>
     private void SetRotationYWithinBounds(float rotationAmount)
     {
+        float upAmount = Input.GetKey("up") == true? 0.3f:0;
+        float downAmount = Input.GetKey("down") == true? -0.3f: 0;
+        rotationAmount += upAmount + downAmount;
         this.rotationY -= rotationAmount;
 
         if (this.rotationY <= 10)

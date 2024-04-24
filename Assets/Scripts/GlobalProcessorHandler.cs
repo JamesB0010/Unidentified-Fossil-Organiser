@@ -5,8 +5,6 @@ using System.Runtime.CompilerServices;
 using LerpData;
 using UnityEngine;
 
-//gpt refactored list to dictionary
-
 public class GlobalProcessorHandler : MonoBehaviour
 {
 
