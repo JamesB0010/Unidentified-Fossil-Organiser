@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UFO_PlayerStuff;
-using UFO_UI;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -31,11 +30,6 @@ public class GravGunSpline : MonoBehaviour
     private Transform lastHeldObjectTransform;
 
     private AudioSource raygunAudio;
-
-    private GameObject PickedUpObject;
-    
-    [SerializeField] private PlayerUi playerUi;
-    
     
     // Start is called before the first frame update
     void Start()
@@ -75,7 +69,8 @@ public class GravGunSpline : MonoBehaviour
 
             
             thirdKnot.Position =
-                this.SplineContainer.transform.InverseTransformPoint(this.PickedUpObject.transform.position);
+                this.SplineContainer.transform.InverseTransformPoint(this.forwardsSampler.ObjectInRange.transform
+                    .position);
 
             //thirdKnot.Position.y = firstKnot.Position.y;
             
@@ -87,13 +82,11 @@ public class GravGunSpline : MonoBehaviour
     
     public void OnPickup()
     {
-        StopCoroutine(nameof(setObjectDropped));
         this.particleSystemSystem.Play();
         this.raygunAudio.Play();
         this.objectIsPickedUp = true;
         this.spineExtrudeComp.enabled = true;
         this.lastHeldObjectTransform = this.forwardsSampler.ObjectInRange.transform;
-        this.PickedUpObject = this.forwardsSampler.ObjectInRange;
         0.0f.LerpTo(1, 0.3f, value =>
         {
             this.spineExtrudeComp.Range = new Vector2(0, value);
@@ -111,7 +104,7 @@ public class GravGunSpline : MonoBehaviour
         this.particleSystemSystem.Stop();
         this.particleSystemSystem.Clear();
         this.raygunAudio.Stop();
-        StartCoroutine(nameof(this.setObjectDropped));
+        StartCoroutine(this.setObjectDropped());
         
         var thirdKnot = spline.ToArray()[2];
         

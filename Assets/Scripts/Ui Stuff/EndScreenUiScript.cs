@@ -1,13 +1,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class EndScreenUiScript : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI ToiletsFlushed, SinksFilled, SecretRoomsFound;
     private void Start()
     {
         Cursor.lockState = CursorLockMode.None;
@@ -16,12 +14,5 @@ public class EndScreenUiScript : MonoBehaviour
 
     public void BackToMainMenu(){
         SceneManager.LoadSceneAsync(0, LoadSceneMode.Single);
-    }
-
-    public void setGameStats(int toiletsFlushed, int sinksFilled, int secretRoomsFound)
-    {
-        ToiletsFlushed.text = "Toilets Flushed: " + toiletsFlushed + " / 5";
-        SinksFilled.text = "Sinks Filled: " + sinksFilled + " / 3";
-        SecretRoomsFound.text = "Secret Rooms Found: " + secretRoomsFound + " / 1";
     }
 }

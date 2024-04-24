@@ -27,7 +27,7 @@ namespace UFO_PlayerStuff
         //You can add your own listeners to these events in the unity editor
         [SerializeField] public UnityEvent PickupableObjectInRangeUnityEvent = new UnityEvent();
 
-        [SerializeField] public UnityEvent PickupableObjectOutOfRangeUnityEvent = new UnityEvent();
+        [SerializeField] private UnityEvent PickupableObjectOutOfRangeUnityEvent = new UnityEvent();
 
         [SerializeField] private UnityEvent InteractableObjectInRangeEvent = new UnityEvent();
 
