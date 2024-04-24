@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,5 +20,12 @@ public class CreditsScroller : MonoBehaviour
                 SceneManager.LoadScene(0, LoadSceneMode.Single);
             });
     }
-    
+
+    private void Update()
+    {
+        if ((int)Input.GetAxis("Submit") == 1)
+        {
+            SceneManager.LoadScene(0, LoadSceneMode.Single);
+        }
+    }
 }
