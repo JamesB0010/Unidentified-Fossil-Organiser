@@ -14,6 +14,18 @@ public class MusicBox : MonoBehaviour
 
     private static MusicBox musicBoxReference = null;
 
+    public float Volume
+    {
+        set
+        {
+            this.audioSource.volume = value;
+        }
+        get
+        {
+            return this.audioSource.volume;
+        }
+    }
+
     private IEnumerator PlayNextSongAfterThisOne(float lengthOfCurrentSong)
     {
         yield return new WaitForSeconds(lengthOfCurrentSong);

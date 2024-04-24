@@ -6,7 +6,7 @@ public class boneFacts : MonoBehaviour
 {
     public string boneFact;
     public AudioClip aiVoice;
-    private AudioSource aiSource;
+   [SerializeField] private AudioSource aiSource;
     private bool isClipPlayed = false;
 
     public AudioSource Source
@@ -37,9 +37,7 @@ public class boneFacts : MonoBehaviour
 
     void Start()
     {
-        aiSource = GameObject.FindGameObjectWithTag("BonesHolder").GetComponent<AudioSource>();
-
-
+        this.aiSource.clip = this.aiVoice;
         if(boneFact == null || boneFact == "")
         {
             boneFact = "No Fact Available";
