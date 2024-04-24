@@ -12,7 +12,7 @@ public class PlayerUi : MonoBehaviour
 {
     #region Attributes
     [SerializeField]
-    private TextMeshProUGUI pressEToPickup;
+    private RawImage pressEToPickup;
 
     private bool playerHoldingObject = false;
 
@@ -44,7 +44,6 @@ public class PlayerUi : MonoBehaviour
     {
         if (!this.playerHoldingObject)
         {
-            pressEToPickup.text = "Press E To Pick up";
             pressEToPickup.enabled = true;
         }
     }
@@ -57,7 +56,6 @@ public class PlayerUi : MonoBehaviour
 
     public void ReactToInRangeOfInteraction()
     {
-        pressEToPickup.text = "Press E to Interact";
         pressEToPickup.enabled = true;
     }
 
