@@ -39,7 +39,16 @@ public class SkeletonStand : MonoBehaviour, I_Interactable
         set
         {
             this.bonesDelivered = value;
-            if (this.bonesDelivered == this.bonesNeededToWin)
+            bool allBonesDisabled = true;
+            foreach (Bone skeletonBone in FindObjectsOfType<Bone>())
+            {
+                if (skeletonBone.IsEnabled == false)
+                {
+                    allBonesDisabled = false;
+                    break;
+                }
+            }
+            if (this.bonesDelivered == this.bonesNeededToWin && !allBonesDisabled)
             {
                 this.allBonesCollected.Invoke();
                 StartCoroutine(PopConfetti());
@@ -56,7 +65,6 @@ public class SkeletonStand : MonoBehaviour, I_Interactable
 
     public IEnumerator PopConfetti()
     {
-        yield return new WaitForSeconds(2);
         this.yipeeParticle.Play();
         this.audioSources[1].Play();
         yield return new WaitForSeconds(0.5f);
@@ -86,7 +94,6 @@ public class SkeletonStand : MonoBehaviour, I_Interactable
         AddNewLerpPackageToPkgQueue(bone, BoneCastObj);
         bone.GetComponent<ParticleSystem>().enableEmission = false;
         bone.GetComponent<AudioSource>().volume = 0;
-        this.BonesDelivered++;
     }
 
     private void AddNewLerpPackageToPkgQueue(GameObject bone, Bone BoneCastObj)
@@ -103,6 +110,7 @@ public class SkeletonStand : MonoBehaviour, I_Interactable
             {
                 BoneCastObj.GetComponent<Rigidbody>().isKinematic = true;
                 BoneCastObj.IsEnabled = false;
+                this.BonesDelivered++;
             });
     }
 }
