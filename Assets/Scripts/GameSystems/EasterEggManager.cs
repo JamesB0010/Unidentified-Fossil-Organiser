@@ -36,10 +36,7 @@ public class EasterEggManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SceneManager.activeSceneChanged += (arg0, scene) =>
-        {
-            EndScreenUiScript endScreen = FindObjectOfType<EndScreenUiScript>(); endScreen.setGameStats(this.toiletsFlushed, this.sinksFilled, this.secretRoomsFound);
-        };
+        SceneManager.activeSceneChanged += this.onSceneChanged;
         this.Sinks = FindObjectsOfType<DoctorsSink>();
 
         foreach (DoctorsSink sink in this.Sinks)
@@ -48,6 +45,16 @@ public class EasterEggManager : MonoBehaviour
             sink.OnSinkEmpty += ReactToSinkEmpty;
 
         }
+    }
+
+    private void onSceneChanged(Scene old, Scene newscene)
+    {
+        EndScreenUiScript endScreen = FindObjectOfType<EndScreenUiScript>(); endScreen.setGameStats(this.toiletsFlushed, this.sinksFilled, this.secretRoomsFound);
+    }
+
+    public void OnDestroy()
+    {
+        SceneManager.activeSceneChanged -= this.onSceneChanged;
     }
 
     public void reactToToiletFlushed(string toiletName)
