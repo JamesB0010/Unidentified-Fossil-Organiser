@@ -78,10 +78,18 @@ public class PlayerMovement : MonoBehaviour
         SetPlayerYRotationDrivenByMouseInput();
     }
 
+    private float arrowValue = 0.0f;
     private void SetPlayerYRotationDrivenByMouseInput()
     {
         float mouseX = Input.GetAxis("Mouse X") * this.rotationSpeed;/* * Time.deltaTime;*/
         this.rigidbody.MoveRotation(this.rigidbody.rotation * Quaternion.Euler(0, mouseX, 0));
+
+        float arrowXPositive = Input.GetKey("right") == true? 0.5f: 0;
+        float arrowXNegative = Input.GetKey("left") == true ? -0.5f : 0;
+        arrowValue += (arrowXPositive + arrowXNegative);
+        
+        this.rigidbody.MoveRotation(this.rigidbody.rotation * Quaternion.Euler(0, arrowValue, 0));
+        arrowValue = 0.0f;
     }
     
 

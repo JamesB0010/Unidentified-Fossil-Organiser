@@ -18,18 +18,13 @@ public class GameManager : MonoBehaviour
         StartCoroutine(EndGameAfter4Mins());
     }
 
-    public void AllBonesCollected()
+    private IEnumerator ExitToMainMenu()
     {
+        yield return new WaitForSeconds(5);
         SceneManager.LoadSceneAsync(2, LoadSceneMode.Single);
     }
-
-
-    private void Update()
+    public void AllBonesCollected()
     {
-        if(Input.GetKey(KeyCode.L))
-        {
-            GameObject.FindGameObjectWithTag("GameManager").GetComponent<timeManager>().IsGameOver = true;
-            SceneManager.LoadSceneAsync(2, LoadSceneMode.Single);
-        }
+        StartCoroutine(this.ExitToMainMenu());
     }
 }
