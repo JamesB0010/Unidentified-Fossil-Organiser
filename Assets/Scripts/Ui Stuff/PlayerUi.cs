@@ -19,6 +19,11 @@ public class PlayerUi : MonoBehaviour
     [SerializeField] private GameObject InactivityScreen;
 
     [SerializeField] private UnityEngine.UI.Text countdownTimerUntilGameOver;
+
+    public bool GetEToPickupTextEnabled()
+    {
+        return this.pressEToPickup.enabled;
+    }
     
     #endregion
 
