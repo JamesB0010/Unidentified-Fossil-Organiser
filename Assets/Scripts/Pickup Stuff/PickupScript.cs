@@ -66,7 +66,15 @@ namespace UFO_PickupStuff
 
         private float droppedObjectTimestamp;
 
-        public float DroppedObjectTimestamp => droppedObjectTimestamp;
+        public float DroppedObjectTimestamp
+        {
+            get => droppedObjectTimestamp;
+
+            set
+            {
+                this.droppedObjectTimestamp = value;
+            }
+        }
         #endregion
 
         //please read these methods in a top down order as the order of definitions
@@ -149,6 +157,7 @@ namespace UFO_PickupStuff
 
         private void DropObject()
         {
+            this.droppedObjectTimestamp = Time.time;
             this.pickupStateData.readyToPickup = true;
             this.pickupStateData.holdingObject = false;
 
@@ -159,7 +168,6 @@ namespace UFO_PickupStuff
             PushHeldObjectAway();
             this.droppedObject.Invoke();
             this.PlayThrowSound();
-            this.droppedObjectTimestamp = Time.time;
             
             this.spaceSampler.PickupableObjectOutOfRangeUnityEvent?.Invoke();
         }

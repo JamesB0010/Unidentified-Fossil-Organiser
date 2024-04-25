@@ -84,11 +84,11 @@ public class SkeletonStand : MonoBehaviour, I_Interactable
 
     public void HandleInteraction(CameraForwardsSampler playerCamSampler)
     {
+        if (playerCamSampler.InteractableObjectInRangeRef != this.gameObject)
+            return;
         //Get a reference to the object the player is holding
         GameObject bone = playerCamSampler.ObjectInRange;
-
-        if (Time.time - this.playerPickupScript.DroppedObjectTimestamp > 0.1f)
-            return;
+        
         
         Debug.Log(this.playerPickupScript.DroppedObjectTimestamp - Time.time > 0.1f);
         
