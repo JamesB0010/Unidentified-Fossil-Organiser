@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 
 public class MusicBox : MonoBehaviour
@@ -41,6 +42,8 @@ public class MusicBox : MonoBehaviour
         else
             Destroy(this.gameObject);
         DontDestroyOnLoad(this.gameObject);
+        
+        Random.InitState(System.DateTime.Now.Millisecond);
     }
 
     private void Start()
