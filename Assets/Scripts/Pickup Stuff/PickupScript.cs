@@ -63,8 +63,11 @@ namespace UFO_PickupStuff
         [SerializeField] private UnityEvent pickedUpObject = new UnityEvent();
 
         [SerializeField] private UnityEvent droppedObject = new UnityEvent();
-        #endregion
 
+        private float droppedObjectTimestamp;
+
+        public float DroppedObjectTimestamp => droppedObjectTimestamp;
+        #endregion
 
         //please read these methods in a top down order as the order of definitions
         //is the same or similar as the order the methods are called
@@ -156,6 +159,7 @@ namespace UFO_PickupStuff
             PushHeldObjectAway();
             this.droppedObject.Invoke();
             this.PlayThrowSound();
+            this.droppedObjectTimestamp = Time.time;
             
             this.spaceSampler.PickupableObjectOutOfRangeUnityEvent?.Invoke();
         }

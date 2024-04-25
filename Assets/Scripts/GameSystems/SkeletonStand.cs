@@ -20,6 +20,8 @@ public class SkeletonStand : MonoBehaviour, I_Interactable
     [SerializeField] private ParticleSystem yipeeParticle;
 
     [SerializeField] private AudioSource[] audioSources;
+
+    private PickupScript playerPickupScript;
     
     //Progress data
 
@@ -27,7 +29,7 @@ public class SkeletonStand : MonoBehaviour, I_Interactable
     private UnityEvent allBonesCollected = new UnityEvent();
     private int bonesNeededToWin;
 
-    private int bonesDelivered = 0;
+    public int bonesDelivered = 0;
 
     private int BonesDelivered
     {
@@ -60,6 +62,7 @@ public class SkeletonStand : MonoBehaviour, I_Interactable
     private void Start()
     {
         this.bonesNeededToWin = this.skeletonBones.Count;
+        this.playerPickupScript = FindObjectOfType<PickupScript>();
         PopulateBoneNameTransforms();
     }
 
@@ -83,6 +86,11 @@ public class SkeletonStand : MonoBehaviour, I_Interactable
     {
         //Get a reference to the object the player is holding
         GameObject bone = playerCamSampler.ObjectInRange;
+
+        if (Time.time - this.playerPickupScript.DroppedObjectTimestamp > 0.1f)
+            return;
+        
+        Debug.Log(this.playerPickupScript.DroppedObjectTimestamp - Time.time > 0.1f);
         
         if(bone == null)
             return;
