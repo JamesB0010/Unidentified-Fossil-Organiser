@@ -12,6 +12,12 @@ public class PlayerMovement : MonoBehaviour
 {
     private float walkSpeed = 5f;
     [SerializeField] private float rotationSpeed = 5f;
+    public float RotationSpeed
+        {
+            get => rotationSpeed;
+
+            set => rotationSpeed = value;
+        }
     private Rigidbody rigidbody;
 
     private AudioSource footstepSource;

@@ -11,7 +11,7 @@ public class CreditsScroller : MonoBehaviour
     IEnumerator Start()
     {
         yield return new WaitForSeconds(1);
-        parentTransform.position.y.LerpTo(2000, 13, value =>
+        parentTransform.position.y.LerpTo(3000, 15, value =>
         {
             parentTransform.position = new Vector3(parentTransform.position.x, value, parentTransform.position.z);
         },
