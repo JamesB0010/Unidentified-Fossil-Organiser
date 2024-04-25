@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
+using UnityEditor;
 
 namespace UFO_UI
 {
@@ -18,6 +19,7 @@ namespace UFO_UI
 
         private void Start()
         {
+            
             Destroy(FindObjectOfType<EasterEggManager>());
             this.audioSource = FindObjectOfType<AudioSource>();
 
@@ -26,6 +28,9 @@ namespace UFO_UI
             {
                 button.OnButtonPressed += () => {this.audioSource.Play(); Debug.Log("Play press sound"); };
             }
+
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
         }
 
         public void StartGame()
