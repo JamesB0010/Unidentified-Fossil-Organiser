@@ -13,6 +13,7 @@ namespace UFO_UI
     public class MainMenuUi : MonoBehaviour
     {
 
+        [SerializeField] private AudioClip buttonPressClip;
         private AudioSource audioSource;
         public TMP_InputField InitialsInput;
         public TMP_Text placeholderTxt;
@@ -21,12 +22,14 @@ namespace UFO_UI
         {
             
             Destroy(FindObjectOfType<EasterEggManager>());
-            this.audioSource = FindObjectOfType<AudioSource>();
+            this.audioSource = GetComponent<AudioSource>();
 
             var keyboardButtons = FindObjectsOfType<KeyboardButton>();
             foreach (var button in keyboardButtons)
             {
-                button.OnButtonPressed += () => {this.audioSource.Play(); Debug.Log("Play press sound"); };
+                button.OnButtonPressed += () =>
+                {
+                    this.audioSource.clip = this.buttonPressClip; this.audioSource.Play(); Debug.Log("Play press sound"); };
             }
 
             Cursor.visible = false;

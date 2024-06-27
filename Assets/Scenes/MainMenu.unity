@@ -393,7 +393,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c648d161e0c08f49a4c5a2fb487f039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: 0
+  character: 109
   inputField: {fileID: 1488692463}
   Normalkey: 1
 --- !u!1 &61045799
@@ -531,7 +531,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c648d161e0c08f49a4c5a2fb487f039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: 0
+  character: 85
   inputField: {fileID: 1488692463}
   Normalkey: 1
 --- !u!1 &61064373
@@ -804,7 +804,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c648d161e0c08f49a4c5a2fb487f039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: 0
+  character: 117
   inputField: {fileID: 1488692463}
   Normalkey: 1
 --- !u!1 &89946821
@@ -1330,7 +1330,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c648d161e0c08f49a4c5a2fb487f039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: 0
+  character: 49
   inputField: {fileID: 1488692463}
   Normalkey: 1
 --- !u!1 &258082784
@@ -1370,7 +1370,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 257, y: 242}
+  m_AnchoredPosition: {x: 273.51, y: 235}
   m_SizeDelta: {x: 885.98, y: 121.98999}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &258082786
@@ -2552,7 +2552,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c648d161e0c08f49a4c5a2fb487f039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: 0
+  character: 109
   inputField: {fileID: 1488692463}
   Normalkey: 1
 --- !u!1 &490217087
@@ -2690,7 +2690,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c648d161e0c08f49a4c5a2fb487f039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: 0
+  character: 32759
   inputField: {fileID: 1488692463}
   Normalkey: 1
 --- !u!1 &499392238
@@ -3116,6 +3116,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 558769561}
   m_CullTransparentMesh: 1
+--- !u!1 &563560119
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 563560121}
+  - component: {fileID: 563560120}
+  m_Layer: 0
+  m_Name: Weirdo
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &563560120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 563560119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0427e775b977d64190f1bf0711162aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &563560121
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 563560119}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1253.6638, y: 242.29541, z: -9.834841}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &573855539
 GameObject:
   m_ObjectHideFlags: 0
@@ -3153,7 +3197,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 257, y: 89}
+  m_AnchoredPosition: {x: 273.51, y: 60.997}
   m_SizeDelta: {x: 885.98, y: 121.98999}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &573855541
@@ -3520,7 +3564,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c648d161e0c08f49a4c5a2fb487f039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: 0
+  character: 67
   inputField: {fileID: 1488692463}
   Normalkey: 1
 --- !u!1 &694018054
@@ -3779,6 +3823,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f2e7b54d0a3ff04999ca8ae77ca0bab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttonPressClip: {fileID: 8300000, guid: 11527a583a86bb043886adc257f328b3, type: 3}
   InitialsInput: {fileID: 1488692463}
   placeholderTxt: {fileID: 1341627936}
 --- !u!82 &718366494
@@ -4012,7 +4057,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c648d161e0c08f49a4c5a2fb487f039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: 0
+  character: 101
   inputField: {fileID: 1488692463}
   Normalkey: 1
 --- !u!1 &833035499
@@ -5427,19 +5472,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1202260690}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1202260692}
-        m_TargetAssemblyTypeName: KeyboardButton, Assembly-CSharp
-        m_MethodName: OnPressed
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1202260690
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5490,7 +5523,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c648d161e0c08f49a4c5a2fb487f039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: 0
+  character: 67
   inputField: {fileID: 1488692463}
   Normalkey: 1
 --- !u!1 &1209550407
@@ -5898,7 +5931,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c648d161e0c08f49a4c5a2fb487f039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: 0
+  character: 68
   inputField: {fileID: 1488692463}
   Normalkey: 1
 --- !u!1 &1341627933
@@ -6192,7 +6225,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c648d161e0c08f49a4c5a2fb487f039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: 0
+  character: 107
   inputField: {fileID: 1488692463}
   Normalkey: 1
 --- !u!1 &1413741914
@@ -6467,7 +6500,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c648d161e0c08f49a4c5a2fb487f039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: 0
+  character: 35381
   inputField: {fileID: 1488692463}
   Normalkey: 1
 --- !u!1 &1417259107
@@ -6793,7 +6826,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c648d161e0c08f49a4c5a2fb487f039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: 0
+  character: 68
   inputField: {fileID: 1488692463}
   Normalkey: 1
 --- !u!1 &1488692461
@@ -6834,7 +6867,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 341.74, y: 395}
+  m_AnchoredPosition: {x: 358.25, y: 410}
   m_SizeDelta: {x: 716.4907, y: 121.98999}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1488692463
@@ -7255,7 +7288,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c648d161e0c08f49a4c5a2fb487f039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: 0
+  character: 256
   inputField: {fileID: 1488692463}
   Normalkey: 1
 --- !u!1 &1521350101
@@ -7537,7 +7570,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c648d161e0c08f49a4c5a2fb487f039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: 0
+  character: 49
   inputField: {fileID: 1488692463}
   Normalkey: 1
 --- !u!1 &1535804794
@@ -8153,7 +8186,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c648d161e0c08f49a4c5a2fb487f039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: 0
+  character: 67
   inputField: {fileID: 1488692463}
   Normalkey: 1
 --- !u!1 &1694384814
@@ -8395,7 +8428,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c648d161e0c08f49a4c5a2fb487f039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: 0
+  character: 97
   inputField: {fileID: 1488692463}
   Normalkey: 1
 --- !u!1 &1757029667
@@ -8533,7 +8566,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c648d161e0c08f49a4c5a2fb487f039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: 0
+  character: 474
   inputField: {fileID: 1488692463}
   Normalkey: 1
 --- !u!1 &1812864876
@@ -8671,7 +8704,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c648d161e0c08f49a4c5a2fb487f039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: 0
+  character: 89
   inputField: {fileID: 1488692463}
   Normalkey: 1
 --- !u!1 &1814301725
@@ -8809,7 +8842,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c648d161e0c08f49a4c5a2fb487f039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: 0
+  character: 49
   inputField: {fileID: 1488692463}
   Normalkey: 1
 --- !u!1 &1841504929
@@ -8947,7 +8980,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c648d161e0c08f49a4c5a2fb487f039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: 0
+  character: 48
   inputField: {fileID: 1488692463}
   Normalkey: 1
 --- !u!1 &1892078069
@@ -9493,7 +9526,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c648d161e0c08f49a4c5a2fb487f039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: 0
+  character: 110
   inputField: {fileID: 1488692463}
   Normalkey: 1
 --- !u!1 &2106278327
@@ -9901,6 +9934,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c648d161e0c08f49a4c5a2fb487f039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: 0
+  character: 80
   inputField: {fileID: 1488692463}
   Normalkey: 1

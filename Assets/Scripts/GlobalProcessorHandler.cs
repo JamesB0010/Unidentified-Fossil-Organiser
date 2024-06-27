@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using LerpData;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GlobalProcessorHandler : MonoBehaviour
 {
@@ -34,11 +35,23 @@ public class GlobalProcessorHandler : MonoBehaviour
         if (reference == null)
         {
             reference = this;
+            SceneManager.sceneUnloaded += OnSceneUnloaded;
             return;
         }
         Destroy(this.gameObject);
     }
-    
+
+    void OnSceneUnloaded(Scene scene)
+    {
+        if (scene == gameObject.scene)
+            GlobalProcessorHandler.reference = null;
+    }
+
+    ~GlobalProcessorHandler()
+    {
+        SceneManager.sceneUnloaded -= this.OnSceneUnloaded;
+    }
+  
     void Update()
     {
         this.lerpProcessor.Update();
